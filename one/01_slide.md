@@ -47,6 +47,7 @@ jQuery( <span class="string">"div"</span> )
 </pre>
 
 !SLIDE
+<div class="file-name"><code>$( "div" ).hide();</code></div>
 <pre class="medium">
 <span class="keyword">var</span> <span class="variable-name">$divs</span> = $( <span class="string">"div"</span> );
 
@@ -65,6 +66,7 @@ jQuery( <span class="string">"div"</span> )
 </pre>
 
 !SLIDE
+<div class="file-name"><code>$( "div" ).addClass( "foo" );</code></div>
 <pre>
 $divs.map(<span class="keyword">function</span>( <span class="js2-function-param">i</span>, <span class="js2-function-param">elem</span> ) {
   elem.<b>setAttribute( <span class="string">"class"</span>, <span class="string">"foo"</span> );</b>
@@ -81,6 +83,7 @@ jQuery( <span class="string">"div"</span> )
 </pre>
 
 !SLIDE
+<div class="file-name"><code>$( "div" ).show();</code></div>
 <pre class="medium">
 <span class="keyword">var</span> <span class="variable-name">$divs</span> = $( <span class="string">"div"</span> );
 
@@ -99,6 +102,7 @@ jQuery( <span class="string">"div"</span> )
 </pre>
 
 !SLIDE
+<div class="file-name"><code>$( "div" ).hide().addClass( "foo" ).show();</code></div>
 <pre class="medium">
 $divs.map(<span class="keyword">function</span>( <span class="js2-function-param">i</span>, <span class="js2-function-param">elem</span> ) {
   elem.setAttribute( <span class="string">"style"</span>, <span class="string">"display: none;"</span> );
@@ -108,6 +112,7 @@ $divs.map(<span class="keyword">function</span>( <span class="js2-function-param
 });</pre>
 
 !SLIDE
+<div class="file-name"><code>$( "div" ).hide().addClass( "foo" ).show();</code></div>
 <pre class="medium">
 $divs.map(<span class="keyword">function</span>( <span class="js2-function-param">i</span>, <span class="js2-function-param">elem</span> ) {
   elem.setAttribute( <span class="string">"style"</span>, <span class="string">"display: none;"</span> );
@@ -155,6 +160,42 @@ $divs.map(<span class="keyword">function</span>( <span class="js2-function-param
 <span class="keyword">function</span> <span class="function-name">cmps</span>( <span class="js2-function-param">f</span>, <span class="js2-function-param">g</span> ) {
   <span class="keyword">return</span> <span class="keyword">function</span>( <span class="js2-function-param">a</span> ) {
     <span class="keyword">return</span> f(g(a));
+  };
+}
+</pre>
+
+!SLIDE
+<pre class="xsmall">
+<span class="keyword">function</span> <span class="function-name">cmps</span>( <b><span class="js2-function-param">f</span>, <span class="js2-function-param">g</span></b> ) {
+  <span class="keyword">return</span> <span class="keyword">function</span>( <span class="js2-function-param">a</span> ) {
+    <span class="keyword">return</span> f(g(a));
+  };
+}
+</pre>
+
+!SLIDE
+<pre class="xsmall">
+<span class="keyword">function</span> <span class="function-name">cmps</span>( <span class="js2-function-param">f</span>, <span class="js2-function-param">g</span> ) {
+  <span class="keyword">return</span> <span class="keyword">function</span>( <span class="js2-function-param"><b>a</b></span> ) {
+    <span class="keyword">return</span> f(g(<b>a</b>));
+  };
+}
+</pre>
+
+!SLIDE
+<pre class="xsmall">
+<span class="keyword">function</span> <span class="function-name">cmps</span>( <span class="js2-function-param">f</span>, <span class="js2-function-param">g</span> ) {
+  <span class="keyword">return</span> <span class="keyword">function</span>( <span class="js2-function-param">a</span> ) {
+    <span class="keyword">return</span> f(<b>g(a)</b>);
+  };
+}
+</pre>
+
+!SLIDE
+<pre class="xsmall">
+<span class="keyword">function</span> <span class="function-name">cmps</span>( <span class="js2-function-param">f</span>, <span class="js2-function-param">g</span> ) {
+  <span class="keyword">return</span> <span class="keyword">function</span>( <span class="js2-function-param">a</span> ) {
+    <span class="keyword">return</span> <b>f(g(a))</b>;
   };
 }
 </pre>
@@ -329,12 +370,6 @@ $( <span class="string">"#sample"</span> )<b>.id()</b>;
 ## functor
 
 !SLIDE
-<img src="html-to-jqry.png" style="width: 86%; margin-top: 25%"></img>
-
-!SLIDE center image
-<img src="category-simple.png" style="width: 90%; margin-top: 32%"></img>
-
-!SLIDE
 ### objects
 
 !SLIDE center image
@@ -416,17 +451,17 @@ jQuery.map( $(<span class="string">"div"</span>), <span class="keyword">function
 !SLIDE center
 <img src="ob-html.png" style="width: 95%; margin-bottom: 0; margin-top: 10%;"></img>
 <pre style="font-size: 7em; color: #111">
-jQuery || $
+$()
 </pre>
 
 !SLIDE center
 <img src="hom-html.png" style="width: 95%; margin-bottom: 0; margin-top: 10%;"></img>
 <pre style="font-size: 7em; color: #111">
-jQuery.map
+jQuery.map()
 </pre>
 
 !SLIDE
-## composition
+### composition
 
 !SLIDE center image
 <img src="composition.png" style="width: 95%; margin-top: 15%"></img>
@@ -489,6 +524,7 @@ jQuery( <span class="string">"div"</span> )
 </pre>
 
 !SLIDE
+<div class="file-name"><code>$( "div" ).addClass( "foo" ).show();</code></div>
 <pre class="large">
 $divs.map(<span class="keyword">function</span>( <span class="js2-function-param">i</span>, <span class="js2-function-param">elem</span> ) {
   elem.setAttribute( <span class="string">"class"</span>, <span class="string">"foo"</span> );
@@ -502,6 +538,7 @@ $divs.map(<span class="keyword">function</span>( <span class="js2-function-param
 </pre>
 
 !SLIDE
+<div class="file-name"><code>$( "div" ).addClass( "foo" ).show();</code></div>
 <pre class="large">
 $divs.map(<span class="keyword">function</span>( <span class="js2-function-param">i</span>, <span class="js2-function-param">elem</span> ) {
   <b>elem.setAttribute( <span class="string">"class"</span>, <span class="string">"foo"</span> );</b>
@@ -515,6 +552,7 @@ $divs.map(<span class="keyword">function</span>( <span class="js2-function-param
 </pre>
 
 !SLIDE
+<div class="file-name"><code>$( "div" ).addClass( "foo" ).show();</code></div>
 <pre class="large">
 $divs.map(<span class="keyword">function</span>( <span class="js2-function-param">i</span>, <span class="js2-function-param">elem</span> ) {
   <b>elem.setAttribute( <span class="string">"class"</span>, <span class="string">"foo"</span> );</b>
@@ -524,6 +562,7 @@ $divs.map(<span class="keyword">function</span>( <span class="js2-function-param
 </pre>
 
 !SLIDE
+<div class="file-name"><code>$( "div" ).addClass( "foo" ).show();</code></div>
 <pre class="large">
 $divs.map(<span class="keyword">function</span>( <span class="js2-function-param">i</span>, <span class="js2-function-param">elem</span> ) {
   <b>elem.setAttribute( <span class="string">"class"</span>, <span class="string">"foo"</span> );</b>
@@ -535,6 +574,7 @@ $divs.map(<span class="keyword">function</span>( <span class="js2-function-param
 
 
 !SLIDE
+<div class="file-name"><code>$( "div" ).addClass( "foo" ).show();</code></div>
 <pre class="large">
 $divs.map(<span class="keyword">function</span>( <span class="js2-function-param">i</span>, <span class="js2-function-param">elem</span> ) {
   elem.setAttribute( <span class="string">"class"</span>, <span class="string">"foo"</span> );
@@ -548,6 +588,7 @@ $divs.map(<span class="keyword">function</span>( <span class="js2-function-param
 </pre>
 
 !SLIDE
+<div class="file-name"><code>$( "div" ).addClass( "foo" ).show();</code></div>
 <pre class="large">
 <span class="keyword">var</span> <span class="function-name">g</span> = <span class="keyword">function</span>( <span class="js2-function-param">i</span>, <span class="js2-function-param">elem</span> ) {
   elem.setAttribute( <span class="string">"class"</span>, <span class="string">"foo"</span> );
@@ -561,6 +602,7 @@ $divs.map(<span class="keyword">function</span>( <span class="js2-function-param
 </pre>
 
 !SLIDE
+<div class="file-name"><code>$( "div" ).addClass( "foo" ).show();</code></div>
 <pre class="large">
 $divs.map(<span class="keyword">function</span>( <span class="js2-function-param">i</span>, <span class="js2-function-param">elem</span> ) {
   elem.setAttribute( <span class="string">"class"</span>, <span class="string">"foo"</span> );
@@ -569,16 +611,29 @@ $divs.map(<span class="keyword">function</span>( <span class="js2-function-param
 });
 </pre>
 
-!SLIDE
-<pre class="xsmall">
+<div class="centered-arrow" style="margin-top: 50px; font-size: 18em">↓</div>
+
+<pre class="large" style="text-align: center; margin-top: 200px">
 $divs.map( cmps(f, g) );
 </pre>
 
 !SLIDE
-<pre class="xsmall">
+<div class="file-name"><code>$( "div" ).addClass( "foo" ).show();</code></div>
+<pre class="large">
+$divs.map(<span class="keyword">function</span>( <span class="js2-function-param">i</span>, <span class="js2-function-param">elem</span> ) {
+  elem.setAttribute( <span class="string">"class"</span>, <span class="string">"foo"</span> );
+  elem.setAttribute( <span class="string">"style"</span>, <span class="string">"display: block;"</span> );
+  <span class="keyword">return</span> elem;
+});
+</pre>
+
+<div class="centered-arrow" style="z-index: 1; margin-top: 50px; font-size: 18em">↓</div>
+
+<pre class="large" style="text-align: center; margin-top: 200px">
 $divs.map( cmps(f, g) );
 </pre>
-<div class="gigantor" style="text-align: left; width: 150%; left: -100px; color: green; font-size: 45em; padding-top: 0%; letter-spacing: -0.3em">☺☺</div>
+
+<div class="gigantor" style="z-index: 2; text-align: left; width: 150%; left: -100px; color: green; font-size: 45em; padding-top: 0%; letter-spacing: -0.3em">☺☺</div>
 
 !SLIDE
 # back to reality
