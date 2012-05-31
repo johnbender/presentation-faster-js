@@ -5,20 +5,113 @@ jQuery( "div" )
 
 var $divs = $( "div" );
 
-$divs.each(function( i, elem ) {
+$divs.map(function( i, elem ) {
   elem.setAttribute( "style", "display: none;" );
+	return elem;
 });
 
-$divs.each(function( i, elem ) {
+$divs.map(function( i, elem ) {
   elem.setAttribute( "class", "foo" );
+	return elem;
 });
 
-$divs.each( $divs, function( elem ) {
+$divs.map(function( i, elem ) {
   elem.setAttribute( "style", "display: block;" );
+	return elem;
 });
 
-$divs.each(function( i, elem ) {
+$divs.map(function( i, elem ) {
   elem.setAttribute( "style", "display: none;" );
   elem.setAttribute( "class", "foo" );
   elem.setAttribute( "style", "display: block;" );
+	return elem;
 });
+
+// Html
+// @returns {HTMLDivElement}
+document.querySelector( "div#sample" );
+
+// @param {HTMLElement} elem
+// @returns {HTMLElement}
+function setFoo( elem ) {
+	elem.setAttribute( "class", "foo" );
+	return elem;
+}
+
+function id( elem ) {
+  return elem;
+}
+
+function cmps( f, g ) {
+  return function( elem ) {
+    return f(g(elem));
+	};
+}
+
+// Jqry
+
+// {jQuery}
+$( "#div-sample" );
+
+// {jQuery}
+$( "#div-sample" ).hide();
+
+// @returns {jQuery}
+jQuery.fn.id = function() {
+  return this;
+};
+
+// Functor
+$( "#div-sample" ).id();
+
+// @param {HTMLElement} elem
+// @returns {HTMLElement}
+function setFoo( elem ) {
+	elem.setAttribute( "class", "foo" );
+	return elem;
+}
+
+$( "div" ).setFoo();
+
+jQuery.map( $("div"), function setFoo( elem ) {
+	elem.setAttribute( "class", "foo" );
+	return elem;
+});
+
+$.fn.setFoo = function() {
+	return jQuery.map( this, function( elem ) {
+		elem.setAttribute( "class", "foo" );
+		return elem;
+	});
+};
+
+
+    $( "div" ).f().g()
+	          ==
+$( "div" ).map( cmps(f, g) );
+
+jQuery.cmps = function( f, g ) {
+  return function() {
+    return f.apply(g.apply(this));
+	};
+};
+
+document.querySelector( "div" );
+
+var g = function( i, elem ) {
+  elem.setAttribute( "class", "foo" );
+	return elem;
+};
+
+var f = function( i, elem ) {
+  elem.setAttribute( "style", "display: block;" );
+	return elem;
+};
+
+$divs.map( cmps(f, g) );
+
+var f = function( i, elem ) {
+  elem.setAttribute( "style", "display: block;" );
+	return elem;
+};
+
