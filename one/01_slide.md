@@ -28,7 +28,7 @@ johnbender.github.com/presentation-faster-js
 <h2 class="over-image" style="margin-top: 35%;">speed. it's sexy</h2>
 
 !SLIDE
-## Method Chains
+## method chains
 
 !SLIDE
 <pre class="xsmall">
