@@ -2,7 +2,7 @@
 <h1>Faster JavaScript <div style="font-size: 0.6em">with</div> Category Theory</h1>
 johnbender.github.com/presentation-faster-js
 
-!SLIDE bullets mono-bullets
+!SLIDE bullets mono-bullets>
 ## me
 * @johnbender
 * johnbender.us
@@ -13,19 +13,19 @@ johnbender.github.com/presentation-faster-js
 
 !SLIDE center adobe-background background-image
 ## rubyists
-#### stewart.me/2012/04/21/ruby-at-adobe.html
+#### kstewart.me/2012/04/21/ruby-at-adobe.html
 
 !SLIDE image center
 # Motivation
 
 !SLIDE center awesome-background background-image
-<h2 class="over-image" style="margin-top: 35%;">math. it's great</h2>
+<h2 class="over-image" style="margin-top: 35%;">math: it's great</h2>
 
 !SLIDE image center stats-background background-image
-<h2 class="over-image" style="margin-top: 35%;">jquery. it's popular</h2>
+<h2 class="over-image" style="margin-top: 35%;">jquery: it's popular</h2>
 
 !SLIDE center speed-background background-image
-<h2 class="over-image" style="margin-top: 35%;">speed. it's sexy</h2>
+<h2 class="over-image" style="margin-top: 35%;">speed: it's sexy</h2>
 
 !SLIDE
 ## method chains
@@ -122,7 +122,7 @@ $divs.map(<span class="keyword">function</span>( <span class="js2-function-param
 # Category Theory
 
 !SLIDE center background-image e-ml-background
-<h2 class="over-image"  style="margin-top: 35%;">context. it's useful</h2>
+<h2 class="over-image"  style="margin-top: 35%;">context: it's useful</h2>
 .notes Samuel Eilenberg and Saunders Mac Lane
 
 !SLIDE
@@ -618,6 +618,20 @@ $( <span class="string">"div"</span> ).<b>f().g()</b>;
 </pre>
 
 !SLIDE
+<pre class="large">
+$divs.map(<span class="keyword">function</span>( <span class="js2-function-param">i</span>, <span class="js2-function-param">elem</span> ) {
+  elem.setAttribute( <span class="string">"class"</span>, <span class="string">"foo"</span> );
+  <span class="keyword">return</span> elem;
+});
+
+$divs.map(<span class="keyword">function</span>( <span class="js2-function-param">i</span>, <span class="js2-function-param">elem</span> ) {
+  elem.setAttribute( <span class="string">"style"</span>, <span class="string">"display: block;"</span> );
+  <span class="keyword">return</span> elem;
+});
+</pre>
+
+
+!SLIDE
 <pre>
 <span class="keyword">var</span> <span class="variable-name">fAndG</span> = cmps( $.fn.f.composable,
                   $.fn.g.composable );
@@ -638,5 +652,14 @@ $( <span class="string">"div"</span> ).map( fAndG );</pre>
 
 $( <span class="string">"div"</span> ).<b>map( fAndG )</b>;</pre>
 
-!SLIDE
-## semiauto
+!SLIDE center
+## reading
+
+<div style="font-size: 1.7em; margin-bottom: 20px;">johnbender.us/2012/02/29/faster-javascript-through-category-theory</div>
+<div style="font-size: 1.7em">johnbender.us/2012/03/22/a-natural-transformation-in-javascript</div>
+
+!SLIDE bullets mono-bullets>
+# Thanks
+* @johnbender
+* johnbender.us
+* github.com/johnbender
