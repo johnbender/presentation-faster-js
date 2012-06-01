@@ -449,6 +449,11 @@ b .variable-name {
   background-image: url(one/mind-the-gap.png);
 }
 
+.facepalm-background {
+  background-image: url(one/facepalm.png);
+  background-size: 700px auto; /* showoff slide centering :( */
+}
+
 
 h2.over-image, h4.over-image {
   background-color: rgba( 128, 0, 128, 0.9);

@@ -86,9 +86,15 @@ $.fn.setFoo = function() {
 };
 
 
-    $( "div" ).f().g()
-	          ==
-$( "div" ).map( cmps(f, g) );
+$( "div" ).f().g() == $( "div" ).map( cmps(f, g) );
+
+$.fn.F = function(){
+	return this.map(f);
+};
+
+$.fn.G = function(){
+	return this.map(g);
+};
 
 jQuery.cmps = function( f, g ) {
   return function() {
@@ -98,20 +104,52 @@ jQuery.cmps = function( f, g ) {
 
 document.querySelector( "div" );
 
-var g = function( i, elem ) {
+function g( i, elem ) {
   elem.setAttribute( "class", "foo" );
 	return elem;
 };
 
-var f = function( i, elem ) {
+function f( i, elem ) {
   elem.setAttribute( "style", "display: block;" );
 	return elem;
 };
 
 $divs.map( cmps(f, g) );
 
-var f = function( i, elem ) {
-  elem.setAttribute( "style", "display: block;" );
-	return elem;
+jQuery.fn.addClass = function(){
+	return this.map(function( elem ) {
+		elem.setAttribute( "class", "foo" );
+		return elem;
+	});
 };
 
+jQuery.fn.show = function(){
+	return this.map(show);
+};
+
+$divs.map(function( i, elem ) {
+  elem.setAttribute( "class", "foo" );
+	return elem;
+});
+
+jQuery.fn.g.composable = g;
+
+$( "div" ).f().g();
+
+$( "div" ).map(
+	$.fn.show.composable,
+	$.fn.addClass.composable
+);
+
+$.fn.compose = function( f, g ) {
+	if( f.composable && g.composable ){
+		return this.map( cmps( f, g) );
+	}
+
+	throw "Oops!";
+};
+
+$( "div" ).compose(
+	$.fn.show,
+	$.fn.addClass
+);
