@@ -4,123 +4,25 @@
 ** speed
 * chained methods
 ** samples
-
-jQuery( "div" )
-	.hide()
-	.addClass( "foo" )
-	.show();
-
-var $divs = $( "div" );
-
-$divs.each(function( i, elem ) {
-  $(elem).attr( "style", "display: none;" );
-});
-
-$divs.each(function( i, elem ) {
-  $(elem).attr( "class", "foo" );
-});
-
-$divs.each( $divs, function( i, elem ) {
-  $(elem).attr( "style", "display: block;" );
-});
-
-** preferred
-
-$divs.each(function( i, elem ) {
-	var $elem = $( elem );
-
-  $elem.attr( "style", "display: none;" );
-  $elem.attr( "class", "foo" );
-  $elem.attr( "style", "display: block;" );
-});
-
-$divs.hideAddClassShow( "foo" );
-
 * category theory
 ** context/history
 *** eilenberg and mac lane
 *** abtract common elements of algebraic structures
-
 ** what is a category
 *** objects
 *** morphisms
 *** laws
 **** identity
-**** composition associative
-***** tex equation
-**** closed under composition
-***** tex equation
-
-function cmps( f, g ) {
-  return function( elem ) {
-    return f(g(elem));
-  }
-}
-
+**** composition
 ** Html
 *** HTMLElements
 *** Functions that take an HTMLElement and return an HTMLElement
 *** identity
-
-function id( elem ) {
-  return elem;
-}
-
 *** closed under composition
-
-function cmps( f, g ) {
-  return function( elem ) {
-    return f(g(elem));
-  }
-}
-
-function a( elem ){
-  elem.setAttribute( "foo", "bar" );
-  return elem;
-}
-
-function b( elem ){
-  elem.setAttribute( "baz", "bak" );
-  return elem;
-}
-
-var elem = document.getElementById( "sample" );
-elem = cmps( a, b )( elem );
-elem.getAttribute( "foo" ); // "bar"
-elem.getAttribute( "baz" ); // "bak"
-
 ** Jqry
 *** jQuery Objects
 *** Functions that expect `this` to be a jQuery object and return `this`
 *** identity
-
-$.fn.id = function() {
-  return this;
-}
-
-*** closed under composition
-
-$.cmps = function( f, g ) {
-  return function( elem ) {
-    return f.apply(g.apply(this));
-	};
-};
-
-$.fn.a = function(){
-  // a from  Figure 8
-  return $.map( this, a );
-};
-
-$.fn.b = function(){
-  // b from  Figure 8
-  return $.map( this, b );
-};
-
-var $elem = $( "#sample" );
-$.fn.aAndB = $.cmps( $.fn.a, $.fn.b );
-$elem.aAndB().attr( "foo" ); // "bar"
-$elem.attr( "baz" );         // "bak"
-
 ** what is a functor
 *** categories can be objects!
 *** morphisms are functors
