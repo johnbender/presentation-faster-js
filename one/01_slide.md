@@ -211,8 +211,8 @@ $divs.map(<span class="keyword">function</span>( <span class="js2-function-param
 document.querySelector( <span class="string">"div#sample"</span><span class="js2-magic-paren"> );</span>
 </pre>
 
-!SLIDE
-### morphisms
+!SLIDE center image
+<img src="hom-simple.png" style="width: 90%; margin-top: 25%"></img>
 
 !SLIDE
 <pre>
@@ -235,8 +235,9 @@ document.querySelector( <span class="string">"div#sample"</span><span class="js2
 </pre>
 
 
-!SLIDE
-### identity
+!SLIDE center image
+<img src="identity.png" style="width: 90%; margin-top: 25%"></img>
+
 
 !SLIDE
 <pre class="xsmall">
@@ -259,8 +260,8 @@ document.querySelector( <span class="string">"div#sample"</span><span class="js2
 }
 </pre>
 
-!SLIDE
-### composition
+!SLIDE center image
+<img src="composition-simple.png" style="width: 90%; margin-top: 25%"></img>
 
 !SLIDE
 <pre class="xsmall">
