@@ -113,6 +113,27 @@ jQuery.cmps = function( f, g ) {
 	};
 };
 
+// @returns {jQuery}
+var g = jQuery.fn.g = function() {
+	// manipulate `this`
+	return this;
+};
+
+// @returns {jQuery}
+var f = jQuery.fn.f = function(){
+	// manipulate `this`
+	return this;
+};
+
+// @returns {jQuery}
+jQuery.fn.gf = jQuery.cmps(	f, g );
+
+// {jQuery}
+$( "#sample" ).g().f();
+
+// {jQuery}
+$( "#sample" ).gf();
+
 document.querySelector( "div" );
 
 function g( i, elem ) {

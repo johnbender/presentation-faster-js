@@ -281,7 +281,7 @@ pre.medium {
   bottom: 90px;
 }
 
-b, h3 > b, .content > pre b, .highlight b, b > .function-name, b > .string, b > .type, b > .constant , b > .variable-name, b > .keyword, b > .builtin {
+b, h3 > b, .content > pre b, .highlight b, b > .function-name, b > .string, b > .type, b > .constant , b > .variable-name, b > .keyword, b > .builtin, b > .comment {
   background: #D65600;
   color: white !important;
   outline: .10em solid #D65600;
@@ -337,6 +337,7 @@ h3 > b {
 pre.sh_sourceCode > code > span {
   color: #333;
 }
+
 .variable-name {
   /* font-lock-variable-name-face */
   color: #8b005a;
