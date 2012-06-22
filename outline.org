@@ -7,13 +7,13 @@
 * category theory
 ** context/history
 *** eilenberg and mac lane
-*** abtract common elements of algebraic structures
+*** abstract common elements of algebraic structures
 ** what is a category
-*** objects
-*** morphisms
-*** laws
-**** identity
-**** composition
+*** objects/morphisms (maths)
+*** identity (maths)
+**** js id
+*** composition (maths)
+**** js cmps
 ** Html
 *** HTMLElements
 *** Functions that take an HTMLElement and return an HTMLElement

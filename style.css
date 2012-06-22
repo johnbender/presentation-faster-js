@@ -43,7 +43,7 @@ iframe.phone {
 }
 
 .mono-bullets ul, .link p {
-  font-size: 3em;
+  font-size: 4em;
 }
 
 .thanks ul {
@@ -117,7 +117,7 @@ h3 img {
 }
 
 h1, h2, h3, h4 {
-  font-size: 7em;
+  font-size: 8em;
   font-family: Helvetica, Arial, sans-serif;
   padding-left: 50px;
   padding-right: 50px;
@@ -222,6 +222,10 @@ span.monospace {
   line-height: 1.4em;
   padding: 0px;
   font-size: 3em;
+}
+
+pre.xxsmall {
+  font-size: 6em;
 }
 
 pre.xsmall {
@@ -461,7 +465,7 @@ h2.over-image, h4.over-image {
 }
 
 h2.over-image {
- font-size: 5em;
+ font-size: 6em;
 }
 
 .slide .center {

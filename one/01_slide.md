@@ -1,8 +1,8 @@
-!SLIDE
-<h1>Faster JavaScript <div style="font-size: 0.6em">with</div> Category Theory</h1>
-johnbender.github.com/presentation-faster-js
+!SLIDE link
+<h1 style="font-size: 7em">Faster JavaScript <div style="font-size: 0.6em">with</div> Category Theory</h1>
+<span style="font-size: 1.1em">johnbender.github.com/presentation-faster-js</span>
 
-!SLIDE bullets mono-bullets>
+!SLIDE bullets mono-bullets
 ## me
 * @johnbender
 * johnbender.us
@@ -85,8 +85,6 @@ jQuery( <span class="string">"div"</span> )
 !SLIDE
 <div class="file-name"><code>$( "div" ).show();</code></div>
 <pre class="medium">
-<span class="keyword">var</span> <span class="variable-name">$divs</span> = $( <span class="string">"div"</span> );
-
 $divs.map(<span class="keyword">function</span>( <span class="js2-function-param">i</span>, <span class="js2-function-param">elem</span> ) {
   <b>elem.setAttribute( <span class="string">"style"</span>, <span class="string">"display: block;"</span> );</b>
   <span class="keyword">return</span> elem;
@@ -130,27 +128,28 @@ $divs.map(<span class="keyword">function</span>( <span class="js2-function-param
 <h2 class="over-image"  style="margin-top: 35%;">context: it's useful</h2>
 .notes Samuel Eilenberg and Saunders Mac Lane
 
+!SLIDE center background-image e-ml-background
+<h2 class="over-image"  style="margin-top: 35%; min-height: 96px;">
+  <span style="float: left; margin-left: 20px;">Eilenberg</span>
+  <span style="float: right; margin-right: 20px;">Mac Lane</span>
+</h2>
+.notes Samuel Eilenberg and Saunders Mac Lane
+
 !SLIDE
-## what's a category?
+## category?
 
 !SLIDE center image
-<img src="category.png" style="width: 90%; margin-top: 25%"></img>
-
-!SLIDE
-### identity
+<img src="category-simple.png" style="width: 90%; margin-top: 25%"></img>
 
 !SLIDE center image
-<img src="identity.png" style="width: 80%; margin-top: 10%"></img>
+<img src="identity.png" style="width: 90%; margin-top: 25%"></img>
 
 !SLIDE
-<pre class="xsmall">
+<pre class="xxsmall">
 <span class="keyword">function</span> <span class="function-name">id</span>( <span class="js2-function-param">a</span> ) {
   <span class="keyword">return</span> a;
 }
 </pre>
-
-!SLIDE
-### composition
 
 !SLIDE center image
 <img src="closed-composition.png" style="width: 80%; margin-top: 10%"></img>
@@ -203,8 +202,8 @@ $divs.map(<span class="keyword">function</span>( <span class="js2-function-param
 !SLIDE
 ## Html
 
-!SLIDE
-### objects
+!SLIDE center image
+<img src="ob-simple.png" style="width: 90%; margin-top: 25%"></img>
 
 !SLIDE
 <pre>
@@ -454,26 +453,23 @@ jQuery.map()
 !SLIDE center image
 <img src="composition.png" style="width: 95%; margin-top: 15%"></img>
 
-!SLIDE center image
-<img src="composition.png" style="width: 95%; margin-top: 15%"></img>
-
 !SLIDE center
 <pre class="small">
-$( <span class="string">"div"</span> ).map(f).map(g)
+$( <span class="string">"div"</span> ).map(g).map(f)
 ==
 $( <span class="string">"div"</span> ).map( cmps(f, g) )
 </pre>
 
 !SLIDE center
 <pre class="small">
-$( <span class="string">"div"</span> ).<b>map(f).map(g)</b>
+$( <span class="string">"div"</span> ).<b>map(g).map(f)</b>
 ==
 $( <span class="string">"div"</span> ).map( cmps(f, g) )
 </pre>
 
 !SLIDE center
 <pre class="small">
-$( <span class="string">"div"</span> ).<b>map(f).map(g)</b>
+$( <span class="string">"div"</span> ).<b>map(g).map(f)</b>
 ==
 $( <span class="string">"div"</span> ).<b>map( cmps(f, g) )</b>
 </pre>

@@ -48,6 +48,17 @@ function cmps( f, g ) {
 	};
 }
 
+function addOne( val ){
+	return val + 1;
+}
+
+function addTwo( val ){
+	return val + 2;
+}
+
+cmps( addTwo, addOne )( 0 );
+// => 3
+
 // Jqry
 
 // {jQuery}
