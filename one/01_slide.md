@@ -416,14 +416,14 @@ $( <span class="string">"#sample"</span> )<b>.id()</b>;
 !SLIDE
 <pre>
 <span class="comment">// @returns {jQuery}
-</span><span class="keyword">var</span> <span class="variable-name">g</span> = <span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">g</span> = <span class="keyword">function</span>() {
-  <b><span class="comment">// manipulate `this`</b>
+</span><span class="keyword">var</span> <span class="variable-name"><b>g</b></span> = <b><span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">g</span></b> = <span class="keyword">function</span>() {
+  <span class="comment">// manipulate `this`
 </span>  <span class="keyword">return</span> <span class="builtin">this</span>;
 };
 
 <span class="comment">// @returns {jQuery}
-</span><span class="keyword">var</span> <span class="variable-name">f</span> = <span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">f</span> = <span class="keyword">function</span>(){
-  <b><span class="comment">// manipulate `this`</b>
+</span><span class="keyword">var</span> <b><span class="variable-name">f</span></b> = <b><span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">f</span></b> = <span class="keyword">function</span>(){
+  <span class="comment">// manipulate `this`
 </span>  <span class="keyword">return</span> <span class="builtin">this</span>;
 };
 </pre>
@@ -471,6 +471,19 @@ $( <span class="string">"#sample"</span> )<b>.id()</b>;
 !SLIDE
 <pre>
 <span class="comment">// @returns {jQuery}
+</span><span class="js2-external-variable">jQuery</span>.fn<b>.gf</b> = jQuery.cmps( f, g );
+
+<span class="comment">// {jQuery}
+</span>$( <span class="string">"#sample"</span> ).g().f();
+
+<span class="comment">// {jQuery}
+</span>$( <span class="string">"#sample"</span> ).gf();
+</pre>
+
+
+!SLIDE
+<pre>
+<span class="comment">// @returns {jQuery}
 </span><span class="js2-external-variable">jQuery</span>.fn.gf = jQuery.cmps( f, g );
 
 <span class="comment">// {jQuery}
@@ -480,8 +493,14 @@ $( <span class="string">"#sample"</span> )<b>.id()</b>;
 </span>$( <span class="string">"#sample"</span> )<b>.gf()</b>;
 </pre>
 
-!SLIDE center background-image mind-gap-background
+!SLIDE center background-image
 ## functor
+
+!SLIDE center image
+<img src="functor.png" style="width: 95%; margin-top: 30%"></img>
+
+!SLIDE center image
+<img src="functor-two-things.png" style="width: 95%; margin-top: 30%"></img>
 
 !SLIDE center image
 <img src="ob-html.png" style="width: 95%; margin-top: 30%"></img>
