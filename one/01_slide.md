@@ -509,10 +509,7 @@ $( <span class="string">"#sample"</span> )<b>.id()</b>;
 <pre>
 <span class="comment">// {HTMLDivElement}</span>
 document.querySelector( <span class="string">"div"</span><span class="js2-magic-paren"> );</span>
-</pre>
 
-!SLIDE
-<pre>
 <span class="comment">// {jQuery}</span>
 $( document.querySelector(<span class="string">"div"</span><span class="js2-magic-paren">)</span> );
 </pre>
@@ -549,18 +546,22 @@ $( <span class="string">"div"</span> ).setFoo();
 
 !SLIDE
 <pre>
-jQuery.map( $(<span class="string">"div"</span>), <span class="keyword">function</span>( <span class="js2-function-param">elem</span> ) {
-  elem.setAttribute( <span class="string">"class"</span>, <span class="string">"foo"</span> );
-  <span class="keyword">return</span> elem;
-});
+<span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">setFoo</span> = <span class="keyword">function</span>() {
+  <span class="builtin">this</span>.map(<span class="keyword">function</span> <span class="function-name">setFoo</span>( <span class="js2-function-param">i</span>, <span class="js2-function-param">elem</span> ) {
+    elem.setAttribute( <span class="string">"class"</span>, <span class="string">"foo"</span> );
+    <span class="keyword">return</span> elem;
+  });
+};
 </pre>
 
 !SLIDE
 <pre>
-<b>jQuery.map</b>( $(<span class="string">"div"</span>), <span class="keyword">function</span>( <span class="js2-function-param">elem</span> ) {
-  elem.setAttribute( <span class="string">"class"</span>, <span class="string">"foo"</span> );
-  <span class="keyword">return</span> elem;
-});
+<span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">setFoo</span> = <span class="keyword">function</span>() {
+  <span class="builtin">this</span>.map(<span class="keyword">function</span> <span class="function-name">setFoo</span>( <span class="js2-function-param">i</span>, <span class="js2-function-param">elem</span> ) {
+    elem.setAttribute( <span class="string">"class"</span>, <span class="string">"foo"</span> );
+    <span class="keyword">return</span> elem;
+  });
+};
 </pre>
 
 !SLIDE center
@@ -575,11 +576,8 @@ $()
 jQuery.map()
 </pre>
 
-!SLIDE
-### composition
-
 !SLIDE center image
-<img src="composition.png" style="width: 95%; margin-top: 15%"></img>
+<img src="composition.png" style="width: 95%; margin-top: 30%"></img>
 
 !SLIDE center
 <pre class="small">

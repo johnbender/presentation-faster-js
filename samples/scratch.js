@@ -31,6 +31,12 @@ $divs.map(function( i, elem ) {
 // @returns {HTMLDivElement}
 document.querySelector( "div#sample" );
 
+// @returns {HTMLDivElement}
+$( document.querySelector( "div#sample" ) );
+
+// @returns {HTMLDivElement}
+$( "div#sample" );
+
 // @param {HTMLElement} elem
 // @returns {HTMLElement}
 function setFoo( elem ) {
@@ -159,10 +165,12 @@ jQuery.fn.show = function(){
 	return this.map(show);
 };
 
-$divs.map(function( i, elem ) {
-  elem.setAttribute( "class", "foo" );
-	return elem;
-});
+jQuery.fn.setFoo = function() {
+	this.map(function setFoo( i, elem ) {
+		elem.setAttribute( "class", "foo" );
+		return elem;
+	});
+};
 
 jQuery.fn.g.composable = g;
 
