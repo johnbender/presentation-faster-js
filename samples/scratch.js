@@ -11,7 +11,8 @@ $divs.map(function( i, elem ) {
 });
 
 $divs.map(function( i, elem ) {
-  elem.setAttribute( "class", "foo" );
+	var old = elem.getAttribute( "class" );
+  elem.setAttribute( "class", "foo " + old );
 	return elem;
 });
 
@@ -21,8 +22,9 @@ $divs.map(function( i, elem ) {
 });
 
 $divs.map(function( i, elem ) {
+	var old = elem.getAttribute( "class" );
   elem.setAttribute( "style", "display: none;" );
-  elem.setAttribute( "class", "foo" );
+  elem.setAttribute( "class", "foo " + old );
   elem.setAttribute( "style", "display: block;" );
 	return elem;
 });
