@@ -3,25 +3,23 @@ jQuery( "div" )
 	.addClass( "foo" )
 	.show();
 
-var $divs = $( "div" );
-
-$divs.map(function( i, elem ) {
+$( "div" ).map(function( i, elem ) {
   elem.setAttribute( "style", "display: none;" );
 	return elem;
 });
 
-$divs.map(function( i, elem ) {
+$( "div" ).map(function( i, elem ) {
 	var old = elem.getAttribute( "class" );
   elem.setAttribute( "class", "foo " + old );
 	return elem;
 });
 
-$divs.map(function( i, elem ) {
+$( "div" ).map(function( i, elem ) {
   elem.setAttribute( "style", "display: block;" );
 	return elem;
 });
 
-$divs.map(function( i, elem ) {
+$( "div" ).map(function( i, elem ) {
 	var old = elem.getAttribute( "class" );
   elem.setAttribute( "style", "display: none;" );
   elem.setAttribute( "class", "foo " + old );
@@ -59,19 +57,7 @@ function cmps( f, g ) {
 	};
 }
 
-function addOne( val ){
-	return val + 1;
-}
-
-function addTwo( val ){
-	return val + 2;
-}
-
-cmps( addTwo, addOne )( 0 );
-// => 3
-
 // Jqry
-
 // {jQuery}
 $( "#div-sample" );
 
@@ -169,44 +155,6 @@ function f( i, elem ) {
 	return elem;
 };
 
-$divs.map( cmps(f, g) );
+$( "div" ).map( cmps(f, g) );
 
-jQuery.fn.addClass = function(){
-	return this.map(function( elem ) {
-		elem.setAttribute( "class", "foo" );
-		return elem;
-	});
-};
-
-jQuery.fn.show = function(){
-	return this.map(show);
-};
-
-jQuery.fn.setFoo = function() {
-	this.map(function setFoo( i, elem ) {
-		elem.setAttribute( "class", "foo" );
-		return elem;
-	});
-};
-
-jQuery.fn.g.composable = g;
-
-$( "div" ).f().g();
-
-$( "div" ).map(
-	$.fn.show.composable,
-	$.fn.addClass.composable
-);
-
-$.fn.compose = function( f, g ) {
-	if( f.composable && g.composable ){
-		return this.map( cmps( f, g) );
-	}
-
-	throw "Oops!";
-};
-
-$( "div" ).compose(
-	$.fn.show,
-	$.fn.addClass
-);
+// standard samples
