@@ -514,34 +514,53 @@ document.querySelector( <span class="string">"div"</span><span class="js2-magic-
 $( document.querySelector(<span class="string">"div"</span><span class="js2-magic-paren">)</span> );
 </pre>
 
+!SLIDE
+<pre>
+<span class="comment">// {HTMLDivElement}</span>
+document.querySelector( <span class="string">"div"</span><span class="js2-magic-paren"> );</span>
+
+<span class="comment">// {jQuery}</span>
+$( <b>document.querySelector(<span class="string">"div"</span><span class="js2-magic-paren">)</span></b> );
+</pre>
+
 !SLIDE center image
 <img src="hom-html.png" style="width: 95%; margin-top: 30%"></img>
 
 !SLIDE
-<pre style="padding-left: 50px;">
+<pre>
+<span class="comment">// @param {HTMLElement} elem</span>
+<span class="comment">// @returns {HTMLElement}</span>
 <span class="keyword">function</span> <span class="function-name">setFoo</span>( <span class="js2-function-param">elem</span> ) {
   elem.setAttribute( <span class="string">"class"</span>, <span class="string">"foo"</span> );
   <span class="keyword">return</span> elem;
 }
-
-
-
-
-
 </pre>
 
 !SLIDE
-<pre style="padding-left: 50px;">
-<span class="keyword">function</span> <span class="function-name">setFoo</span>( <span class="js2-function-param">elem</span> ) {
-  elem.setAttribute( <span class="string">"class"</span>, <span class="string">"foo"</span> );
-  <span class="keyword">return</span> elem;
-}
+<pre class="xsmall">
+<span class="comment">// {HTMLDivElement}
+</span>setFoo( sample );
+
+<span class="comment">// {jQuery}
+</span>$( <span class="string">"#sample"</span> ).setFoo();
 </pre>
 
-<div class="centered-arrow" style="margin-top: 50px; font-size: 18em">↓</div>
+!SLIDE
+<pre class="xsmall">
+<span class="comment">// {HTMLDivElement}
+</span><b>setFoo( sample );</b>
 
-<pre style="margin-top: 215px; padding-left: 200px;">
-$( <span class="string">"div"</span> ).setFoo();
+<span class="comment">// {jQuery}
+</span>$( <span class="string">"#sample"</span> ).setFoo();
+</pre>
+
+!SLIDE
+<pre class="xsmall">
+<span class="comment">// {HTMLDivElement}
+</span>setFoo( sample );
+
+<span class="comment">// {jQuery}
+</span><b>$( <span class="string">"#sample"</span> ).setFoo();</b>
 </pre>
 
 !SLIDE
@@ -557,12 +576,43 @@ $( <span class="string">"div"</span> ).setFoo();
 !SLIDE
 <pre>
 <span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">setFoo</span> = <span class="keyword">function</span>() {
-  <span class="builtin">this</span>.map(<span class="keyword">function</span> <span class="function-name">setFoo</span>( <span class="js2-function-param">i</span>, <span class="js2-function-param">elem</span> ) {
+  <b><span class="builtin">this</span></b>.map(<span class="keyword">function</span> <span class="function-name">setFoo</span>( <span class="js2-function-param">i</span>, <span class="js2-function-param">elem</span> ) {
     elem.setAttribute( <span class="string">"class"</span>, <span class="string">"foo"</span> );
     <span class="keyword">return</span> elem;
   });
 };
 </pre>
+
+!SLIDE
+<pre>
+<span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">setFoo</span> = <span class="keyword">function</span>() {
+  <span class="builtin">this</span>.<b>map</b>(<span class="keyword">function</span> <span class="function-name">setFoo</span>( <span class="js2-function-param">i</span>, <span class="js2-function-param">elem</span> ) {
+    elem.setAttribute( <span class="string">"class"</span>, <span class="string">"foo"</span> );
+    <span class="keyword">return</span> elem;
+  });
+};
+</pre>
+
+!SLIDE
+<pre>
+<span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">setFoo</span> = <span class="keyword">function</span>() {
+  <span class="builtin">this</span>.map(<span class="keyword">function</span> <span class="function-name"><b>setFoo</b></span>( <span class="js2-function-param">i</span>, <span class="js2-function-param">elem</span> ) {
+    elem.setAttribute( <span class="string">"class"</span>, <span class="string">"foo"</span> );
+    <span class="keyword">return</span> elem;
+  });
+};
+</pre>
+
+!SLIDE
+<pre>
+<span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">setFoo</span> = <span class="keyword">function</span>() {
+  <b><span class="builtin">this</span>.map</b>(<span class="keyword">function</span> <span class="function-name">setFoo</span>( <span class="js2-function-param">i</span>, <span class="js2-function-param">elem</span> ) {
+    elem.setAttribute( <span class="string">"class"</span>, <span class="string">"foo"</span> );
+    <span class="keyword">return</span> elem;
+  });
+};
+</pre>
+
 
 !SLIDE center
 <img src="ob-html.png" style="width: 95%; margin-bottom: 0; margin-top: 10%;"></img>

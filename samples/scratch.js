@@ -28,14 +28,11 @@ $divs.map(function( i, elem ) {
 });
 
 // Html
-// @returns {HTMLDivElement}
+// {HTMLDivElement}
 document.querySelector( "div#sample" );
 
-// @returns {HTMLDivElement}
+// {jQuery}
 $( document.querySelector( "div#sample" ) );
-
-// @returns {HTMLDivElement}
-$( "div#sample" );
 
 // @param {HTMLElement} elem
 // @returns {HTMLElement}
@@ -43,6 +40,12 @@ function setFoo( elem ) {
 	elem.setAttribute( "class", "foo" );
 	return elem;
 }
+
+// {HTMLDivElement}
+setFoo( sample );
+
+// {jQuery}
+$( "#sample" ).setFoo();
 
 function id( elem ) {
   return elem;
