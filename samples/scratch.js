@@ -6,7 +6,7 @@ jQuery( "div" )
 $( "div" ).map(function( i, elem ) {
   elem.setAttribute( "style", "display: none;" );
 	return elem;
-});
+>});
 
 $( "div" ).map(function( i, elem ) {
 	var old = elem.getAttribute( "class" );
@@ -93,7 +93,6 @@ $.fn.setFoo = function() {
 	});
 };
 
-
 // use the map in f,g then compose
 jQuery.fn.gf = jQuery.cmps( f, g );
 $( "div" ).gf();
@@ -157,4 +156,34 @@ function f( i, elem ) {
 
 $( "div" ).map( cmps(f, g) );
 
-// standard samples
+// @returns {HTMLElement}
+function setFoo( i, elem ) {
+	elem.setAttribute( "class", "foo" );
+	return elem;
+}
+
+// @returns {jQuery}
+jQuery.fn.setFoo = function() {
+	return this.map( this, setFoo );
+};
+
+jQuery.fn.setFoo.composable = setFoo;
+
+// chained
+$( "div" ).setFoo().doBar();
+
+//composable versions
+var foo = jQuery.fn.setFoo.composable,
+    bar = jQuery.fn.doBar.composable;
+
+//composed with one iteration
+$( "div" ).map( cmps(foo,bar) );
+
+// @returns {function(HTMLElement): HTMLElement}
+jQuery.fn.setFoo.composable = function( a, b ){
+	return function( elem ){
+		return setFoo( a, b, elem );
+	};
+};
+
+var foo = jQuery.fn.addClass.composable( "foo" );

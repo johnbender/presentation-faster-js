@@ -872,14 +872,130 @@ $( <span class="string">"div"</span> ).map( <b>cmps(f, g)</b> );
 <h2 class="over-image" style="margin-top: 35%;">timing: it's everything</h2>
 
 !SLIDE
-### github
-github.com/johnbender/jquery-lazy-proxy
+<pre>
+<span class="comment">// @returns {HTMLElement}</span>
+<span class="keyword">function</span> <span class="function-name">setFoo</span>( <span class="js2-function-param">i</span>, <span class="js2-function-param">elem</span> ) {
+  elem.setAttribute( <span class="string">"class"</span>, <span class="string">"foo"</span> );
+  <span class="keyword">return</span> elem;
+}
+
+<span class="comment">// @returns {jQuery}</span>
+<span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">setFoo</span> = <span class="keyword">function</span>() {
+  <span class="keyword">return</span> <span class="builtin">this</span>.map( <span class="builtin">this</span>, setFoo );
+};</pre>
+
+!SLIDE
+<pre>
+<span class="comment">// @returns {HTMLElement}</span>
+<span class="keyword">function</span> <span class="function-name"><b>setFoo</b></span>( <span class="js2-function-param">i</span>, <span class="js2-function-param">elem</span> ) {
+  elem.setAttribute( <span class="string">"class"</span>, <span class="string">"foo"</span> );
+  <span class="keyword">return</span> elem;
+}
+
+<span class="comment">// @returns {jQuery}</span>
+<span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">setFoo</span> = <span class="keyword">function</span>() {
+  <span class="keyword">return</span> <span class="builtin">this</span>.map( <span class="builtin">this</span>, setFoo );
+};</pre>
+
+!SLIDE
+<pre>
+<span class="comment">// @returns {HTMLElement}</span>
+<span class="keyword">function</span> <span class="function-name">setFoo</span>( <span class="js2-function-param">i</span>, <span class="js2-function-param">elem</span> ) {
+  elem.setAttribute( <span class="string">"class"</span>, <span class="string">"foo"</span> );
+  <span class="keyword">return</span> elem;
+}
+
+<span class="comment">// @returns {jQuery}</span>
+<span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">setFoo</span> = <span class="keyword">function</span>() {
+  <span class="keyword">return</span> <span class="builtin">this</span>.map( <span class="builtin">this</span>, <b>setFoo</b> );
+};</pre>
+
+!SLIDE
+<pre class="small">
+<span class="js2-external-variable">jQuery</span>.fn.setFoo.<b>composable</b>
+</pre>
+
+!SLIDE
+<pre>
+<span class="comment">// chained
+</span>$( <span class="string">"div"</span> ).setFoo().doBar();
+
+<span class="comment">//composable versions</span>
+<span class="keyword">var</span> <span class="variable-name">foo</span> = jQuery.fn.setFoo.composable,
+    <span class="variable-name">bar</span> = jQuery.fn.doBar.composable;
+
+<span class="comment">//composed with one iteration
+</span>$( <span class="string">"div"</span> ).map( cmps(foo,bar) );
+</pre>
+
+!SLIDE
+<pre>
+<span class="comment">// chained
+</span>$( <span class="string">"div"</span> )<b>.setFoo().doBar();</b>
+
+<span class="comment">//composable versions</span>
+<span class="keyword">var</span> <span class="variable-name">foo</span> = jQuery.fn.setFoo.composable,
+    <span class="variable-name">bar</span> = jQuery.fn.doBar.composable;
+
+<span class="comment">//composed with one iteration
+</span>$( <span class="string">"div"</span> ).map( cmps(foo,bar) );
+</pre>
+
+!SLIDE
+<pre>
+<span class="comment">// chained
+</span>$( <span class="string">"div"</span> ).setFoo().doBar();
+
+<span class="comment">//composable versions</span>
+<span class="keyword">var</span> <span class="variable-name">foo</span> = jQuery.fn.setFoo.<b>composable</b>,
+    <span class="variable-name">bar</span> = jQuery.fn.doBar.<b>composable</b>;
+
+<span class="comment">//composed with one iteration
+</span>$( <span class="string">"div"</span> ).map( cmps(foo,bar) );
+</pre>
+
+!SLIDE
+<pre>
+<span class="comment">// chained
+</span>$( <span class="string">"div"</span> ).setFoo().doBar();
+
+<span class="comment">//composable versions</span>
+<span class="keyword">var</span> <span class="variable-name">foo</span> = jQuery.fn.setFoo.composable,
+    <span class="variable-name">bar</span> = jQuery.fn.doBar.composable;
+
+<span class="comment">//composed with one iteration
+</span>$( <span class="string">"div"</span> ).map( <b>cmps(foo,bar)</b> );
+</pre>
+
+!SLIDE
+<pre class="medium">
+<span class="comment">// @returns {function(HTMLElement): HTMLElement}</span>
+<span class="js2-external-variable">jQuery</span>.fn.setFoo.<span class="function-name">composable</span> = <span class="keyword">function</span>( <span class="js2-function-param">a</span>, <span class="js2-function-param">b</span> ){
+  <span class="keyword">return</span> <span class="keyword">function</span>( <span class="js2-function-param">elem</span> ){
+    <span class="keyword">return</span> setFoo( a, b, elem );
+  };
+};
+</pre>
+
+!SLIDE
+<pre class="medium">
+<span class="comment">// @returns {function(HTMLElement): HTMLElement}</span>
+<span class="js2-external-variable">jQuery</span>.fn.setFoo.<span class="function-name">composable</span> = <span class="keyword">function</span>( <b><span class="js2-function-param">a</span>, <span class="js2-function-param">b</span></b> ){
+  <span class="keyword">return</span> <span class="keyword">function</span>( <span class="js2-function-param">elem</span> ){
+    <span class="keyword">return</span> setFoo( <b>a, b</b>, elem );
+  };
+};
+</pre>
+
+
+!SLIDE
+## warning proxy
+<span style="font-size: 1.3em">github.com/johnbender/jquery-lazy-proxy</span>
 
 !SLIDE center
-# Reading
-
-<div style="font-size: 1.7em; margin-bottom: 20px;">johnbender.us/2012/02/29/faster-javascript-through-category-theory</div>
-<div style="font-size: 1.7em">johnbender.us/2012/03/22/a-natural-transformation-in-javascript</div>
+## reading
+<p><span style="font-size: 1.3em">johnbender.us/?p=1613</span></p>
+<p><span style="font-size: 1.3em">johnbender.us/?p=1682</span></p>
 
 !SLIDE bullets mono-bullets>
 # Thanks
