@@ -500,7 +500,7 @@ $( <span class="string">"#sample"</span> )<b>.id()</b>;
 <img src="functor.png" style="width: 95%; margin-top: 30%"></img>
 
 !SLIDE center image
-<img src="functor-two-things.png" style="width: 95%; margin-top: 30%"></img>
+<img src="functor-two-things.png" style="width: 95%; margin-top: 24%"></img>
 
 !SLIDE center image
 <img src="ob-html.png" style="width: 95%; margin-top: 30%"></img>
@@ -614,66 +614,65 @@ $( <b>document.querySelector(<span class="string">"div"</span><span class="js2-m
 </pre>
 
 
-!SLIDE center
-<img src="ob-html.png" style="width: 95%; margin-bottom: 0; margin-top: 10%;"></img>
-<pre style="font-size: 7em; color: #111">
-$()
-</pre>
-
-!SLIDE center
-<img src="hom-html.png" style="width: 95%; margin-bottom: 0; margin-top: 10%;"></img>
-<pre style="font-size: 7em; color: #111">
-jQuery.map()
-</pre>
+!SLIDE center image
+<img src="ob-hom-fns.png" style="width: 95%; margin-top: 24%"></img>
 
 !SLIDE center image
 <img src="composition.png" style="width: 95%; margin-top: 30%"></img>
 
-!SLIDE center
-<pre class="small">
-$( <span class="string">"div"</span> ).map(g).map(f)
-==
-$( <span class="string">"div"</span> ).map( cmps(f, g) )
-</pre>
+!SLIDE
+<pre>
+<span class="js2-external-variable">jQuery</span>.fn.gf = jQuery.cmps( f, g );
 
-!SLIDE center
-<pre class="small">
-$( <span class="string">"div"</span> ).<b>map(g).map(f)</b>
-==
-$( <span class="string">"div"</span> ).map( cmps(f, g) )
-</pre>
+<span class="comment">// use the map in f,g then compose</span>
+$( <span class="string">"div"</span> ).gf();
 
-!SLIDE center
-<pre class="small">
-$( <span class="string">"div"</span> ).<b>map(g).map(f)</b>
-==
-$( <span class="string">"div"</span> ).<b>map( cmps(f, g) )</b>
+<span class="comment">// compose first then use map
+</span>$( <span class="string">"div"</span> ).map( cmps(f, g) );
 </pre>
 
 !SLIDE
 <pre>
-<span class="js2-external-variable">$</span>.fn.<span class="function-name">F</span> = <span class="keyword">function</span>(){
-  <span class="keyword">return</span> <span class="builtin">this</span>.map(f);
-};
+<span class="js2-external-variable">jQuery</span>.fn.gf = jQuery.cmps( f, g );
 
-<span class="js2-external-variable">$</span>.fn.<span class="function-name">G</span> = <span class="keyword">function</span>(){
-  <span class="keyword">return</span> <span class="builtin">this</span>.map(g);
-};
+<span class="comment">// use the map in f,g then compose</span>
+$( <span class="string">"div"</span> )<b>.gf();</b>
+
+<span class="comment">// compose first then use map
+</span>$( <span class="string">"div"</span> ).map( cmps(f, g) );
 </pre>
 
+!SLIDE
+<pre>
+<span class="js2-external-variable">jQuery</span>.fn.gf = jQuery.cmps( f, g );
 
-!SLIDE center
-<pre class="small">
-$( <span class="string">"div"</span> ).<b>G().F()</b>
-==
-$( <span class="string">"div"</span> ).map( cmps(f, g) )
+<span class="comment">// use the map in f,g then compose</span>
+$( <span class="string">"div"</span> )<b>.g().f();</b>
+
+<span class="comment">// compose first then use map
+</span>$( <span class="string">"div"</span> ).map( cmps(f, g) );
 </pre>
 
-!SLIDE center
-<pre class="small">
-$( <span class="string">"div"</span> ).<b>G().F()</b>
-==
-$( <span class="string">"div"</span> ).<b>map( cmps(f, g) )</b>
+!SLIDE
+<pre>
+<span class="js2-external-variable">jQuery</span>.fn.gf = jQuery.cmps( f, g );
+
+<span class="comment">// use the map in f,g then compose</span>
+$( <span class="string">"div"</span> )<b>.g().f();</b>
+
+<span class="comment">// compose first then use map
+</span>$( <span class="string">"div"</span> )<b>.map( cmps(f, g) );</b>
+</pre>
+
+!SLIDE
+<pre>
+<span class="js2-external-variable">jQuery</span>.fn.gf = jQuery.cmps( f, g );
+
+<span class="comment">// use the map in f,g then compose</span>
+$( <span class="string">"div"</span> ).g().f();
+
+<span class="comment">// compose first then use map
+</span>$( <span class="string">"div"</span> )<b>.map( cmps(f, g) );</b>
 </pre>
 
 !SLIDE

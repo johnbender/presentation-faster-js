@@ -106,7 +106,19 @@ $.fn.setFoo = function() {
 };
 
 
-$( "div" ).f().g() == $( "div" ).map( cmps(f, g) );
+// use the map in f,g then compose
+jQuery.fn.gf = jQuery.cmps( f, g );
+$( "div" ).gf();
+
+// compose first then use map
+$( "div" ).map( cmps(f, g) );
+
+// use the map in f,g then compose
+jQuery.fn.gf = jQuery.cmps( f, g );
+$( "div" ).g().f();
+
+// compose first then use map
+$( "div" ).map( cmps(f, g) );
 
 $.fn.F = function(){
 	return this.map(f);
