@@ -1,5 +1,10 @@
 !SLIDE link
-<h1 style="font-size: 7em">Faster jQuery <div style="font-size: 0.6em">with</div> Category Theory</h1>
+<h1 style="font-size: 7em">
+  Faster jQuery
+  <!-- oh noes div inside h1 :P -->
+  <div style="font-size: 0.6em; margin-top: 18px;">with</div>
+  Category Theory
+</h1>
 <span style="font-size: 1.1em">johnbender.github.com/presentation-faster-js</span>
 
 !SLIDE bullets mono-bullets
@@ -125,14 +130,12 @@ $( <span class="string">"div"</span> ).map(<span class="keyword">function</span>
 
 !SLIDE center background-image e-ml-background
 <h2 class="over-image"  style="margin-top: 35%;">context: it's useful</h2>
-.notes Samuel Eilenberg and Saunders Mac Lane
 
 !SLIDE center background-image e-ml-background
-<h2 class="over-image"  style="margin-top: 35%; min-height: 96px;">
+<h2 class="over-image names" style="margin-top: 35%;">
   <span style="float: left; margin-left: 20px;">Eilenberg</span>
   <span style="float: right; margin-right: 20px;">Mac Lane</span>
 </h2>
-.notes Samuel Eilenberg and Saunders Mac Lane
 
 !SLIDE
 ## category?
@@ -400,28 +403,13 @@ $( <span class="string">"#sample"</span> )<b>.id()</b>;
 !SLIDE
 <pre>
 <span class="comment">// @returns {jQuery}
-</span><span class="keyword">var</span> <span class="variable-name">g</span> = <span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">g</span> = <span class="keyword">function</span>() {
+</span><span class="keyword">var</span> <span class="variable-name">jqG</span> = <span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">g</span> = <span class="keyword">function</span>() {
   <span class="comment">// manipulate `this`
 </span>  <span class="keyword">return</span> <span class="builtin">this</span>;
 };
 
 <span class="comment">// @returns {jQuery}
-</span><span class="keyword">var</span> <span class="variable-name">f</span> = <span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">f</span> = <span class="keyword">function</span>(){
-  <span class="comment">// manipulate `this`
-</span>  <span class="keyword">return</span> <span class="builtin">this</span>;
-};
-</pre>
-
-!SLIDE
-<pre>
-<span class="comment">// @returns {jQuery}
-</span><span class="keyword">var</span> <span class="variable-name"><b>g</b></span> = <b><span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">g</span></b> = <span class="keyword">function</span>() {
-  <span class="comment">// manipulate `this`
-</span>  <span class="keyword">return</span> <span class="builtin">this</span>;
-};
-
-<span class="comment">// @returns {jQuery}
-</span><span class="keyword">var</span> <b><span class="variable-name">f</span></b> = <b><span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">f</span></b> = <span class="keyword">function</span>(){
+</span><span class="keyword">var</span> <span class="variable-name">jqF</span> = <span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">f</span> = <span class="keyword">function</span>(){
   <span class="comment">// manipulate `this`
 </span>  <span class="keyword">return</span> <span class="builtin">this</span>;
 };
@@ -430,13 +418,28 @@ $( <span class="string">"#sample"</span> )<b>.id()</b>;
 !SLIDE
 <pre>
 <span class="comment">// @returns {jQuery}
-</span><span class="keyword">var</span> <span class="variable-name">g</span> = <span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">g</span> = <span class="keyword">function</span>() {
+</span><span class="keyword">var</span> <span class="variable-name"><b>jqG</b></span> = <b><span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">g</span></b> = <span class="keyword">function</span>() {
+  <span class="comment">// manipulate `this`
+</span>  <span class="keyword">return</span> <span class="builtin">this</span>;
+};
+
+<span class="comment">// @returns {jQuery}
+</span><span class="keyword">var</span> <b><span class="variable-name">jqF</span></b> = <b><span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">f</span></b> = <span class="keyword">function</span>(){
+  <span class="comment">// manipulate `this`
+</span>  <span class="keyword">return</span> <span class="builtin">this</span>;
+};
+</pre>
+
+!SLIDE
+<pre>
+<span class="comment">// @returns {jQuery}
+</span><span class="keyword">var</span> <span class="variable-name">jqG</span> = <span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">g</span> = <span class="keyword">function</span>() {
   <span class="comment">// manipulate `this`
 </span>  <span class="keyword">return</span> <b><span class="builtin">this</span></b>;
 };
 
 <span class="comment">// @returns {jQuery}
-</span><span class="keyword">var</span> <span class="variable-name">f</span> = <span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">f</span> = <span class="keyword">function</span>(){
+</span><span class="keyword">var</span> <span class="variable-name">jqF</span> = <span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">f</span> = <span class="keyword">function</span>(){
   <span class="comment">// manipulate `this`
 </span>  <span class="keyword">return</span> <b><span class="builtin">this</span></b>;
 };
@@ -446,7 +449,7 @@ $( <span class="string">"#sample"</span> )<b>.id()</b>;
 !SLIDE
 <pre>
 <span class="comment">// @returns {jQuery}
-</span><span class="js2-external-variable">jQuery</span>.fn.gf = jQuery.cmps( f, g );
+</span><span class="js2-external-variable">jQuery</span>.fn.gf = jQuery.cmps( jqF, jqG );
 
 <span class="comment">// {jQuery}
 </span>$( <span class="string">"#sample"</span> ).g().f();
@@ -458,7 +461,7 @@ $( <span class="string">"#sample"</span> )<b>.id()</b>;
 !SLIDE
 <pre>
 <span class="comment">// @returns {jQuery}
-</span><span class="js2-external-variable">jQuery</span>.fn.gf = jQuery.cmps( <b>f, g</b> );
+</span><span class="js2-external-variable">jQuery</span>.fn.gf = jQuery.cmps( <b>jqF, jqG</b> );
 
 <span class="comment">// {jQuery}
 </span>$( <span class="string">"#sample"</span> ).g().f();
@@ -470,7 +473,7 @@ $( <span class="string">"#sample"</span> )<b>.id()</b>;
 !SLIDE
 <pre>
 <span class="comment">// @returns {jQuery}
-</span><span class="js2-external-variable">jQuery</span>.fn<b>.gf</b> = jQuery.cmps( f, g );
+</span><span class="js2-external-variable">jQuery</span>.fn<b>.gf</b> = jQuery.cmps( jqF, jqG );
 
 <span class="comment">// {jQuery}
 </span>$( <span class="string">"#sample"</span> ).g().f();
@@ -483,7 +486,7 @@ $( <span class="string">"#sample"</span> )<b>.id()</b>;
 !SLIDE
 <pre>
 <span class="comment">// @returns {jQuery}
-</span><span class="js2-external-variable">jQuery</span>.fn.gf = jQuery.cmps( f, g );
+</span><span class="js2-external-variable">jQuery</span>.fn.gf = jQuery.cmps( jqF, jqG );
 
 <span class="comment">// {jQuery}
 </span>$( <span class="string">"#sample"</span> )<b>.g().f()</b>;
@@ -612,7 +615,6 @@ $( <b>document.querySelector(<span class="string">"div"</span><span class="js2-m
 };
 </pre>
 
-
 !SLIDE center image
 <img src="ob-hom-fns.png" style="width: 95%; margin-top: 24%"></img>
 
@@ -621,7 +623,7 @@ $( <b>document.querySelector(<span class="string">"div"</span><span class="js2-m
 
 !SLIDE
 <pre>
-<span class="js2-external-variable">jQuery</span>.fn.gf = jQuery.cmps( f, g );
+<span class="js2-external-variable">jQuery</span>.fn.gf = jQuery.cmps( jqF, jqG );
 
 <span class="comment">// use the map in f,g then compose</span>
 $( <span class="string">"div"</span> ).gf();
@@ -632,7 +634,7 @@ $( <span class="string">"div"</span> ).gf();
 
 !SLIDE
 <pre>
-<span class="js2-external-variable">jQuery</span>.fn.gf = jQuery.cmps( <b>f, g</b> );
+<span class="js2-external-variable">jQuery</span>.fn.gf = jQuery.cmps( <b>jqF, jqG</b> );
 
 <span class="comment">// use the map in f,g then compose</span>
 $( <span class="string">"div"</span> ).gf();
@@ -643,7 +645,7 @@ $( <span class="string">"div"</span> ).gf();
 
 !SLIDE
 <pre>
-<span class="js2-external-variable">jQuery</span><b>.fn.gf</b> = jQuery.cmps( f, g );
+<span class="js2-external-variable">jQuery</span><b>.fn.gf</b> = jQuery.cmps( jqF, jqG );
 
 <span class="comment">// use the map in f,g then compose</span>
 $( <span class="string">"div"</span> ).gf();
@@ -655,7 +657,7 @@ $( <span class="string">"div"</span> ).gf();
 
 !SLIDE
 <pre>
-<span class="js2-external-variable">jQuery</span>.fn.gf = jQuery.cmps( f, g );
+<span class="js2-external-variable">jQuery</span>.fn.gf = jQuery.cmps( jqF, jqG );
 
 <span class="comment">// use the map in f,g then compose</span>
 $( <span class="string">"div"</span> )<b>.gf();</b>
@@ -666,7 +668,7 @@ $( <span class="string">"div"</span> )<b>.gf();</b>
 
 !SLIDE
 <pre>
-<span class="js2-external-variable">jQuery</span>.fn.gf = jQuery.cmps( f, g );
+<span class="js2-external-variable">jQuery</span>.fn.gf = jQuery.cmps( jqF, jqG );
 
 <span class="comment">// use the map in f,g then compose</span>
 $( <span class="string">"div"</span> )<b>.g().f();</b>
@@ -677,7 +679,7 @@ $( <span class="string">"div"</span> )<b>.g().f();</b>
 
 !SLIDE
 <pre>
-<span class="js2-external-variable">jQuery</span>.fn.gf = jQuery.cmps( f, g );
+<span class="js2-external-variable">jQuery</span>.fn.gf = jQuery.cmps( jqF, jqG );
 
 <span class="comment">// use the map in f,g then compose</span>
 $( <span class="string">"div"</span> )<b>.g().f();</b>
@@ -688,7 +690,7 @@ $( <span class="string">"div"</span> )<b>.g().f();</b>
 
 !SLIDE
 <pre>
-<span class="js2-external-variable">jQuery</span>.fn.gf = jQuery.cmps( f, g );
+<span class="js2-external-variable">jQuery</span>.fn.gf = jQuery.cmps( jqF, jqG );
 
 <span class="comment">// use the map in f,g then compose</span>
 $( <span class="string">"div"</span> ).g().f();
@@ -698,7 +700,7 @@ $( <span class="string">"div"</span> ).g().f();
 </pre>
 
 !SLIDE
-## enlightenment
+# Meanwhile
 
 !SLIDE
 <pre class="xsmall">
@@ -859,13 +861,10 @@ $( <span class="string">"div"</span> ).map( <b>cmps(f, g)</b> );
 <div class="gigantor" style="z-index: 2; text-align: left; width: 150%; left: -100px; color: green; font-size: 45em; padding-top: 0%; letter-spacing: -0.3em">☺☺</div>
 
 !SLIDE
-# Meanwhile
+## standard
 
 !SLIDE center background-image facepalm-background
 <h2 class="over-image" style="margin-top: 35%;">timing: it's everything</h2>
-
-!SLIDE
-## standard
 
 !SLIDE center
 <pre style="font-size: 8em">$.fn.addClass</pre>
