@@ -12,7 +12,7 @@ iframe {
   height: 768px;
 }
 
-niframe.phone-center {
+iframe.phone-center {
   margin-left: 100px;
   margin-top: 0px;
   height: 660px;
@@ -118,6 +118,7 @@ h3 img {
   color: white;
   font-weight: normal;
   padding: 0.25em 0;
+  text-align: center;
 }
 
 h1, h2, h3, h4 {
@@ -370,6 +371,7 @@ b .variable-name {
   /* font-lock-constant-face */
   color: #f68d47;
 }
+
 .attribution h4 {
   font-size: 1.0em;
   margin: auto;
@@ -422,11 +424,12 @@ b .variable-name {
   padding-top: 12%;
 }
 
+/* which is now purple :P */
 .gigantor.green-smile {
   z-index: 2;
   text-align: left;
   width: 150%;
-  left: -100px;
+  left: -80px;
   color: purple;
   font-size: 42em;
   padding-top: 0%;
@@ -485,7 +488,6 @@ b .variable-name {
   background-image: url(one/facepalm.png);
   background-size: 600px auto; /* showoff slide centering :( */
 }
-
 
 h2.over-image, h4.over-image {
   background-color: rgba( 128, 0, 128, 0.9);
