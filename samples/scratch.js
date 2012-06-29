@@ -93,48 +93,23 @@ $.fn.setFoo = function() {
 	});
 };
 
-// use the map in f,g then compose
-jQuery.fn.gf = jQuery.cmps( f, g );
-$( "div" ).gf();
-
-// compose first then use map
-$( "div" ).map( cmps(f, g) );
-
-// use the map in f,g then compose
-jQuery.fn.gf = jQuery.cmps( f, g );
-$( "div" ).g().f();
-
-// compose first then use map
-$( "div" ).map( cmps(f, g) );
-
-$.fn.F = function(){
-	return this.map(f);
-};
-
-$.fn.G = function(){
-	return this.map(g);
-};
-
-jQuery.cmps = function( f, g ) {
-  return function() {
-    return f.apply(g.apply(this));
-	};
-};
-
 // @returns {jQuery}
-var g = jQuery.fn.g = function() {
+var jQuery.fn.g = function() {
 	// manipulate `this`
 	return this;
 };
 
 // @returns {jQuery}
-var f = jQuery.fn.f = function(){
+var jQuery.fn.f = function(){
 	// manipulate `this`
 	return this;
 };
 
 // @returns {jQuery}
-jQuery.fn.gf = jQuery.cmps(	f, g );
+jQuery.fn.gf = jQuery.cmps(
+	jQuery.fn.f,
+	jQuery.fn.g
+);
 
 // {jQuery}
 $( "#sample" ).g().f();

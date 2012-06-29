@@ -445,28 +445,13 @@ $( <span class="string">"#sample"</span> )<b>.id()</b>;
 !SLIDE
 <pre>
 <span class="comment">// @returns {jQuery}
-</span><span class="keyword">var</span> <span class="variable-name">jqG</span> = <span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">g</span> = <span class="keyword">function</span>() {
+</span><span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">g</span> = <span class="keyword">function</span>() {
   <span class="comment">// manipulate `this`
 </span>  <span class="keyword">return</span> <span class="builtin">this</span>;
 };
 
 <span class="comment">// @returns {jQuery}
-</span><span class="keyword">var</span> <span class="variable-name">jqF</span> = <span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">f</span> = <span class="keyword">function</span>(){
-  <span class="comment">// manipulate `this`
-</span>  <span class="keyword">return</span> <span class="builtin">this</span>;
-};
-</pre>
-
-!SLIDE
-<pre>
-<span class="comment">// @returns {jQuery}
-</span><span class="keyword">var</span> <span class="variable-name"><b>jqG</b></span> = <b><span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">g</span></b> = <span class="keyword">function</span>() {
-  <span class="comment">// manipulate `this`
-</span>  <span class="keyword">return</span> <span class="builtin">this</span>;
-};
-
-<span class="comment">// @returns {jQuery}
-</span><span class="keyword">var</span> <b><span class="variable-name">jqF</span></b> = <b><span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">f</span></b> = <span class="keyword">function</span>(){
+</span><span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">f</span> = <span class="keyword">function</span>(){
   <span class="comment">// manipulate `this`
 </span>  <span class="keyword">return</span> <span class="builtin">this</span>;
 };
@@ -475,13 +460,28 @@ $( <span class="string">"#sample"</span> )<b>.id()</b>;
 !SLIDE
 <pre>
 <span class="comment">// @returns {jQuery}
-</span><span class="keyword">var</span> <span class="variable-name">jqG</span> = <span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">g</span> = <span class="keyword">function</span>() {
+</span><b><span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">g</span></b> = <span class="keyword">function</span>() {
+  <span class="comment">// manipulate `this`
+</span>  <span class="keyword">return</span> <span class="builtin">this</span>;
+};
+
+<span class="comment">// @returns {jQuery}
+</span><b><span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">f</span></b> = <span class="keyword">function</span>(){
+  <span class="comment">// manipulate `this`
+</span>  <span class="keyword">return</span> <span class="builtin">this</span>;
+};
+</pre>
+
+!SLIDE
+<pre>
+<span class="comment">// @returns {jQuery}
+</span><span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">g</span> = <span class="keyword">function</span>() {
   <span class="comment">// manipulate `this`
 </span>  <span class="keyword">return</span> <b><span class="builtin">this</span></b>;
 };
 
 <span class="comment">// @returns {jQuery}
-</span><span class="keyword">var</span> <span class="variable-name">jqF</span> = <span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">f</span> = <span class="keyword">function</span>(){
+</span><span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">f</span> = <span class="keyword">function</span>(){
   <span class="comment">// manipulate `this`
 </span>  <span class="keyword">return</span> <b><span class="builtin">this</span></b>;
 };
@@ -491,7 +491,10 @@ $( <span class="string">"#sample"</span> )<b>.id()</b>;
 !SLIDE
 <pre>
 <span class="comment">// @returns {jQuery}
-</span><span class="js2-external-variable">jQuery</span>.fn.gf = jQuery.cmps( jqF, jqG );
+</span>jQuery.fn.<span class="function-name">gf</span> = jQuery.cmps(
+  <b>jQuery.fn.f,</b>
+  <b>jQuery.fn.g</b>
+);
 
 <span class="comment">// {jQuery}
 </span>$( <span class="string">"#sample"</span> ).g().f();
@@ -503,7 +506,10 @@ $( <span class="string">"#sample"</span> )<b>.id()</b>;
 !SLIDE
 <pre>
 <span class="comment">// @returns {jQuery}
-</span><span class="js2-external-variable">jQuery</span>.fn.gf = jQuery.cmps( <b>jqF, jqG</b> );
+</span>jQuery.fn.<b>gf</b> = jQuery.cmps(
+  jQuery.fn.f,
+  jQuery.fn.g
+);
 
 <span class="comment">// {jQuery}
 </span>$( <span class="string">"#sample"</span> ).g().f();
@@ -515,7 +521,10 @@ $( <span class="string">"#sample"</span> )<b>.id()</b>;
 !SLIDE
 <pre>
 <span class="comment">// @returns {jQuery}
-</span><span class="js2-external-variable">jQuery</span>.fn<b>.gf</b> = jQuery.cmps( jqF, jqG );
+</span>jQuery.fn.<span class="function-name">gf</span> = jQuery.cmps(
+  jQuery.fn.f,
+  jQuery.fn.g
+);
 
 <span class="comment">// {jQuery}
 </span>$( <span class="string">"#sample"</span> ).g().f();
@@ -527,8 +536,11 @@ $( <span class="string">"#sample"</span> )<b>.id()</b>;
 
 !SLIDE
 <pre>
-<span class="comment">// @returns {jQuery}
-</span><span class="js2-external-variable">jQuery</span>.fn.gf = jQuery.cmps( jqF, jqG );
+<span class="comment">// @returns {jQuery}</span>
+jQuery.fn.<span class="function-name">gf</span> = jQuery.cmps(
+  jQuery.fn.f,
+  jQuery.fn.g
+);
 
 <span class="comment">// {jQuery}
 </span>$( <span class="string">"#sample"</span> )<b>.g().f()</b>;
@@ -538,7 +550,7 @@ $( <span class="string">"#sample"</span> )<b>.id()</b>;
 </pre>
 
 !SLIDE center background-image
-## functor
+## Functor
 
 !SLIDE center image
 <img src="functor.png" style="width: 95%; margin-top: 30%"></img>
@@ -665,7 +677,10 @@ $( <b>document.querySelector(<span class="string">"div"</span><span class="js2-m
 
 !SLIDE
 <pre>
-<span class="js2-external-variable">jQuery</span>.fn.gf = jQuery.cmps( jqF, jqG );
+jQuery.fn.<span class="function-name">gf</span> = jQuery.cmps(
+  jQuery.fn.f,
+  jQuery.fn.g
+);
 
 <span class="comment">// use the map in f,g then compose</span>
 $( <span class="string">"div"</span> ).gf();
@@ -676,7 +691,10 @@ $( <span class="string">"div"</span> ).gf();
 
 !SLIDE
 <pre>
-<span class="js2-external-variable">jQuery</span>.fn.gf = jQuery.cmps( <b>jqF, jqG</b> );
+jQuery.fn.<span class="function-name">gf</span> = jQuery.cmps(
+  <b>jQuery.fn.f,</b>
+  <b>jQuery.fn.g</b>
+);
 
 <span class="comment">// use the map in f,g then compose</span>
 $( <span class="string">"div"</span> ).gf();
@@ -687,7 +705,10 @@ $( <span class="string">"div"</span> ).gf();
 
 !SLIDE
 <pre>
-<span class="js2-external-variable">jQuery</span><b>.fn.gf</b> = jQuery.cmps( jqF, jqG );
+jQuery.fn.<span class="function-name"><b>gf</b></span> = jQuery.cmps(
+  jQuery.fn.f,
+  jQuery.fn.g
+);
 
 <span class="comment">// use the map in f,g then compose</span>
 $( <span class="string">"div"</span> ).gf();
@@ -699,7 +720,10 @@ $( <span class="string">"div"</span> ).gf();
 
 !SLIDE
 <pre>
-<span class="js2-external-variable">jQuery</span>.fn.gf = jQuery.cmps( jqF, jqG );
+jQuery.fn.<span class="function-name">gf</span> = jQuery.cmps(
+  jQuery.fn.f,
+  jQuery.fn.g
+);
 
 <span class="comment">// use the map in f,g then compose</span>
 $( <span class="string">"div"</span> )<b>.gf();</b>
@@ -710,7 +734,10 @@ $( <span class="string">"div"</span> )<b>.gf();</b>
 
 !SLIDE
 <pre>
-<span class="js2-external-variable">jQuery</span>.fn.gf = jQuery.cmps( jqF, jqG );
+jQuery.fn.<span class="function-name">gf</span> = jQuery.cmps(
+  jQuery.fn.f,
+  jQuery.fn.g
+);
 
 <span class="comment">// use the map in f,g then compose</span>
 $( <span class="string">"div"</span> )<b>.g().f();</b>
@@ -721,7 +748,10 @@ $( <span class="string">"div"</span> )<b>.g().f();</b>
 
 !SLIDE
 <pre>
-<span class="js2-external-variable">jQuery</span>.fn.gf = jQuery.cmps( jqF, jqG );
+jQuery.fn.<span class="function-name">gf</span> = jQuery.cmps(
+  jQuery.fn.f,
+  jQuery.fn.g
+);
 
 <span class="comment">// use the map in f,g then compose</span>
 $( <span class="string">"div"</span> )<b>.g().f();</b>
@@ -732,7 +762,10 @@ $( <span class="string">"div"</span> )<b>.g().f();</b>
 
 !SLIDE
 <pre>
-<span class="js2-external-variable">jQuery</span>.fn.gf = jQuery.cmps( jqF, jqG );
+jQuery.fn.<span class="function-name">gf</span> = jQuery.cmps(
+  jQuery.fn.f,
+  jQuery.fn.g
+);
 
 <span class="comment">// use the map in f,g then compose</span>
 $( <span class="string">"div"</span> ).g().f();
@@ -742,7 +775,7 @@ $( <span class="string">"div"</span> ).g().f();
 </pre>
 
 !SLIDE
-#
+# Meanwhile
 dónde está la carne
 
 !SLIDE
