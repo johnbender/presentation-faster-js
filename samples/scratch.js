@@ -6,7 +6,7 @@ jQuery( "div" )
 $( "div" ).map(function( i, elem ) {
   elem.setAttribute( "style", "display: none;" );
 	return elem;
->});
+});
 
 $( "div" ).map(function( i, elem ) {
 	var old = elem.getAttribute( "class" );
@@ -186,4 +186,3 @@ jQuery.fn.setFoo.composable = function( a, b ){
 	};
 };
 
-var foo = jQuery.fn.addClass.composable( "foo" );

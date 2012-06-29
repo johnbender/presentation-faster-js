@@ -571,3 +571,19 @@ pre.sh_sourceCode .sh_symbol {
 #footer {
   display: none;
 }
+
+.ry-kern {
+  letter-spacing: 8px;
+}
+
+img.stats {
+  position: absolute;
+  left: 15px;
+  top: 150px;
+  width: 98%;
+}
+
+img.stats.adjusted {
+  left: 8px;
+  top: 149px;
+}

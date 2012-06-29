@@ -3,7 +3,7 @@
   Faster jQuery
   <!-- oh noes div inside h1 :P -->
   <div style="font-size: 0.6em; margin-top: 18px;">with</div>
-  Category Theory
+  Catego<span class="ry-kern">ry</span> Theo<span class="ry-kern">ry</span>
 </h1>
 johnbender.github.com/presentation-faster-js
 
@@ -14,7 +14,7 @@ johnbender.github.com/presentation-faster-js
 * github.com/johnbender
 
 !SLIDE center adobe-background background-image
-## jquery mobile
+## jque<span class="ry-kern">ry</span> mobile
 
 !SLIDE center adobe-background background-image
 ## rubyists
@@ -27,7 +27,7 @@ johnbender.github.com/presentation-faster-js
 <h2 class="over-image" style="margin-top: 35%;">math: it's great</h2>
 
 !SLIDE image center stats-background background-image
-<h2 class="over-image" style="margin-top: 35%;">jquery: it's popular</h2>
+<h2 class="over-image" style="margin-top: 35%;">jque<span class="ry-kern">ry</span>: it's popular</h2>
 
 !SLIDE center speed-background background-image
 <h2 class="over-image" style="margin-top: 35%;">speed: it's sexy</h2>
@@ -61,6 +61,15 @@ $( <span class="string">"div"</span> ).map(<span class="keyword">function</span>
 </pre>
 
 !SLIDE
+<div class="file-name"><code>$( "div" ).hide();</code></div>
+<pre class="medium">
+$( <span class="string">"div"</span> ).map(<span class="keyword">function</span>( <span class="js2-function-param">i</span>, <span class="js2-function-param">elem</span> ) {
+  <b>elem.setAttribute( <span class="string">"style"</span>, <span class="string">"display: none;"</span> );</b>
+  <span class="keyword">return</span> elem;
+});
+</pre>
+
+!SLIDE
 <pre class="xsmall">
 $( <span class="string">"div"</span> )
   .hide()
@@ -79,6 +88,16 @@ $( <span class="string">"div"</span> ).map(<span class="keyword">function</span>
 </pre>
 
 !SLIDE
+<div class="file-name"><code>$( "div" ).addClass( "foo" );</code></div>
+<pre class="medium">
+$( <span class="string">"div"</span> ).map(<span class="keyword">function</span>( <span class="js2-function-param">i</span>, <span class="js2-function-param">elem</span> ) {
+  <span class="keyword">var</span> <span class="variable-name">old</span> = elem.getAttribute( <span class="string">"class"</span> );
+  <b>elem.setAttribute( <span class="string">"class"</span>, <span class="string">"foo "</span> + old );</b>
+  <span class="keyword">return</span> elem;
+});
+</pre>
+
+!SLIDE
 <pre class="xsmall">
 $( <span class="string">"div"</span> )
   .hide()
@@ -90,6 +109,14 @@ $( <span class="string">"div"</span> )
 <pre class="medium">
 $( <span class="string">"div"</span> ).map(<span class="keyword">function</span>( <span class="js2-function-param">i</span>, <span class="js2-function-param">elem</span> ) {
   elem.setAttribute( <span class="string">"style"</span>, <span class="string">"display: block;"</span> );
+  <span class="keyword">return</span> elem;
+});</pre>
+
+!SLIDE
+<div class="file-name"><code>$( "div" ).show();</code></div>
+<pre class="medium">
+$( <span class="string">"div"</span> ).map(<span class="keyword">function</span>( <span class="js2-function-param">i</span>, <span class="js2-function-param">elem</span> ) {
+  <b>elem.setAttribute( <span class="string">"style"</span>, <span class="string">"display: block;"</span> );</b>
   <span class="keyword">return</span> elem;
 });</pre>
 
@@ -124,9 +151,24 @@ $( <span class="string">"div"</span> ).map(<span class="keyword">function</span>
 });</pre>
 <div class="gigantor red-smile">☹☹</div>
 
+!SLIDE
+## perf
+
+!SLIDE image
+<div class="file-name"><code>$( "div" ).removeAttr( "foo" ).removeAttr( "bar" );</code></div>
+<img src="stats.png" class="stats"></img>
+
+!SLIDE image
+<div class="file-name"><code>$( "div" ).enhanceable().removeAttr( "bar" );</code></div>
+<img src="stats-snd.png" class="stats adjusted"></img>
+
+!SLIDE image
+<div class="file-name"><code>$( "div" ).enhanceable().removeAttr( "bar" );</code></div>
+<img src="stats-snd-highlight.png" class="stats adjusted"></img>
+
 
 !SLIDE
-# Category Theory
+# Catego<span class="ry-kern">ry</span> Theo<span class="ry-kern">ry</span>
 
 !SLIDE center background-image e-ml-background
 <h2 class="over-image"  style="margin-top: 35%;">context: it's useful</h2>
@@ -138,7 +180,7 @@ $( <span class="string">"div"</span> ).map(<span class="keyword">function</span>
 </h2>
 
 !SLIDE
-## category?
+## catego<span class="ry-kern">ry</span>?
 
 !SLIDE center image
 <img src="category-simple.png" style="width: 90%; margin-top: 25%"></img>
@@ -293,7 +335,7 @@ document.querySelector( <span class="string">"div#sample"</span><span class="js2
 </pre>
 
 !SLIDE
-## Jqry
+## Jq<span class="ry-kern">ry</span>
 
 !SLIDE center image
 <img src="ob-jqry.png" style="width: 90%; margin-top: 25%"></img>
@@ -700,8 +742,8 @@ $( <span class="string">"div"</span> ).g().f();
 </pre>
 
 !SLIDE
-# Beef?
-donde esta el bistec
+#
+dónde está la carne
 
 !SLIDE
 <pre class="xsmall">
@@ -996,10 +1038,16 @@ $( <span class="string">"div"</span> ).map( <b>cmps(f, g)</b> );
 };
 </pre>
 
+!SLIDE
+# More
 
 !SLIDE
 ## warning proxy
 github.com/johnbender/jquery-lazy-proxy
+
+!SLIDE
+## perf
+set size, chain length, project impl.
 
 !SLIDE
 ## reading
