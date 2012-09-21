@@ -229,15 +229,15 @@ span.monospace {
   font-size: 3em;
 }
 
-pre.xxsmall {
+pre.xxsmall, .xxsmall > pre {
   font-size: 6em;
 }
 
-pre.xsmall {
+pre.xsmall, .xsmall > pre{
   font-size: 5em;
 }
 
-pre.small {
+pre.small, .small > pre {
   font-size: 3.8em;
 }
 
@@ -264,7 +264,7 @@ pre.large {
   font-size: 2.4em;
 }
 
-pre.medium {
+pre.medium, .medium > pre {
   font-size: 2.4em;
 }
 
@@ -286,10 +286,15 @@ pre.medium {
   bottom: 90px;
 }
 
-b, h3 > b, .content > pre b, .highlight b, b > .function-name, b > .string, b > .type, b > .constant , b > .variable-name, b > .keyword, b > .builtin, b > .comment {
+
+pre b {
+  outline: .08em solid #D65600;
+  font-weight: normal;
+}
+
+b, h3 > b, .content > pre b, .highlight b, b > .function-name, b > .string, b > .type, b > .constant , b > .variable-name, b > .keyword, b > .builtin, b > .comment, pre.sh_sourceCode b > .sh_keyword, pre.sh_sourceCode b > .sh_symbol, pre.sh_sourceCode b > .sh_function, pre.sh_sourceCode b > .sh_comment {
   background: #D65600;
   color: white !important;
-  outline: .10em solid #D65600;
 }
 
 h3 > b {
@@ -310,13 +315,10 @@ h3 > b {
   text-shadow: rgba(120, 120, 120, 0.8) 0px 1px 1px;
 }
 
-.builtin {
-  /* font-lock-builtin-face */
-  color: #62124b;
-}
-.comment {
+pre.sh_sourceCode .sh_comment, .comment {
   /* font-lock-comment-face */
   color: #aea79f;
+  font-style: normal;
 }
 
 .comment-delimiter {
@@ -330,18 +332,17 @@ h3 > b {
   color: #860e73;
   font-weight: bold;
 }
-.keyword {
+
+pre.sh_sourceCode .sh_keyword, .keyword {
   /* font-lock-keyword-face */
   color: #f47321;
   font-weight: bold;
 }
+
 .string, pre.sh_sourceCode .sh_string {
   /* font-lock-string-face */
-  color: #dd1144;
-}
-
-pre.sh_sourceCode > code > span {
-  color: #333;
+  color: #d14;
+  font-size: 1.2em;
 }
 
 .variable-name {
@@ -351,6 +352,15 @@ pre.sh_sourceCode > code > span {
 
 b .variable-name {
   color: white;
+}
+
+pre.sh_sourceCode .sh_keyword.this, .builtin {
+  /* font-lock-builtin-face */
+  color: #62124b;
+}
+
+pre.sh_sourceCode .sh_cbracket {
+  color: black;
 }
 
 .css-property {

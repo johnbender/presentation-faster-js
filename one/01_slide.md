@@ -33,139 +33,102 @@ johnbender.github.com/presentation-faster-js
 <h2 class="over-image" style="margin-top: 35%;">speed: it's sexy</h2>
 
 !SLIDE
-## method chains
+## jQuery Methods
+
+!SLIDE xsmall
+    @@@ javascript
+    // {jQuery}
+    $( "div" );
+
+!SLIDE xsmall
+    @@@ javascript
+    // {jQuery}
+    $( "div" ).foo();
+
 
 !SLIDE
-<pre class="xsmall">
-$( <span class="string">"div"</span> )
-  .hide()
-  .addClass( <span class="string">"foo"</span> )
-  .show();
-</pre>
+    @@@ javascript
+    // @returns {jQuery}
+    jQuery.fn.foo = function() {
+      // manipulate this
+      return this;
+    };
 
 !SLIDE
-<pre class="xsmall">
-$( <span class="string">"div"</span> )
-  <b>.hide()</b>
-  .addClass( <span class="string">"foo"</span> )
-  .show();
-</pre>
+    @@@ javascript
+    // @returns {jQuery}
+    jQuery.fn.~~~foo/~~~ = function() {
+      // manipulate this
+      return this;
+    };
 
 !SLIDE
-<div class="file-name"><code>$( "div" ).hide();</code></div>
-<pre class="medium">
-$( <span class="string">"div"</span> ).map(<span class="keyword">function</span>( <span class="js2-function-param">i</span>, <span class="js2-function-param">elem</span> ) {
-  elem.setAttribute( <span class="string">"style"</span>, <span class="string">"display: none;"</span> );
-  <span class="keyword">return</span> elem;
-});
-</pre>
+    @@@ javascript
+    // @returns {jQuery}
+    ~~~jQuery.fn/~~~.foo = function() {
+      // manipulate this
+      return this;
+    };
 
 !SLIDE
-<div class="file-name"><code>$( "div" ).hide();</code></div>
-<pre class="medium">
-$( <span class="string">"div"</span> ).map(<span class="keyword">function</span>( <span class="js2-function-param">i</span>, <span class="js2-function-param">elem</span> ) {
-  <b>elem.setAttribute( <span class="string">"style"</span>, <span class="string">"display: none;"</span> );</b>
-  <span class="keyword">return</span> elem;
-});
-</pre>
+    @@@ javascript
+    // @returns {jQuery}
+    jQuery.fn.foo = function() {
+      // manipulate this
+      return ~~~this/~~~;
+    };
 
 !SLIDE
-<pre class="xsmall">
-$( <span class="string">"div"</span> )
-  .hide()
-  <b>.addClass( <span class="string">"foo"</span> )</b>
-  .show();
-</pre>
+    @@@ javascript
+    // @returns {jQuery}
+    jQuery.fn.foo = function() {
+      ~~~// manipulate this/~~~
+      return this;
+    };
 
-!SLIDE
-<div class="file-name"><code>$( "div" ).addClass( "foo" );</code></div>
-<pre class="medium">
-$( <span class="string">"div"</span> ).map(<span class="keyword">function</span>( <span class="js2-function-param">i</span>, <span class="js2-function-param">elem</span> ) {
-  <span class="keyword">var</span> <span class="variable-name">old</span> = elem.getAttribute( <span class="string">"class"</span> );
-  elem.setAttribute( <span class="string">"class"</span>, <span class="string">"foo "</span> + old );
-  <span class="keyword">return</span> elem;
-});
-</pre>
+!SLIDE medium
+    @@@ javascript
+    // @returns {jQuery}
+    jQuery.fn.foo = function() {
+      this.~~~each/~~~(function( i, elem ) {
+        // alter the HTMLElement
+      });
 
-!SLIDE
-<div class="file-name"><code>$( "div" ).addClass( "foo" );</code></div>
-<pre class="medium">
-$( <span class="string">"div"</span> ).map(<span class="keyword">function</span>( <span class="js2-function-param">i</span>, <span class="js2-function-param">elem</span> ) {
-  <span class="keyword">var</span> <span class="variable-name">old</span> = elem.getAttribute( <span class="string">"class"</span> );
-  <b>elem.setAttribute( <span class="string">"class"</span>, <span class="string">"foo "</span> + old );</b>
-  <span class="keyword">return</span> elem;
-});
-</pre>
+      return this;
+    };
 
-!SLIDE
-<pre class="xsmall">
-$( <span class="string">"div"</span> )
-  .hide()
-  .addClass( <span class="string">"foo"</span> )
-  <b>.show();</b></pre>
+!SLIDE medium
+    @@@ javascript
+    // @returns {jQuery}
+    jQuery.fn.foo = function() {
+      this.each(function( i, ~~~elem/~~~ ) {
+        // alter the HTMLElement
+      });
 
-!SLIDE
-<div class="file-name"><code>$( "div" ).show();</code></div>
-<pre class="medium">
-$( <span class="string">"div"</span> ).map(<span class="keyword">function</span>( <span class="js2-function-param">i</span>, <span class="js2-function-param">elem</span> ) {
-  elem.setAttribute( <span class="string">"style"</span>, <span class="string">"display: block;"</span> );
-  <span class="keyword">return</span> elem;
-});</pre>
+      return this;
+    };
 
-!SLIDE
-<div class="file-name"><code>$( "div" ).show();</code></div>
-<pre class="medium">
-$( <span class="string">"div"</span> ).map(<span class="keyword">function</span>( <span class="js2-function-param">i</span>, <span class="js2-function-param">elem</span> ) {
-  <b>elem.setAttribute( <span class="string">"style"</span>, <span class="string">"display: block;"</span> );</b>
-  <span class="keyword">return</span> elem;
-});</pre>
+!SLIDE medium
+    @@@ javascript
+    // @returns {jQuery}
+    jQuery.fn.foo = function() {
+      this.each(function( i, elem ) {
+        ~~~// alter the HTMLElement/~~~
+      });
 
-!SLIDE
-<pre class="xsmall">
-$( <span class="string">"div"</span> )
-  <b>.hide()</b>
-  <b>.addClass( <span class="string">"foo"</span> )</b>
-  <b>.show();</b>
-</pre>
+      return this;
+    };
 
-!SLIDE
-<div class="file-name"><code>$( "div" ).hide().addClass( "foo" ).show();</code></div>
-<pre class="medium">
-$( <span class="string">"div"</span> ).map(<span class="keyword">function</span>( <span class="js2-function-param">i</span>, <span class="js2-function-param">elem</span> ) {
-  <span class="keyword">var</span> <span class="variable-name">old</span> = elem.getAttribute( <span class="string">"class"</span> );
-  elem.setAttribute( <span class="string">"style"</span>, <span class="string">"display: none;"</span> );
-  elem.setAttribute( <span class="string">"class"</span>, <span class="string">"foo "</span> + old );
-  elem.setAttribute( <span class="string">"style"</span>, <span class="string">"display: block;"</span> );
-  <span class="keyword">return</span> elem;
-});</pre>
+!SLIDE medium
+    @@@ javascript
+    // @returns {jQuery}
+    jQuery.fn.foo = function( ~~~a, b/~~~ ) {
+      this.each(function( i, elem ) {
+        // alter the HTMLElement
+      });
 
-!SLIDE
-<div class="file-name"><code>$( "div" ).hide().addClass( "foo" ).show();</code></div>
-<pre class="medium">
-$( <span class="string">"div"</span> ).map(<span class="keyword">function</span>( <span class="js2-function-param">i</span>, <span class="js2-function-param">elem</span> ) {
-  <span class="keyword">var</span> <span class="variable-name">old</span> = elem.getAttribute( <span class="string">"class"</span> );
-  elem.setAttribute( <span class="string">"style"</span>, <span class="string">"display: none;"</span> );
-  elem.setAttribute( <span class="string">"class"</span>, <span class="string">"foo "</span> + old );
-  elem.setAttribute( <span class="string">"style"</span>, <span class="string">"display: block;"</span> );
-  <span class="keyword">return</span> elem;
-});</pre>
-<div class="gigantor red-smile">☹☹</div>
-
-!SLIDE
-## perf
-
-!SLIDE image
-<div class="file-name"><code>$( "div" ).removeAttr( "foo" ).removeAttr( "bar" );</code></div>
-<img src="stats.png" class="stats"></img>
-
-!SLIDE image
-<div class="file-name"><code>$( "div" ).enhanceable().removeAttr( "bar" );</code></div>
-<img src="stats-snd.png" class="stats adjusted"></img>
-
-!SLIDE image
-<div class="file-name"><code>$( "div" ).enhanceable().removeAttr( "bar" );</code></div>
-<img src="stats-snd-highlight.png" class="stats adjusted"></img>
-
+      return this;
+    };
 
 !SLIDE
 # Catego<span class="ry-kern">ry</span> Theo<span class="ry-kern">ry</span>
