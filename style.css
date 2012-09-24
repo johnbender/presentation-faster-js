@@ -233,8 +233,12 @@ pre.xxsmall, .xxsmall > pre {
   font-size: 6em;
 }
 
-pre.xsmall, .xsmall > pre{
+pre.xsmall {
   font-size: 5em;
+}
+
+.xsmall > pre {
+  font-size: 4em;
 }
 
 pre.small, .small > pre {
@@ -292,7 +296,7 @@ pre b {
   font-weight: normal;
 }
 
-b, h3 > b, .content > pre b, .highlight b, b > .function-name, b > .string, b > .type, b > .constant , b > .variable-name, b > .keyword, b > .builtin, b > .comment, pre.sh_sourceCode b > .sh_keyword, pre.sh_sourceCode b > .sh_symbol, pre.sh_sourceCode b > .sh_function, pre.sh_sourceCode b > .sh_comment {
+b, h3 > b, .content > pre b, .highlight b, b > .function-name, b > .string, b > .type, b > .constant , b > .variable-name, b > .keyword, b > .builtin, b > .comment, pre.sh_sourceCode b > .sh_keyword, pre.sh_sourceCode b > .sh_symbol, pre.sh_sourceCode b > .sh_function, pre.sh_sourceCode b > .sh_comment, pre.sh_sourceCode b > .sh_string {
   background: #D65600;
   color: white !important;
 }
@@ -327,22 +331,19 @@ pre.sh_sourceCode .sh_comment, .comment {
   font-style: italic;
 }
 
-.function-name {
-  /* font-lock-function-name-face */
-  color: #860e73;
-  font-weight: bold;
-}
-
 pre.sh_sourceCode .sh_keyword, .keyword {
   /* font-lock-keyword-face */
   color: #f47321;
   font-weight: bold;
 }
 
+pre.sh_sourceCode .sh_string {
+  font-size: 1.2em;
+}
+
 .string, pre.sh_sourceCode .sh_string {
   /* font-lock-string-face */
   color: #d14;
-  font-size: 1.2em;
 }
 
 .variable-name {
@@ -597,4 +598,38 @@ img.stats.adjusted {
   left: 8px;
   top: 149px;
   width: 999px;
+}
+
+sub, sup {
+  position: relative;
+  font-size: 75%;
+  line-height: 0;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em
+}
+
+h2 sub, h1 sub {
+  font-size: 60%;
+}
+
+.image img {
+  width: 100%;
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 4em;
+}
+
+table td {
+  padding-right: 1.5em;
+  padding-bottom: 0.3em;
+}
+
+table td.last {
+  padding-right: 0;
 }
