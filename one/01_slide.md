@@ -858,142 +858,198 @@ $( <span class="string">"div"</span> ).g().f();
     };
 
 
-!SLIDE
-## standard
+!SLIDE medium
+    @@@ javascript
+    // @returns {jQuery}
+    jQuery.fn.foo = function( a, b ) {
+      this.map(foo);
+      return this;
+    };
 
-!SLIDE center background-image facepalm-background
-<h2 class="over-image" style="margin-top: 35%;">timing: it's everything</h2>
+<div class="gigantor red-smile">☹☹</div>
 
-!SLIDE
-<pre>
-<span class="comment">// @returns {HTMLElement}</span>
-<span class="keyword">function</span> <span class="function-name">setFoo</span>( <span class="js2-function-param">i</span>, <span class="js2-function-param">elem</span> ) {
-  elem.setAttribute( <span class="string">"class"</span>, <span class="string">"foo"</span> );
-  <span class="keyword">return</span> elem;
-}
-
-<span class="comment">// @returns {jQuery}</span>
-<span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">setFoo</span> = <span class="keyword">function</span>() {
-  <span class="keyword">return</span> <span class="builtin">this</span>.map( <span class="builtin">this</span>, setFoo );
-};</pre>
 
 !SLIDE
-<pre>
-<span class="comment">// @returns {HTMLElement}</span>
-<span class="keyword">function</span> <span class="function-name"><b>setFoo</b></span>( <span class="js2-function-param">i</span>, <span class="js2-function-param">elem</span> ) {
-  elem.setAttribute( <span class="string">"class"</span>, <span class="string">"foo"</span> );
-  <span class="keyword">return</span> elem;
-}
+## rewrap
 
-<span class="comment">// @returns {jQuery}</span>
-<span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">setFoo</span> = <span class="keyword">function</span>() {
-  <span class="keyword">return</span> <span class="builtin">this</span>.map( <span class="builtin">this</span>, setFoo );
-};</pre>
+!SLIDE medium
+    @@@ javascript
+    // @returns {jQuery}
+    $( "a" ).click(function( event ) {
+      // invoke foo on click target
+      $( event.target ).foo();
+    });
 
-!SLIDE
-<pre>
-<span class="comment">// @returns {HTMLElement}</span>
-<span class="keyword">function</span> <span class="function-name">setFoo</span>( <span class="js2-function-param">i</span>, <span class="js2-function-param">elem</span> ) {
-  elem.setAttribute( <span class="string">"class"</span>, <span class="string">"foo"</span> );
-  <span class="keyword">return</span> elem;
-}
+!SLIDE medium
+    @@@ javascript
+    // @returns {jQuery}
+    $( "a" ).click(function( event ) {
+      // invoke foo on click target
+      $( ~~~event.target/~~~ ).foo();
+    });
 
-<span class="comment">// @returns {jQuery}</span>
-<span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">setFoo</span> = <span class="keyword">function</span>() {
-  <span class="keyword">return</span> <span class="builtin">this</span>.map( <span class="builtin">this</span>, <b>setFoo</b> );
-};</pre>
+!SLIDE medium
+    @@@ javascript
+    // @returns {jQuery}
+    $( "a" ).click(function( event ) {
+      // invoke foo on click target
+      $( event.target ).~~~foo()/~~~;
+    });
 
-!SLIDE
-<pre class="small">
-<span class="js2-external-variable">jQuery</span>.fn.setFoo.<b>composable</b>
-</pre>
-
-!SLIDE
-<pre>
-<span class="comment">// chained
-</span>$( <span class="string">"div"</span> ).setFoo().doBar();
-
-<span class="comment">//composable versions</span>
-<span class="keyword">var</span> <span class="variable-name">foo</span> = jQuery.fn.setFoo.composable,
-    <span class="variable-name">bar</span> = jQuery.fn.doBar.composable;
-
-<span class="comment">//composed with one iteration
-</span>$( <span class="string">"div"</span> ).map( cmps(foo,bar) );
-</pre>
+!SLIDE medium
+    @@@ javascript
+    // @returns {jQuery}
+    $( "a" ).click(function( event ) {
+      // invoke foo on click target
+      foo( event.target );
+    });
 
 !SLIDE
-<pre>
-<span class="comment">// chained
-</span>$( <span class="string">"div"</span> )<b>.setFoo().doBar();</b>
+## loop fusion
 
-<span class="comment">//composable versions</span>
-<span class="keyword">var</span> <span class="variable-name">foo</span> = jQuery.fn.setFoo.composable,
-    <span class="variable-name">bar</span> = jQuery.fn.doBar.composable;
+!SLIDE medium
+    @@@ javascript
+    // two loops with chaining
+    $( "div" )
+      .removeAttr( "foo" )
+      .removeAttr( "bar" );
 
-<span class="comment">//composed with one iteration
-</span>$( <span class="string">"div"</span> ).map( cmps(foo,bar) );
-</pre>
+!SLIDE medium
+    @@@ javascript
+    // two loops with chaining
+    $( "div" )
+      ~~~.removeAttr( "foo" )/~~~
+      ~~~.removeAttr( "bar" );/~~~
 
-!SLIDE
-<pre>
-<span class="comment">// chained
-</span>$( <span class="string">"div"</span> ).setFoo().doBar();
+!SLIDE medium
+    @@@ javascript
+    // single loop with html morphism
+    $( "div" ).each(function( i, elem ) {
+      jQuery.removeAttr( elem, "foo" )
+      jQuery.removeAttr( elem, "bar" );
+    });
 
-<span class="comment">//composable versions</span>
-<span class="keyword">var</span> <span class="variable-name">foo</span> = jQuery.fn.setFoo.<b>composable</b>,
-    <span class="variable-name">bar</span> = jQuery.fn.doBar.<b>composable</b>;
+!SLIDE medium
+    @@@ javascript
+    // single loop with html morphism
+    $( "div" ).each(function( i, elem ) {
+      ~~~jQuery.removeAttr( elem, "foo" )/~~~
+      ~~~jQuery.removeAttr( elem, "bar" );/~~~
+    });
 
-<span class="comment">//composed with one iteration
-</span>$( <span class="string">"div"</span> ).map( cmps(foo,bar) );
-</pre>
 
-!SLIDE
-<pre>
-<span class="comment">// chained
-</span>$( <span class="string">"div"</span> ).setFoo().doBar();
+!SLIDE center image
+<img src="composition.png" style="width: 95%; margin-top: 30%"></img>
 
-<span class="comment">//composable versions</span>
-<span class="keyword">var</span> <span class="variable-name">foo</span> = jQuery.fn.setFoo.composable,
-    <span class="variable-name">bar</span> = jQuery.fn.doBar.composable;
-
-<span class="comment">//composed with one iteration
-</span>$( <span class="string">"div"</span> ).map( <b>cmps(foo,bar)</b> );
-</pre>
-
-!SLIDE
-<pre class="medium">
-<span class="comment">// @returns {function(HTMLElement): HTMLElement}</span>
-<span class="js2-external-variable">jQuery</span>.fn.setFoo.<span class="function-name">composable</span> = <span class="keyword">function</span>( <span class="js2-function-param">a</span>, <span class="js2-function-param">b</span> ){
-  <span class="keyword">return</span> <span class="keyword">function</span>( <span class="js2-function-param">elem</span> ){
-    <span class="keyword">return</span> setFoo( a, b, elem );
-  };
-};
-</pre>
+!SLIDE image
+<div class="file-name"><code>$( "div" ).removeAttr( "foo" ).removeAttr( "bar" );</code></div>
+<img src="stats.png" class="stats" style="top: 100px"></img>
 
 !SLIDE
-<pre class="medium">
-<span class="comment">// @returns {function(HTMLElement): HTMLElement}</span>
-<span class="js2-external-variable">jQuery</span>.fn.setFoo.<span class="function-name">composable</span> = <span class="keyword">function</span>( <b><span class="js2-function-param">a</span>, <span class="js2-function-param">b</span></b> ){
-  <span class="keyword">return</span> <span class="keyword">function</span>( <span class="js2-function-param">elem</span> ){
-    <span class="keyword">return</span> setFoo( <b>a, b</b>, elem );
-  };
-};
-</pre>
+## invocation
 
 !SLIDE
-# More
+    @@@ javascript
+    // chained
+    $( "div" )
+      .removeAttr( "foo" )
+      .removeAttr( "bar" );
 
 !SLIDE
-## warning proxy
-github.com/johnbender/jquery-lazy-proxy
+    @@@ javascript
+    // string parsing
+    $( "div" )
+      .removeAttr( "foo bar" );
+
+!SLIDE image
+<div class="file-name"><code>$( "div" ).removeAttr( "foo" ).removeAttr( "bar" );</code></div>
+<img src="removeattr-unfriendly.png" class="stats"></img>
 
 !SLIDE
-## perf
-set size, chain length, project impl.
+## dogfood
+
+!SLIDE large
+    @@@ javascript
+    function replaceWith( e, val ) {
+      if ( e.nextSibling ) {
+        before( e.nextSibling, value );
+      } else {
+        append( e.parentNode, value );
+      }
+
+      remove( e );
+    }
+
+!SLIDE large
+    @@@ javascript
+    function replaceWith( e, val ) {
+      if ( e.nextSibling ) {
+        ~~~before( e.nextSibling, value )/~~~;
+      } else {
+        append( e.parentNode, value );
+      }
+
+      ~~~remove( e )/~~~;
+    }
+
+!SLIDE large
+    @@@ javascript
+    function replaceWith( e, val ) {
+      if ( e.nextSibling ) {
+        before( e.nextSibling, value );
+      } else {
+        ~~~append( e.parentNode, value )/~~~;
+      }
+
+      ~~~remove( e )/~~~;
+    }
+
+!SLIDE image
+<div class="file-name"><code>$( ".test" ).replaceWith( "&lt;div&gt;&lt;/div&gt;" );</code></div>
+<img src="replacewith-split.png" class="stats"></img>
+
+
+!SLIDE
+### git.io/q6JDhA
+
+!SLIDE
+## core
+
+!SLIDE large
+    @@@ javascript
+    // jQuery 1.8
+    var a;
+
+    a = document.createElement( "div" );
+
+    $( ".test" ).append( a );
+
+!SLIDE large
+    @@@ javascript
+    // Abstracted Core 1.8
+    var set = $( ".test" ), l, a;
+
+    l = set.length;
+    a = document.createElement( "div" );
+
+    while( l-- ) {
+      append( set[l], a );
+    }
+
+
+!SLIDE
+!SLIDE image
+<div class="file-name"><code>$( ".test" ).append(document.createElement( "div" ));</code></div>
+<img src="append-core.png" class="stats"></img>
+
+!SLIDE
+# Wield
+
+
 
 !SLIDE
 ## reading
-johnbender.us/?p=1682
+johnbender.us/tags.html#math-ref
 
 !SLIDE bullets mono-bullets>
 # Thanks

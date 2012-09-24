@@ -150,6 +150,7 @@ h1, h2, h3, h4 {
 }
 
 .content code {
+  line-height: 1.3em;
   font-size: 1.1em;
   font-family: 'monospace';
 }
@@ -255,16 +256,16 @@ pre.xxxlarge {
   font-size: 1em;
 }
 
-pre.xxlarge {
+pre.xxlarge, .xxlarge > pre {
   font-size: 1.3em;
 }
 
 /* code highlights */
-pre.xlarge {
+pre.xlarge, .xlarge > pre {
   font-size: 2.0em;
 }
 
-pre.large {
+pre.large, .large > pre {
   font-size: 2.4em;
 }
 
@@ -616,7 +617,7 @@ h2 sub, h1 sub {
 }
 
 .image img {
-  width: 100%;
+  width: 95%;
 }
 
 table {
@@ -632,4 +633,8 @@ table td {
 
 table td.last {
   padding-right: 0;
+}
+
+.monoheading > h3 {
+  font-family: monospace;
 }
