@@ -868,6 +868,16 @@ $( <span class="string">"div"</span> ).g().f();
 
 <div class="gigantor red-smile">☹☹</div>
 
+!SLIDE medium
+    @@@ javascript
+    // @returns {jQuery}
+    jQuery.fn.foo = function( a, b ) {
+      this.map(foo);
+      return this;
+    };
+
+<div class="gigantor purple-smile">☺☺</div>
+
 
 !SLIDE
 ## rewrap

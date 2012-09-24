@@ -437,13 +437,13 @@ pre.sh_sourceCode .sh_cbracket {
 }
 
 /* which is now purple :P */
-.gigantor.green-smile {
+.gigantor.purple-smile {
   z-index: 2;
   text-align: left;
   width: 150%;
-  left: -80px;
+  left: -85px;
   color: purple;
-  font-size: 42em;
+  font-size: 43em;
   padding-top: 0%;
   letter-spacing: -0.3em;
 }
