@@ -817,6 +817,17 @@ $( <span class="string">"div"</span> ).g().f();
       return this;
     };
 
+!SLIDE medium
+    @@@ javascript
+    // @returns {jQuery}
+    jQuery.fn.foo = function( a, b ) {
+      this.map(function( i, elem ) {
+        ~~~// alter the HTMLElement/~~~
+      });
+
+      return this;
+    };
+
 !SLIDE
     @@@ javascript
     // @returns {HTMLElement}
@@ -1020,9 +1031,6 @@ $( <span class="string">"div"</span> ).g().f();
 
 
 !SLIDE
-### git.io/q6JDhA
-
-!SLIDE
 ## core
 
 !SLIDE large
@@ -1055,11 +1063,13 @@ $( <span class="string">"div"</span> ).g().f();
 !SLIDE
 # Wield
 
-
+!SLIDE
+### bit.ly/RS4SWh
+essays
 
 !SLIDE
-## reading
-johnbender.us/tags.html#math-ref
+### git.io/q6JDhA
+perf links
 
 !SLIDE bullets mono-bullets>
 # Thanks
