@@ -98,7 +98,7 @@ johnbender.us/presentation-faster-js
     @@@ javascript
     // @returns {jQuery}
     jQuery.fn.foo = function() {
-      this.map(function( i, ~~~elem/~~~ ) {
+      this.map(function( i, ~~~elem/~~~) {
         // alter the HTMLElement
       });
 
@@ -760,6 +760,74 @@ $( <span class="string">"div"</span> ).g().f();
 !SLIDE center image
 <img src="jquery_h-morphisms.png" style="margin-top: 30%"></img>
 
+!SLIDE medium
+    @@@ javascript
+    // @returns {jQuery}
+    jQuery.fn.foo = function( a, b ) {
+      this.map(function( i, elem ) {
+        // alter the HTMLElement
+      });
+
+      return this;
+    };
+
+!SLIDE medium
+    @@@ javascript
+    // @returns {jQuery}
+    ~~~jQuery.fn.foo/~~~ = function( a, b ) {
+      this.map(function( i, elem ) {
+        // alter the HTMLElement
+      });
+
+      return this;
+    };
+
+!SLIDE medium
+    @@@ javascript
+    // @returns {jQuery}
+    jQuery.fn.foo = function( ~~~a, b/~~~ ) {
+      this.map(function( i, elem ) {
+        // alter the HTMLElement
+      });
+
+      return this;
+    };
+
+!SLIDE medium
+    @@@ javascript
+    // @returns {jQuery}
+    jQuery.fn.foo = function( a, b ) {
+      this.~~~map/~~~(function( i, elem ) {
+        // alter the HTMLElement
+      });
+
+      return this;
+    };
+
+!SLIDE medium
+    @@@ javascript
+    // @returns {jQuery}
+    jQuery.fn.foo = function( a, b ) {
+      this.map(function( i, elem ) {
+        ~~~// alter the HTMLElement/~~~
+      });
+
+      return this;
+    };
+
+!SLIDE medium
+    @@@ javascript
+    // @returns {jQuery}
+    jQuery.fn.foo = function( a, b ) {
+      this.map(function( i, elem ) {
+        // alter the HTMLElement
+      });
+
+      return this;
+    };
+<div class="gigantor red-smile">☹</div>
+
+
 !SLIDE
 <table>
   <tr>
@@ -793,85 +861,6 @@ $( <span class="string">"div"</span> ).g().f();
 		<td class="last">wrapAll</td>
 	</tr>
 </table>
-
-!SLIDE medium
-    @@@ javascript
-    // @returns {jQuery}
-    jQuery.fn.foo = function( a, b ) {
-      this.map(function( i, elem ) {
-        // alter the HTMLElement
-      });
-
-      return this;
-    };
-
-!SLIDE medium
-    @@@ javascript
-    // @returns {jQuery}
-    ~~~jQuery.fn.foo/~~~ = function( a, b ) {
-      this.map(function( i, elem ) {
-        // alter the HTMLElement
-      });
-
-      return this;
-    };
-
-!SLIDE medium
-    @@@ javascript
-    // @returns {jQuery}
-    jQuery.fn.foo = function( a, b ) {
-      this.~~~map/~~~(function( i, elem ) {
-        // alter the HTMLElement
-      });
-
-      return this;
-    };
-
-!SLIDE medium
-    @@@ javascript
-    // @returns {jQuery}
-    jQuery.fn.foo = function( a, b ) {
-      this.map(function( i, ~~~elem/~~~ ) {
-        // alter the HTMLElement
-      });
-
-      return this;
-    };
-
-!SLIDE medium
-    @@@ javascript
-    // @returns {jQuery}
-    jQuery.fn.foo = function( a, b ) {
-      this.map(function( i, elem ) {
-        ~~~// alter the HTMLElement/~~~
-      });
-
-      return this;
-    };
-
-!SLIDE medium
-    @@@ javascript
-    // @returns {jQuery}
-    jQuery.fn.foo = function( ~~~a, b/~~~ ) {
-      this.map(function( i, elem ) {
-        // alter the HTMLElement
-      });
-
-      return this;
-    };
-
-
-!SLIDE medium
-    @@@ javascript
-    // @returns {jQuery}
-    jQuery.fn.foo = function( a, b ) {
-      this.map(function( i, elem ) {
-        // alter the HTMLElement
-      });
-
-      return this;
-    };
-<div class="gigantor red-smile">☹</div>
 
 !SLIDE
     @@@ javascript
