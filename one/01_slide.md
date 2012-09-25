@@ -16,9 +16,6 @@ johnbender.github.com/presentation-faster-js
 !SLIDE center adobe-background background-image
 ## jque<span class="ry-kern">ry</span> mobile
 
-!SLIDE center adobe-background background-image
-## rubyists
-#### kstewart.me/2012/04/21/ruby-at-adobe.html
 
 !SLIDE image center
 # Motivation
@@ -141,7 +138,7 @@ johnbender.github.com/presentation-faster-js
 
       return this;
     };
-<div class="gigantor red-smile">☹☹</div>
+<div class="gigantor red-smile">☹</div>
 
 !SLIDE
 
@@ -758,7 +755,10 @@ $( <span class="string">"div"</span> ).g().f();
 # Jq<span class="ry-kern">ry</span><sub>h</sub>
 
 !SLIDE image
-![jquery_h](jquery_h.png)
+![jquery sub h](jquery_h.png)
+
+!SLIDE image
+![jquery sub h morphisms](jquery_h-morphisms.png)
 
 !SLIDE
 <table>
@@ -781,6 +781,16 @@ $( <span class="string">"div"</span> ).g().f();
 		<td>prependTo</td>
 		<td>prop</td>
 		<td class="last">remove</td>
+	</tr>
+  <tr>
+		<td>text</td>
+		<td>unwrap</td>
+		<td class="last">val</td>
+	</tr>
+  <tr>
+		<td>width</td>
+		<td>wrap</td>
+		<td class="last">wrapAll</td>
 	</tr>
 </table>
 
@@ -810,7 +820,18 @@ $( <span class="string">"div"</span> ).g().f();
     @@@ javascript
     // @returns {jQuery}
     jQuery.fn.foo = function( a, b ) {
-      this.map(~~~function/~~~( i, elem ) {
+      this.~~~map/~~~(function( i, elem ) {
+        // alter the HTMLElement
+      });
+
+      return this;
+    };
+
+!SLIDE medium
+    @@@ javascript
+    // @returns {jQuery}
+    jQuery.fn.foo = function( a, b ) {
+      this.map(function( i, ~~~elem/~~~ ) {
         // alter the HTMLElement
       });
 
@@ -827,6 +848,30 @@ $( <span class="string">"div"</span> ).g().f();
 
       return this;
     };
+
+!SLIDE medium
+    @@@ javascript
+    // @returns {jQuery}
+    jQuery.fn.foo = function( ~~~a, b/~~~ ) {
+      this.map(function( i, elem ) {
+        // alter the HTMLElement
+      });
+
+      return this;
+    };
+
+
+!SLIDE medium
+    @@@ javascript
+    // @returns {jQuery}
+    jQuery.fn.foo = function( a, b ) {
+      this.map(function( i, elem ) {
+        // alter the HTMLElement
+      });
+
+      return this;
+    };
+<div class="gigantor red-smile">☹</div>
 
 !SLIDE
     @@@ javascript
@@ -855,6 +900,14 @@ $( <span class="string">"div"</span> ).g().f();
 !SLIDE medium
     @@@ javascript
     // @returns {jQuery}
+    ~~~jQuery.fn.foo/~~~ = function( a, b ) {
+      this.map(foo);
+      return this;
+    };
+
+!SLIDE medium
+    @@@ javascript
+    // @returns {jQuery}
     jQuery.fn.foo = function( ~~~a, b/~~~ ) {
       this.map(foo);
       return this;
@@ -868,6 +921,13 @@ $( <span class="string">"div"</span> ).g().f();
       return this;
     };
 
+!SLIDE medium
+    @@@ javascript
+    // @returns {jQuery}
+    jQuery.fn.foo = function( a, b ) {
+      this.map(~~~foo/~~~);
+      return this;
+    };
 
 !SLIDE medium
     @@@ javascript
@@ -877,18 +937,11 @@ $( <span class="string">"div"</span> ).g().f();
       return this;
     };
 
-<div class="gigantor red-smile">☹☹</div>
+<div class="gigantor purple-smile">☺</div>
 
-!SLIDE medium
-    @@@ javascript
-    // @returns {jQuery}
-    jQuery.fn.foo = function( a, b ) {
-      this.map(foo);
-      return this;
-    };
 
-<div class="gigantor purple-smile">☺☺</div>
-
+!SLIDE
+# Upshot
 
 !SLIDE
 ## rewrap
@@ -928,6 +981,9 @@ $( <span class="string">"div"</span> ).g().f();
 !SLIDE
 ## loop fusion
 
+!SLIDE center image
+<img src="composition.png" style="width: 95%; margin-top: 30%"></img>
+
 !SLIDE medium
     @@@ javascript
     // two loops with chaining
@@ -946,21 +1002,18 @@ $( <span class="string">"div"</span> ).g().f();
     @@@ javascript
     // single loop with html morphism
     $( "div" ).each(function( i, elem ) {
-      jQuery.removeAttr( elem, "foo" )
-      jQuery.removeAttr( elem, "bar" );
+      removeAttr( elem, "foo" )
+      removeAttr( elem, "bar" );
     });
 
 !SLIDE medium
     @@@ javascript
     // single loop with html morphism
     $( "div" ).each(function( i, elem ) {
-      ~~~jQuery.removeAttr( elem, "foo" )/~~~
-      ~~~jQuery.removeAttr( elem, "bar" );/~~~
+      ~~~removeAttr( elem, "foo" )/~~~
+      ~~~removeAttr( elem, "bar" );/~~~
     });
 
-
-!SLIDE center image
-<img src="composition.png" style="width: 95%; margin-top: 30%"></img>
 
 !SLIDE image
 <div class="file-name"><code>$( "div" ).removeAttr( "foo" ).removeAttr( "bar" );</code></div>
@@ -1057,19 +1110,195 @@ $( <span class="string">"div"</span> ).g().f();
 
 !SLIDE
 !SLIDE image
-<div class="file-name"><code>$( ".test" ).append(document.createElement( "div" ));</code></div>
+<div class="file-name"><code>jQuery.fn.append vs while(){ jQuery.append } </code></div>
 <img src="append-core.png" class="stats"></img>
 
 !SLIDE
 # Wield
 
+!SLIDE image center full
+![jquery fork](wield-github.png)
+
+!SLIDE image center full
+![jquery fork](wield-github-private.png)
+
+!SLIDE
+### focused
+
+!SLIDE large
+    @@@ javascript
+    function empty( e ) {
+      // remove all child nodes
+      while ( e.firstChild ) {
+        e.removeChild( e.firstChild );
+      }
+
+      return e;
+    };
+
+!SLIDE large
+    @@@ javascript
+    function empty( e ) {
+      // remove all child nodes
+      while ( e.firstChild ) {
+        e.removeChild( e.firstChild );
+      }
+
+      ~~~return e;/~~~
+    };
+
+!SLIDE
+### functional
+
+!SLIDE medium
+    @@@ javascript
+    // standalone
+    Wield.Methods.empty( elem );
+
+    // or as an instantiated object
+    var wield = Wield.Dom( elem );
+
+    // chains supported
+    wield.empty().empty();
+
+    // or as a selected object
+    Wield.Dom.find( "#sample" ).empty();
+
+!SLIDE medium
+    @@@ javascript
+    // standalone
+    ~~~Wield.Methods.empty( elem );/~~~
+
+    // or as an instantiated object
+    var wield = Wield.Dom( elem );
+
+    // chains supported
+    wield.empty().empty();
+
+    // or as a selected object
+    Wield.Dom.find( "#sample" ).empty();
+
+!SLIDE medium
+    @@@ javascript
+    // standalone
+    Wield.Methods.empty( elem );
+
+    // or as an instantiated object
+    var wield = ~~~Wield.Dom( elem );/~~~
+
+    // chains supported
+    wield.empty().empty();
+
+    // or as a selected object
+    Wield.Dom.find( "#sample" ).empty();
+
+!SLIDE medium
+    @@@ javascript
+    // standalone
+    Wield.Methods.empty( elem );
+
+    // or as an instantiated object
+    var wield = Wield.Dom( elem );
+
+    // chains supported
+    ~~~wield.empty().empty();/~~~
+
+    // or as a selected object
+    Wield.Dom.find( "#sample" ).empty();
+
+!SLIDE medium
+    @@@ javascript
+    // standalone
+    Wield.Methods.empty( elem );
+
+    // or as an instantiated object
+    var wield = Wield.Dom( elem );
+
+    // chains supported
+    wield.empty().empty();
+
+    // or as a selected object
+    ~~~Wield.Dom.find( "#sample" ).empty();/~~~
+
+!SLIDE
+### modular
+
+!SLIDE bash
+    @@@ bash
+    ~~~*wield/*~~~ ~~~@master/@~~~ ⎇  ls src/methods/
+    after.js   before.js  prepend.js   replacewith.js
+    all.js     empty.js   prop.fix.js  text.js
+    append.js  html.js    prop.js      unwrap.js
+    attr.js    misc.js    remove.js    wrap.js
+
+!SLIDE bash
+    @@@ bash
+    ~~~*wield/*~~~ ~~~@master/@~~~ ⎇  ls src/methods/
+    after.js   before.js  prepend.js   replacewith.js
+    ~~~all.js/~~~     empty.js   prop.fix.js  text.js
+    append.js  html.js    prop.js      unwrap.js
+    attr.js    ~~~misc.js/~~~    remove.js    wrap.js
+
+!SLIDE
+### tested
+
+!SLIDE image center full
+![jquery fork](jquery-fork.png)
+
+!SLIDE image center full
+![jquery fork](jquery-fork-branch.png)
+
+!SLIDE
+### small
+
+!SLIDE bash
+    @@@ bash
+    ~~~*wield/*~~~ ~~~@master/@~~~ ⎇  grunt build
+    Running "compile" task
+
+    ...
+
+    Running "min:dist" (min) task
+    File "compiled/wield.min.js" created.
+    Uncompressed size: 7144 bytes.
+    Compressed size: ~~~1028 bytes gzipped/~~~.
+
+    Running "min:jquery" (min) task
+    File "compiled/wield.jquery.min.js" created.
+    Uncompressed size: 5152 bytes.
+    Compressed size: 665 bytes gzipped.
+
+    Done, without errors.
+
+!SLIDE bash
+    @@@ bash
+    ~~~*wield/*~~~ ~~~@master/@~~~ ⎇  grunt build
+    Running "compile" task
+
+    ...
+
+    Running "min:dist" (min) task
+    File "compiled/wield.min.js" created.
+    Uncompressed size: 7144 bytes.
+    Compressed size: 1028 bytes gzipped.
+
+    Running "min:jquery" (min) task
+    File "compiled/wield.jquery.min.js" created.
+    Uncompressed size: 5152 bytes.
+    Compressed size: ~~~665 bytes gzipped/~~~.
+
+    Done, without errors.
+
+!SLIDE
+# More
+
 !SLIDE
 ### bit.ly/RS4SWh
-essays
+further reading
 
 !SLIDE
 ### git.io/q6JDhA
-perf links
+perf links/paper
 
 !SLIDE bullets mono-bullets>
 # Thanks

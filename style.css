@@ -114,8 +114,6 @@ h3 img {
 
 .content h4 {
   font-size: 3em;
-  background-color: purple;
-  color: white;
   font-weight: normal;
   padding: 0.25em 0;
   text-align: center;
@@ -258,6 +256,10 @@ pre.xxxlarge {
 
 pre.xxlarge, .xxlarge > pre {
   font-size: 1.3em;
+}
+
+.bash > pre {
+  font-size: 1.7em;
 }
 
 /* code highlights */
@@ -439,8 +441,7 @@ pre.sh_sourceCode .sh_cbracket {
 /* which is now purple :P */
 .gigantor.purple-smile {
   z-index: 2;
-  text-align: left;
-  width: 150%;
+  text-align: center;
   left: -85px;
   color: purple;
   font-size: 43em;
@@ -468,6 +469,11 @@ pre.sh_sourceCode .sh_cbracket {
   background-position: center center;
   background-size: 1030px 780px; /* showoff slide centering :( */
   background-repeat: no-repeat;
+}
+
+.background-image h2, .background-image h4 {
+  background-color: rgba( 128, 0, 128, 0.9);
+  box-shadow: 0 1px 9px #111;
 }
 
 .adobe-background {
@@ -503,6 +509,11 @@ pre.sh_sourceCode .sh_cbracket {
 
 h2.over-image, h4.over-image {
   background-color: rgba( 128, 0, 128, 0.9);
+  box-shadow: none;
+}
+
+.background-image h3 {
+  background-color: rgba( 255, 255, 255, 0.8);
   box-shadow: 0 1px 9px #111;
 }
 
@@ -627,7 +638,7 @@ table {
 }
 
 table td {
-  padding-right: 1.5em;
+  padding-right: 1em;
   padding-bottom: 0.3em;
 }
 
@@ -637,4 +648,20 @@ table td.last {
 
 .monoheading > h3 {
   font-family: monospace;
+}
+
+.bash .folder {
+  color: #81a2be;
+}
+
+.bash .branch {
+  color: #cc6666;
+}
+
+.image.center.full p {
+  margin: 0;
+}
+
+.image.center.full img {
+  width: 100%;
 }
