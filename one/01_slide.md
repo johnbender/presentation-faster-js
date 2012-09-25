@@ -5,7 +5,7 @@
   <div style="font-size: 0.6em; margin-top: 18px;">with</div>
   Catego<span class="ry-kern">ry</span> Theo<span class="ry-kern">ry</span>
 </h1>
-johnbender.github.com/presentation-faster-js
+johnbender.us/presentation-faster-js
 
 !SLIDE bullets mono-bullets
 ## me
@@ -757,8 +757,8 @@ $( <span class="string">"div"</span> ).g().f();
 !SLIDE image
 ![jquery sub h](jquery_h.png)
 
-!SLIDE image
-![jquery sub h morphisms](jquery_h-morphisms.png)
+!SLIDE center image
+<img src="jquery_h-morphisms.png" style="margin-top: 30%"></img>
 
 !SLIDE
 <table>
@@ -982,7 +982,7 @@ $( <span class="string">"div"</span> ).g().f();
 ## loop fusion
 
 !SLIDE center image
-<img src="composition.png" style="width: 95%; margin-top: 30%"></img>
+<img src="composition.png" style="margin-top: 30%"></img>
 
 !SLIDE medium
     @@@ javascript
@@ -1089,11 +1089,12 @@ $( <span class="string">"div"</span> ).g().f();
 !SLIDE large
     @@@ javascript
     // jQuery 1.8
-    var a;
+    var a, set = $( ".test" );
 
     a = document.createElement( "div" );
 
-    $( ".test" ).append( a );
+    // timed
+    set.append( a );
 
 !SLIDE large
     @@@ javascript
@@ -1103,6 +1104,7 @@ $( <span class="string">"div"</span> ).g().f();
     l = set.length;
     a = document.createElement( "div" );
 
+    // timed
     while( l-- ) {
       append( set[l], a );
     }
