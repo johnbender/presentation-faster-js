@@ -8,7 +8,6 @@
 johnbender.us/presentation-faster-js
 
 !SLIDE bullets mono-bullets
-## me
 * @johnbender
 * johnbender.us
 * github.com/johnbender
@@ -42,6 +41,10 @@ johnbender.us/presentation-faster-js
     // {jQuery}
     $( "div" ).foo();
 
+!SLIDE xsmall
+    @@@ javascript
+    // {jQuery}
+    $( "div" ).foo().bar();
 
 !SLIDE
     @@@ javascript
@@ -86,31 +89,9 @@ johnbender.us/presentation-faster-js
 !SLIDE medium
     @@@ javascript
     // @returns {jQuery}
-    jQuery.fn.foo = function() {
-      this.~~~map/~~~(function( i, elem ) {
-        // alter the HTMLElement
-      });
-
-      return this;
-    };
-
-!SLIDE medium
-    @@@ javascript
-    // @returns {jQuery}
-    jQuery.fn.foo = function() {
-      this.map(function( i, ~~~elem/~~~) {
-        // alter the HTMLElement
-      });
-
-      return this;
-    };
-
-!SLIDE medium
-    @@@ javascript
-    // @returns {jQuery}
-    jQuery.fn.foo = function() {
+    jQuery.fn.foo = function( a, b ) {
       this.map(function( i, elem ) {
-        ~~~// alter the HTMLElement/~~~
+        // alter the HTMLElement
       });
 
       return this;
@@ -127,6 +108,27 @@ johnbender.us/presentation-faster-js
       return this;
     };
 
+!SLIDE medium
+    @@@ javascript
+    // @returns {jQuery}
+    jQuery.fn.foo = function( a, b ) {
+      this.~~~map/~~~(function( i, elem ) {
+        // alter the HTMLElement
+      });
+
+      return this;
+    };
+
+!SLIDE medium
+    @@@ javascript
+    // @returns {jQuery}
+    jQuery.fn.foo = function( a, b ) {
+      this.map(function( i, elem ) {
+        ~~~// alter the HTMLElement/~~~
+      });
+
+      return this;
+    };
 
 !SLIDE medium
     @@@ javascript
@@ -154,7 +156,7 @@ johnbender.us/presentation-faster-js
 </h2>
 
 !SLIDE
-## catego<span class="ry-kern">ry</span>?
+## catego<span class="ry-kern">ry</span>
 
 !SLIDE center image
 <img src="category-simple.png" style="width: 90%; margin-top: 25%"></img>
@@ -223,11 +225,10 @@ johnbender.us/presentation-faster-js
 !SLIDE center image
 <img src="ob-simple.png" style="width: 90%; margin-top: 25%"></img>
 
-!SLIDE
-<pre>
-<span class="comment">// {HTMLDivElement}</span>
-document.querySelector( <span class="string">"div#sample"</span><span class="js2-magic-paren"> );</span>
-</pre>
+!SLIDE medium
+    @@@javascript
+    // {HTMLElement}
+    document.querySelector( "#sample" );
 
 !SLIDE center image
 <img src="hom-simple.png" style="width: 90%; margin-top: 25%"></img>
@@ -464,6 +465,20 @@ $( <span class="string">"#sample"</span> )<b>.hide();</b>
 };
 </pre>
 
+!SLIDE
+<pre>
+<span class="comment">// @returns {jQuery}
+</span>jQuery.fn.<span class="function-name">gf</span> = jQuery.cmps(
+  jQuery.fn.f,
+  jQuery.fn.g
+);
+
+<span class="comment">// {jQuery}
+</span>$( <span class="string">"#sample"</span> ).g().f();
+
+<span class="comment">// {jQuery}
+</span>$( <span class="string">"#sample"</span> ).gf();
+</pre>
 
 !SLIDE
 <pre>
@@ -646,6 +661,48 @@ $( <b>document.querySelector(<span class="string">"div"</span><span class="js2-m
 };
 </pre>
 
+!SLIDE
+<pre>
+<span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">setFoo</span> = <span class="keyword">function</span>() {
+  <span class="builtin">this</span>.map(<span class="keyword">function</span> <span class="function-name">setFoo</span>( <b><span class="js2-function-param">i</span>, <span class="js2-function-param">elem</span></b> ) {
+    elem.setAttribute( <span class="string">"class"</span>, <span class="string">"foo"</span> );
+    <span class="keyword">return</span> elem;
+  });
+};
+</pre>
+
+!SLIDE
+<pre>
+<span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">setFoo</span> = <span class="keyword">function</span>() {
+  <span class="builtin">this</span>.map(<span class="keyword">function</span> <span class="function-name">setFoo</span>( <span class="js2-function-param">i</span>, <span class="js2-function-param">elem</span> ) {
+    elem.setAttribute( <span class="string">"class"</span>, <span class="string">"foo"</span> );
+    <span class="keyword">return</span> elem;
+  });
+};
+</pre>
+
+<div class="gigantor red-smile">☹</div>
+
+!SLIDE
+<pre>
+<span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">setFoo</span> = <span class="keyword">function</span>() {
+  $.map(<span class="builtin">this</span>, <span class="keyword">function</span> <span class="function-name">setFoo</span>( <b><span class="js2-function-param">elem</span></b> ) {
+    elem.setAttribute( <span class="string">"class"</span>, <span class="string">"foo"</span> );
+    <span class="keyword">return</span> elem;
+  });
+};
+</pre>
+
+!SLIDE
+<pre>
+<span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">setFoo</span> = <span class="keyword">function</span>() {
+  <b>$.map</b>(<span class="builtin">this</span>, <span class="keyword">function</span> <span class="function-name">setFoo</span>( <span class="js2-function-param">elem</span> ) {
+    elem.setAttribute( <span class="string">"class"</span>, <span class="string">"foo"</span> );
+    <span class="keyword">return</span> elem;
+  });
+};
+</pre>
+
 !SLIDE center image
 <img src="ob-hom-fns.png" style="width: 95%; margin-top: 24%"></img>
 
@@ -737,28 +794,18 @@ $( <span class="string">"div"</span> )<b>.g().f();</b>
 </span>$( <span class="string">"div"</span> )<b>.map( cmps(f, g) );</b>
 </pre>
 
-!SLIDE
-<pre>
-jQuery.fn.<span class="function-name">gf</span> = jQuery.cmps(
-  jQuery.fn.f,
-  jQuery.fn.g
-);
 
-<span class="comment">// use the map in f,g then compose</span>
-$( <span class="string">"div"</span> ).g().f();
+!SLIDE center image
+<img src="functor.png" style="width: 95%; margin-top: 30%"></img>
 
-<span class="comment">// compose first then use map
-</span>$( <span class="string">"div"</span> )<b>.map( cmps(f, g) );</b>
-</pre>
-
-!SLIDE
-# Jq<span class="ry-kern">ry</span><sub>h</sub>
-
-!SLIDE image
-![jquery sub h](jquery_h.png)
+!SLIDE center image
+<img src="hom-jqry.png" style="width: 90%; margin-top: 25%"></img>
 
 !SLIDE center image
 <img src="jquery_h-morphisms.png" style="margin-top: 30%"></img>
+
+!SLIDE center image
+<img src="silly-rel.png" style="margin-top: 30%"></img>
 
 !SLIDE medium
     @@@ javascript
@@ -775,17 +822,6 @@ $( <span class="string">"div"</span> ).g().f();
     @@@ javascript
     // @returns {jQuery}
     ~~~jQuery.fn.foo/~~~ = function( a, b ) {
-      this.map(function( i, elem ) {
-        // alter the HTMLElement
-      });
-
-      return this;
-    };
-
-!SLIDE medium
-    @@@ javascript
-    // @returns {jQuery}
-    jQuery.fn.foo = function( ~~~a, b/~~~ ) {
       this.map(function( i, elem ) {
         // alter the HTMLElement
       });
@@ -814,19 +850,6 @@ $( <span class="string">"div"</span> ).g().f();
 
       return this;
     };
-
-!SLIDE medium
-    @@@ javascript
-    // @returns {jQuery}
-    jQuery.fn.foo = function( a, b ) {
-      this.map(function( i, elem ) {
-        // alter the HTMLElement
-      });
-
-      return this;
-    };
-<div class="gigantor red-smile">☹</div>
-
 
 !SLIDE
 <table>
@@ -861,6 +884,44 @@ $( <span class="string">"div"</span> ).g().f();
 		<td class="last">wrapAll</td>
 	</tr>
 </table>
+
+!SLIDE medium
+    @@@ javascript
+    // @returns {jQuery}
+    jQuery.fn.foo = function( a, b ) {
+      this.map(function( i, elem ) {
+        // alter the HTMLElement
+      });
+
+      return this;
+    };
+
+!SLIDE medium
+    @@@ javascript
+    // @returns {jQuery}
+    jQuery.fn.foo = function( ~~~a, b/~~~ ) {
+      this.~~~map/~~~(function( i, elem ) {
+        ~~~// alter the HTMLElement/~~~
+      });
+
+      return this;
+    };
+
+!SLIDE medium
+    @@@ javascript
+    // @returns {jQuery}
+    jQuery.fn.foo = function( a, b ) {
+      this.map(function( i, elem ) {
+        // alter the HTMLElement
+      });
+
+      return this;
+    };
+
+<div class="gigantor red-smile">☹</div>
+
+!SLIDE center image
+<img src="jquery_h-morphisms.png" style="margin-top: 30%"></img>
 
 !SLIDE
     @@@ javascript
@@ -928,7 +989,6 @@ $( <span class="string">"div"</span> ).g().f();
 
 <div class="gigantor purple-smile">☺</div>
 
-
 !SLIDE
 # Upshot
 
@@ -991,7 +1051,7 @@ $( <span class="string">"div"</span> ).g().f();
     @@@ javascript
     // single loop with html morphism
     $( "div" ).each(function( i, elem ) {
-      removeAttr( elem, "foo" )
+      removeAttr( elem, "foo" );
       removeAttr( elem, "bar" );
     });
 
@@ -999,7 +1059,7 @@ $( <span class="string">"div"</span> ).g().f();
     @@@ javascript
     // single loop with html morphism
     $( "div" ).each(function( i, elem ) {
-      ~~~removeAttr( elem, "foo" )/~~~
+      ~~~removeAttr( elem, "foo" );/~~~
       ~~~removeAttr( elem, "bar" );/~~~
     });
 
@@ -1078,12 +1138,18 @@ $( <span class="string">"div"</span> ).g().f();
 !SLIDE large
     @@@ javascript
     // jQuery 1.8
-    var a, set = $( ".test" );
+    var a = document.createElement( "div" );
 
-    a = document.createElement( "div" );
+    // Timed operation
+    $( ".test" ).append( a );
 
-    // timed
-    set.append( a );
+!SLIDE large
+    @@@ javascript
+    // jQuery 1.8
+    var a = document.createElement( "div" );
+
+    // Timed operation
+    ~~~$( ".test" ).append( a );/~~~
 
 !SLIDE large
     @@@ javascript
@@ -1093,10 +1159,30 @@ $( <span class="string">"div"</span> ).g().f();
     l = set.length;
     a = document.createElement( "div" );
 
-    // timed
-    while( l-- ) {
-      append( set[l], a );
-    }
+    // Timed operation
+    while( l-- ) { append( set[l], a ); }
+
+!SLIDE large
+    @@@ javascript
+    // Abstracted Core 1.8
+    var set = $( ".test" ), l, a;
+
+    l = set.length;
+    a = document.createElement( "div" );
+
+    // Timed operation
+    while( l-- ) { ~~~append( set[l], a );/~~~ }
+
+!SLIDE large
+    @@@ javascript
+    // Abstracted Core 1.8
+    var set = $( ".test" ), l, a;
+
+    l = set.length;
+    a = document.createElement( "div" );
+
+    // Timed operation
+    while( l-- ) { append( ~~~set[l]/~~~, a ); }
 
 
 !SLIDE
@@ -1114,7 +1200,7 @@ $( <span class="string">"div"</span> ).g().f();
 ![jquery fork](wield-github-private.png)
 
 !SLIDE
-### focused
+## focused
 
 !SLIDE large
     @@@ javascript
@@ -1139,7 +1225,7 @@ $( <span class="string">"div"</span> ).g().f();
     };
 
 !SLIDE
-### functional
+## functional
 
 !SLIDE medium
     @@@ javascript
@@ -1212,7 +1298,7 @@ $( <span class="string">"div"</span> ).g().f();
     ~~~Wield.Dom.find( "#sample" ).empty();/~~~
 
 !SLIDE
-### modular
+## modular
 
 !SLIDE bash
     @@@ bash
@@ -1231,7 +1317,7 @@ $( <span class="string">"div"</span> ).g().f();
     attr.js    ~~~misc.js/~~~    remove.js    wrap.js
 
 !SLIDE
-### tested
+## tested
 
 !SLIDE image center full
 ![jquery fork](jquery-fork.png)
@@ -1240,7 +1326,8 @@ $( <span class="string">"div"</span> ).g().f();
 ![jquery fork](jquery-fork-branch.png)
 
 !SLIDE
-### small
+## small
+
 
 !SLIDE bash
     @@@ bash
@@ -1251,13 +1338,13 @@ $( <span class="string">"div"</span> ).g().f();
 
     Running "min:dist" (min) task
     File "compiled/wield.min.js" created.
-    Uncompressed size: 7144 bytes.
-    Compressed size: ~~~1028 bytes gzipped/~~~.
+    Uncompressed size: 13623 bytes.
+    Compressed size: ~~~1507 bytes/~~~ gzipped.
 
     Running "min:jquery" (min) task
     File "compiled/wield.jquery.min.js" created.
-    Uncompressed size: 5152 bytes.
-    Compressed size: 665 bytes gzipped.
+    Uncompressed size: 9307 bytes.
+    Compressed size: 1240 bytes gzipped.
 
     Done, without errors.
 
@@ -1270,13 +1357,13 @@ $( <span class="string">"div"</span> ).g().f();
 
     Running "min:dist" (min) task
     File "compiled/wield.min.js" created.
-    Uncompressed size: 7144 bytes.
-    Compressed size: 1028 bytes gzipped.
+    Uncompressed size: 13623 bytes.
+    Compressed size: 1507 bytes gzipped.
 
     Running "min:jquery" (min) task
     File "compiled/wield.jquery.min.js" created.
-    Uncompressed size: 5152 bytes.
-    Compressed size: ~~~665 bytes gzipped/~~~.
+    Uncompressed size: 9307 bytes.
+    Compressed size: ~~~1240 bytes/~~~ gzipped.
 
     Done, without errors.
 
@@ -1284,15 +1371,15 @@ $( <span class="string">"div"</span> ).g().f();
 # More
 
 !SLIDE
-### bit.ly/RS4SWh
+### johnbender.us
 further reading
 
 !SLIDE
 ### git.io/q6JDhA
 perf links/paper
 
-!SLIDE bullets mono-bullets>
-# Thanks
+!SLIDE bullets mono-bullets
+### thanks
 * @johnbender
 * johnbender.us
 * github.com/johnbender

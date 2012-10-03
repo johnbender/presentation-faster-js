@@ -320,6 +320,7 @@ h3 > b {
 .content > ul > li {
   margin-left: 0;
   text-shadow: rgba(120, 120, 120, 0.8) 0px 1px 1px;
+  font-size: 1.2em;
 }
 
 pre.sh_sourceCode .sh_comment, .comment {
