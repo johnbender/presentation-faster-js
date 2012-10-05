@@ -1,4 +1,4 @@
-!SLIDE link
+!SLIDE link center background-image fast-background
 <h1 style="font-size: 7em">
   Faster jQuery
   <!-- oh noes div inside h1 :P -->
@@ -16,7 +16,7 @@ johnbender.us/presentation-faster-js
 ## jque<span class="ry-kern">ry</span> mobile
 
 
-!SLIDE image center
+!SLIDE center background-image motivated-background
 # Motivation
 
 !SLIDE center awesome-background background-image
@@ -28,7 +28,7 @@ johnbender.us/presentation-faster-js
 !SLIDE center speed-background background-image
 <h2 class="over-image" style="margin-top: 35%;">speed: it's sexy</h2>
 
-!SLIDE
+!SLIDE center background-image jquery-background
 ## jquery methods
 
 !SLIDE xsmall
@@ -142,8 +142,7 @@ johnbender.us/presentation-faster-js
     };
 <div class="gigantor red-smile">☹</div>
 
-!SLIDE
-
+!SLIDE center background-image math-background
 # Catego<span class="ry-kern">ry</span> Theo<span class="ry-kern">ry</span>
 
 !SLIDE center background-image e-ml-background
@@ -155,7 +154,13 @@ johnbender.us/presentation-faster-js
   <span style="float: right; margin-right: 40px;">Mac Lane</span>
 </h2>
 
-!SLIDE
+!SLIDE center background-image e-ml-silly-background
+<h2 class="over-image names" style="margin-top: 35%;">
+  <span style="float: left; margin-left: 40px;">Eilenberg</span>
+  <span style="float: right; margin-right: 40px;">Mac Lane</span>
+</h2>
+
+!SLIDE center background-image category-background
 ## catego<span class="ry-kern">ry</span>
 
 !SLIDE center image
@@ -219,7 +224,7 @@ johnbender.us/presentation-faster-js
 }
 </pre>
 
-!SLIDE
+!SLIDE center background-image html-background
 ## Html
 
 !SLIDE center image
@@ -309,7 +314,7 @@ johnbender.us/presentation-faster-js
 }
 </pre>
 
-!SLIDE
+!SLIDE center background-image jquery-background
 ## Jq<span class="ry-kern">ry</span>
 
 !SLIDE center image
@@ -541,7 +546,7 @@ jQuery.fn.<span class="function-name">gf</span> = jQuery.cmps(
 </span>$( <span class="string">"#sample"</span> )<b>.gf()</b>;
 </pre>
 
-!SLIDE center background-image
+!SLIDE center background-image horror-background
 ## Functor
 
 !SLIDE center image
@@ -794,6 +799,8 @@ $( <span class="string">"div"</span> )<b>.g().f();</b>
 </span>$( <span class="string">"div"</span> )<b>.map( cmps(f, g) );</b>
 </pre>
 
+!SLIDE center background-image hug-background
+## Html ♥ Jqry
 
 !SLIDE center image
 <img src="functor.png" style="width: 95%; margin-top: 30%"></img>
@@ -921,7 +928,7 @@ $( <span class="string">"div"</span> )<b>.g().f();</b>
 <div class="gigantor red-smile">☹</div>
 
 !SLIDE center image
-<img src="jquery_h-morphisms.png" style="margin-top: 30%"></img>
+<img src="functor.png" style="width: 95%; margin-top: 30%"></img>
 
 !SLIDE
     @@@ javascript
@@ -947,13 +954,6 @@ $( <span class="string">"div"</span> )<b>.g().f();</b>
       return this;
     };
 
-!SLIDE medium
-    @@@ javascript
-    // @returns {jQuery}
-    ~~~jQuery.fn.foo/~~~ = function( a, b ) {
-      this.map(foo);
-      return this;
-    };
 
 !SLIDE medium
     @@@ javascript
@@ -992,7 +992,7 @@ $( <span class="string">"div"</span> )<b>.g().f();</b>
 !SLIDE
 # Upshot
 
-!SLIDE
+!SLIDE center background-image wrap-background
 ## rewrap
 
 !SLIDE medium
@@ -1027,8 +1027,8 @@ $( <span class="string">"div"</span> )<b>.g().f();</b>
       foo( event.target );
     });
 
-!SLIDE
-## loop fusion
+!SLIDE center background-image fusion-background
+## fusion
 
 !SLIDE center image
 <img src="composition.png" style="margin-top: 30%"></img>
@@ -1068,7 +1068,7 @@ $( <span class="string">"div"</span> )<b>.g().f();</b>
 <div class="file-name"><code>$( "div" ).removeAttr( "foo" ).removeAttr( "bar" );</code></div>
 <img src="stats.png" class="stats" style="top: 100px"></img>
 
-!SLIDE
+!SLIDE center background-image invocation-background
 ## invocation
 
 !SLIDE
@@ -1088,7 +1088,7 @@ $( <span class="string">"div"</span> )<b>.g().f();</b>
 <div class="file-name"><code>$( "div" ).removeAttr( "foo" ).removeAttr( "bar" );</code></div>
 <img src="removeattr-unfriendly.png" class="stats"></img>
 
-!SLIDE
+!SLIDE center background-image dogfood-background
 ## dogfood
 
 !SLIDE large
@@ -1132,7 +1132,7 @@ $( <span class="string">"div"</span> )<b>.g().f();</b>
 <img src="replacewith-split.png" class="stats"></img>
 
 
-!SLIDE
+!SLIDE center background-image core-background
 ## core
 
 !SLIDE large
@@ -1199,7 +1199,7 @@ $( <span class="string">"div"</span> )<b>.g().f();</b>
 !SLIDE image center full
 ![jquery fork](wield-github-private.png)
 
-!SLIDE
+!SLIDE center background-image focus-background
 ## focused
 
 !SLIDE large
@@ -1224,7 +1224,7 @@ $( <span class="string">"div"</span> )<b>.g().f();</b>
       ~~~return e;/~~~
     };
 
-!SLIDE
+!SLIDE center background-image functional-background
 ## functional
 
 !SLIDE medium
@@ -1297,7 +1297,7 @@ $( <span class="string">"div"</span> )<b>.g().f();</b>
     // or as a selected object
     ~~~Wield.Dom.find( "#sample" ).empty();/~~~
 
-!SLIDE
+!SLIDE center background-image modular-background
 ## modular
 
 !SLIDE bash
@@ -1316,7 +1316,7 @@ $( <span class="string">"div"</span> )<b>.g().f();</b>
     append.js  html.js    prop.js      unwrap.js
     attr.js    ~~~misc.js/~~~    remove.js    wrap.js
 
-!SLIDE
+!SLIDE center background-image tested-background
 ## tested
 
 !SLIDE image center full
@@ -1325,7 +1325,7 @@ $( <span class="string">"div"</span> )<b>.g().f();</b>
 !SLIDE image center full
 ![jquery fork](jquery-fork-branch.png)
 
-!SLIDE
+!SLIDE center background-image small-background
 ## small
 
 

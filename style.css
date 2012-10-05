@@ -474,11 +474,81 @@ pre.sh_sourceCode .sh_cbracket {
 
 .background-image h2, .background-image h4 {
   background-color: rgba( 128, 0, 128, 0.9);
-  box-shadow: 0 1px 9px #111;
+  box-shadow: 0 1px 12px #111;
+}
+
+.hug-background {
+  background-image: url(one/hug.jpg);
+  background-size: 1024px auto;
+}
+
+.wrap-background {
+  background-image: url(one/wrap.jpg);
+  background-size: auto 768px;
+}
+
+.fusion-background {
+  background-image: url(one/fusion.jpg);
+  background-size: 1024px auto;
+}
+
+.invocation-background {
+  background-image: url(one/invocation.jpg);
+  background-size: 1024px auto;
+}
+
+.dogfood-background {
+  background-image: url(one/dogfood.jpg);
+  background-size: auto 768px;
+}
+
+.core-background {
+  background-image: url(one/core.jpg);
+  background-size: auto 768px;
+}
+
+.focus-background {
+  background-image: url(one/focus.jpg);
+  background-size: auto 768px;
+}
+
+.functional-background {
+  background-image: url(one/functional.jpg);
+  background-size: auto 768px;
+}
+
+.modular-background {
+  background-image: url(one/modular.jpg);
+  background-size: auto 768px;
+}
+
+.tested-background {
+  background-image: url(one/tested.jpg);
+  background-size: 1024px auto;
+}
+
+.small-background {
+  background-image: url(one/small.jpg);
+  background-size: 1024px auto;
+}
+
+.category-background {
+  background-image: url(one/category-bg.png);
+  background-size: 1024px auto;
 }
 
 .adobe-background {
   background-image: url(one/adobe.jpg);
+}
+
+.html-background {
+  background-image: url(one/html-logo.png);
+  background-size: 1100px auto; /* showoff slide centering :( */
+}
+
+.jquery-background {
+  background-image: url(one/jquery-logo.png);
+  background-size: 1050px auto; /* showoff slide centering :( */
 }
 
 .awesome-background {
@@ -499,6 +569,16 @@ pre.sh_sourceCode .sh_cbracket {
   background-size: auto;
 }
 
+.e-ml-silly-background {
+  background-image: url(one/eilenberg-maclane-silly.png);
+  background-size: auto;
+}
+
+.horror-background {
+  background-image: url(one/horror.jpg);
+  background-size: 1024px auto;
+}
+
 .mind-gap-background {
   background-image: url(one/mind-the-gap.png);
 }
@@ -508,9 +588,23 @@ pre.sh_sourceCode .sh_cbracket {
   background-size: 600px auto; /* showoff slide centering :( */
 }
 
+.fast-background {
+  background-image: url(one/fast.jpg);
+  background-size: auto 768px;
+}
+
+.math-background {
+  background-image: url(one/math.jpg);
+  background-size: auto 768px;
+}
+
+.motivated-background {
+  background-image: url(one/motivated.jpg);
+  background-size: auto 768px;
+}
+
 h2.over-image, h4.over-image {
   background-color: rgba( 128, 0, 128, 0.9);
-  box-shadow: none;
 }
 
 .background-image h3 {
@@ -518,13 +612,24 @@ h2.over-image, h4.over-image {
   box-shadow: 0 1px 9px #111;
 }
 
+.background-image h1 {
+  background-color: rgba( 214, 86, 0, 0.94);
+  box-shadow: 0 1px 9px #111;
+}
+
+.background-image p {
+  background-color: rgba( 256, 256, 256, 0.7);
+  padding: 20px;
+}
+
 h2.over-image {
  font-size: 6em;
 }
 
 h2.names {
+ width: auto;
  min-height: 96px;
- background: transparent;
+ background: rgba( 255, 255, 255, 0.3);
  box-shadow: none;
  text-shadow: rgba(10, 10, 10, 0.9) 1px 2px 10px;
 }
