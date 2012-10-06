@@ -17,7 +17,7 @@ johnbender.us/presentation-faster-js
 
 
 !SLIDE center background-image motivated-background
-# Motivation
+# motivation
 
 !SLIDE center awesome-background background-image
 <h2 class="over-image" style="margin-top: 35%;">math: it's great</h2>
@@ -29,7 +29,7 @@ johnbender.us/presentation-faster-js
 <h2 class="over-image" style="margin-top: 35%;">speed: it's sexy</h2>
 
 !SLIDE center background-image jquery-background
-## jquery methods
+## jquery
 
 !SLIDE xsmall
     @@@ javascript
@@ -143,7 +143,7 @@ johnbender.us/presentation-faster-js
 <div class="gigantor red-smile">☹</div>
 
 !SLIDE center background-image math-background
-# Catego<span class="ry-kern">ry</span> Theo<span class="ry-kern">ry</span>
+# catego<span class="ry-kern">ry</span> Theo<span class="ry-kern">ry</span>
 
 !SLIDE center background-image e-ml-background
 <h2 class="over-image"  style="margin-top: 35%;">context: it's useful</h2>
@@ -547,7 +547,7 @@ jQuery.fn.<span class="function-name">gf</span> = jQuery.cmps(
 </pre>
 
 !SLIDE center background-image horror-background
-## Functor
+## functor
 
 !SLIDE center image
 <img src="functor.png" style="width: 95%; margin-top: 30%"></img>
@@ -660,48 +660,6 @@ $( <b>document.querySelector(<span class="string">"div"</span><span class="js2-m
 <pre>
 <span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">setFoo</span> = <span class="keyword">function</span>() {
   <b><span class="builtin">this</span>.map</b>(<span class="keyword">function</span> <span class="function-name">setFoo</span>( <span class="js2-function-param">i</span>, <span class="js2-function-param">elem</span> ) {
-    elem.setAttribute( <span class="string">"class"</span>, <span class="string">"foo"</span> );
-    <span class="keyword">return</span> elem;
-  });
-};
-</pre>
-
-!SLIDE
-<pre>
-<span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">setFoo</span> = <span class="keyword">function</span>() {
-  <span class="builtin">this</span>.map(<span class="keyword">function</span> <span class="function-name">setFoo</span>( <b><span class="js2-function-param">i</span>, <span class="js2-function-param">elem</span></b> ) {
-    elem.setAttribute( <span class="string">"class"</span>, <span class="string">"foo"</span> );
-    <span class="keyword">return</span> elem;
-  });
-};
-</pre>
-
-!SLIDE
-<pre>
-<span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">setFoo</span> = <span class="keyword">function</span>() {
-  <span class="builtin">this</span>.map(<span class="keyword">function</span> <span class="function-name">setFoo</span>( <span class="js2-function-param">i</span>, <span class="js2-function-param">elem</span> ) {
-    elem.setAttribute( <span class="string">"class"</span>, <span class="string">"foo"</span> );
-    <span class="keyword">return</span> elem;
-  });
-};
-</pre>
-
-<div class="gigantor red-smile">☹</div>
-
-!SLIDE
-<pre>
-<span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">setFoo</span> = <span class="keyword">function</span>() {
-  $.map(<span class="builtin">this</span>, <span class="keyword">function</span> <span class="function-name">setFoo</span>( <b><span class="js2-function-param">elem</span></b> ) {
-    elem.setAttribute( <span class="string">"class"</span>, <span class="string">"foo"</span> );
-    <span class="keyword">return</span> elem;
-  });
-};
-</pre>
-
-!SLIDE
-<pre>
-<span class="js2-external-variable">jQuery</span>.fn.<span class="function-name">setFoo</span> = <span class="keyword">function</span>() {
-  <b>$.map</b>(<span class="builtin">this</span>, <span class="keyword">function</span> <span class="function-name">setFoo</span>( <span class="js2-function-param">elem</span> ) {
     elem.setAttribute( <span class="string">"class"</span>, <span class="string">"foo"</span> );
     <span class="keyword">return</span> elem;
   });
@@ -989,8 +947,8 @@ $( <span class="string">"div"</span> )<b>.g().f();</b>
 
 <div class="gigantor purple-smile">☺</div>
 
-!SLIDE
-# Upshot
+!SLIDE center background-image fist-bump-background
+<h1 style="margin-top: 40%; opacity: 0.88">upshot</h1>
 
 !SLIDE center background-image wrap-background
 ## rewrap
@@ -1190,8 +1148,8 @@ $( <span class="string">"div"</span> )<b>.g().f();</b>
 <div class="file-name"><code>jQuery.fn.append vs while(){ jQuery.append } </code></div>
 <img src="append-core.png" class="stats"></img>
 
-!SLIDE
-# Wield
+!SLIDE center background-image dual-wield-background
+<h1 style="margin-top: 30%; opacity: 0.9">wield</wield>
 
 !SLIDE image center full
 ![jquery fork](wield-github.png)
@@ -1367,16 +1325,17 @@ $( <span class="string">"div"</span> )<b>.g().f();</b>
 
     Done, without errors.
 
-!SLIDE
-# More
+!SLIDE center background-image more-background
+# more
 
-!SLIDE
+!SLIDE center background-image wield-background
+### git.io/l9KYEg
+
+!SLIDE center background-image blog-background
 ### johnbender.us
-further reading
 
-!SLIDE
+!SLIDE center background-image app-cat-github-background
 ### git.io/q6JDhA
-perf links/paper
 
 !SLIDE bullets mono-bullets
 ### thanks

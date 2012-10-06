@@ -91,7 +91,7 @@ iframe.phone {
 .content h1 {
   background: #D65600;
   color: white;
-  padding: 0.5em 15px;
+  padding: 0.4em 15px;
 }
 
 .content h2 {
@@ -546,6 +546,27 @@ pre.sh_sourceCode .sh_cbracket {
   background-size: 1100px auto; /* showoff slide centering :( */
 }
 
+.blog-background {
+  background-image: url(one/blog.png);
+  background-size: auto 768px; /* showoff slide centering :( */
+}
+
+.fist-bump-background {
+  background-image: url(one/fist-bump.jpg);
+  background-size: auto 768px; /* showoff slide centering :( */
+}
+
+.dual-wield-background {
+  background-image: url(one/dual-wield.jpg);
+  background-size: auto 768px; /* showoff slide centering :( */
+}
+
+.more-background {
+  background-image: url(one/more.jpg);
+  background-size: auto 768px; /* showoff slide centering :( */
+}
+
+
 .jquery-background {
   background-image: url(one/jquery-logo.png);
   background-size: 1050px auto; /* showoff slide centering :( */
@@ -598,6 +619,16 @@ pre.sh_sourceCode .sh_cbracket {
   background-size: auto 768px;
 }
 
+.wield-background {
+  background-image: url(one/wield-github.png);
+  background-size: auto 768px;
+}
+
+.app-cat-github-background {
+  background-image: url(one/app-cat-github.png);
+  background-size: 1024px auto ;
+}
+
 .motivated-background {
   background-image: url(one/motivated.jpg);
   background-size: auto 768px;
@@ -609,7 +640,7 @@ h2.over-image, h4.over-image {
 
 .background-image h3 {
   background-color: rgba( 255, 255, 255, 0.8);
-  box-shadow: 0 1px 9px #111;
+  box-shadow: 0 0 3px #111;
 }
 
 .background-image h1 {
