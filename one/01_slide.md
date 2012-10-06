@@ -1,5 +1,14 @@
 !SLIDE link center background-image fast-background
-<h1 style="font-size: 7em">
+<h1 style="font-size: 6.8em">
+  Faster JavaScript
+  <!-- oh noes div inside h1 :P -->
+  <div style="font-size: 0.6em; margin-top: 18px;">with</div>
+  Catego<span class="ry-kern">ry</span> Theo<span class="ry-kern">ry</span>
+</h1>
+johnbender.us/presentation-faster-js
+
+!SLIDE link center background-image fast-background
+<h1 style="font-size: 6.8em">
   Faster jQuery
   <!-- oh noes div inside h1 :P -->
   <div style="font-size: 0.6em; margin-top: 18px;">with</div>
@@ -7,10 +16,19 @@
 </h1>
 johnbender.us/presentation-faster-js
 
-!SLIDE bullets mono-bullets
-* @johnbender
-* johnbender.us
-* github.com/johnbender
+!SLIDE link center background-image fast-background
+<h1 style="font-size: 6.8em">
+  Faster/Better/Leaner jQuery
+  <!-- oh noes div inside h1 :P -->
+  <div style="font-size: 0.6em; margin-top: 18px;">with</div>
+  Catego<span class="ry-kern">ry</span> Theo<span class="ry-kern">ry</span>
+</h1>
+johnbender.us/presentation-faster-js
+
+!SLIDE center bullets mono-bullets finish-background background-image
+* <span>@johnbender</span>
+* <span>johnbender.us</span>
+* <span>github.com/johnbender</span>
 
 !SLIDE center adobe-background background-image
 ## jque<span class="ry-kern">ry</span> mobile
@@ -1261,18 +1279,18 @@ $( <span class="string">"div"</span> )<b>.g().f();</b>
 !SLIDE bash
     @@@ bash
     ~~~*wield/*~~~ ~~~@master/@~~~ ⎇  ls src/methods/
-    after.js   before.js  prepend.js   replacewith.js
-    all.js     empty.js   prop.fix.js  text.js
-    append.js  html.js    prop.js      unwrap.js
-    attr.js    misc.js    remove.js    wrap.js
+    addclass.js  attr.js    prepend.js     removeclass.js  text.js
+    after.js     before.js  prop.fix.js    remove.js       trim.js
+    all.js       empty.js   prop.js        removeprop.js   unwrap.js
+    append.js    html.js    removeattr.js  replacewith.js  wrap.js
 
 !SLIDE bash
     @@@ bash
     ~~~*wield/*~~~ ~~~@master/@~~~ ⎇  ls src/methods/
-    after.js   before.js  prepend.js   replacewith.js
-    ~~~all.js/~~~     empty.js   prop.fix.js  text.js
-    append.js  html.js    prop.js      unwrap.js
-    attr.js    ~~~misc.js/~~~    remove.js    wrap.js
+    addclass.js  attr.js    prepend.js     removeclass.js  text.js
+    after.js     before.js  prop.fix.js    remove.js       trim.js
+    ~~~all/~~~.js       empty.js   prop.js        removeprop.js   unwrap.js
+    append.js    html.js    removeattr.js  replacewith.js  wrap.js
 
 !SLIDE center background-image tested-background
 ## tested
@@ -1285,7 +1303,6 @@ $( <span class="string">"div"</span> )<b>.g().f();</b>
 
 !SLIDE center background-image small-background
 ## small
-
 
 !SLIDE bash
     @@@ bash
@@ -1329,16 +1346,15 @@ $( <span class="string">"div"</span> )<b>.g().f();</b>
 # more
 
 !SLIDE center background-image wield-background
-### git.io/l9KYEg
+## git.io/l9KYEg
 
 !SLIDE center background-image blog-background
-### johnbender.us
+## johnbender.us
 
 !SLIDE center background-image app-cat-github-background
-### git.io/q6JDhA
+## git.io/q6JDhA
 
-!SLIDE bullets mono-bullets
-### thanks
-* @johnbender
-* johnbender.us
-* github.com/johnbender
+!SLIDE center bullets mono-bullets finish-background background-image
+* <span>@johnbender</span>
+* <span>johnbender.us</span>
+* <span>github.com/johnbender</span>

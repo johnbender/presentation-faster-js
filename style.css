@@ -634,13 +634,27 @@ pre.sh_sourceCode .sh_cbracket {
   background-size: auto 768px;
 }
 
+.finish-background li {
+  margin: 10px;
+}
+
+.finish-background.bullets li span {
+  background-color: rgba( 256, 256, 256, 0.9);
+  padding: 20px;
+}
+
+.finish-background {
+  background-image: url(one/finish.jpg);
+  background-size: auto 1024px;
+}
+
 h2.over-image, h4.over-image {
   background-color: rgba( 128, 0, 128, 0.9);
 }
 
 .background-image h3 {
   background-color: rgba( 255, 255, 255, 0.8);
-  box-shadow: 0 0 3px #111;
+  box-shadow: 0 0 3px #999;
 }
 
 .background-image h1 {
