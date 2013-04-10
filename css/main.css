@@ -1,0 +1,266 @@
+@font-face {
+    font-family: 'BebasNeueRegular';
+    src: url('../font/BebasNeue-webfont.eot');
+    src: url('../font/BebasNeue-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/BebasNeue-webfont.woff') format('woff'),
+         url('../font/BebasNeue-webfont.ttf') format('truetype'),
+         url('../font/BebasNeue-webfont.svg#BebasNeueRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'UbuntuMono';
+    src: url('../font/UbuntuMono-R.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+  font-family: sans-serif;
+  color: #222;
+}
+
+a {
+  text-decoration: none;
+  color: purple;
+}
+
+ul {
+  list-style: none;
+  font-size: 2em;
+  line-height: 1.3em;
+  margin: 0 0 0 3px;
+  padding: 0;
+  text-transform: lowercase;
+}
+
+section {
+  text-align: left;
+}
+
+section.img {
+  text-align: center;
+}
+
+section.img img {
+  max-height: 500px;
+  max-width: 700px;
+}
+
+section img.text {
+  max-height: 2.5em;
+  margin-left: 0.5em;
+}
+
+img.float {
+  border-radius: 50%;
+}
+
+code {
+  padding: 0p;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'BebasNeueRegular', Arial, sans-serif;
+  font-weight: normal;
+  margin: 0;
+  line-height: 1em;
+}
+
+h1 {
+  font-size: 10em;
+}
+
+h3, h2, .personal h1  {
+  font-size: 9em;
+}
+
+
+.highlight, h2 .first-letter, h2:first-letter, h3 > .hilight, #thanks {
+  color: #ff0055;
+}
+
+.lowlight, h3 .first-letter, h3:first-letter {
+  color: #538192;
+}
+
+h4 {
+  font-size: 4em;
+}
+
+#label {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 50%;
+}
+
+#label h4  {
+  font-size: 3em;
+  color: #777;
+}
+
+.label-content {
+  display: none;1
+}
+
+.reveal .slides {
+  width: 100%;
+}
+
+pre {
+  margin-bottom: 2em;
+}
+
+.reveal code {
+  font-size: 2.5em;
+}
+
+pre.large > code {
+  font-size: 2em;
+}
+
+/* per slide styles */
+
+.intro > h1, .outro > h1 {
+  font-size: 8em;
+  margin-bottom: -20px;
+}
+
+.intro > h4, .outro > h4 {
+  font-size: 4.2em;
+  font-family: 'BebasNeueRegular', Arial, sans-serif;
+  margin-top: 0px;
+}
+
+span.envy {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(22%,#000000), color-stop(90%,#739200)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #000000 22%,#739200 90%); /* Chrome10+,Safari5.1+ */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.background{
+  background-size: 100%;
+}
+
+.awesome {
+  background-image: url(../images/awesome.png);
+}
+
+.e-ml {
+  background-image: url(../images/e-ml.png);
+}
+
+
+.background h1, .background h2, .background h3, .background h4 {
+  padding: 0.1em 0.25em 0 0.25em;
+  background-color: rgba( 256, 256, 256, 0.8);
+  display: inline;
+}
+
+.background #label h4 {
+  color: #333;
+}
+
+
+/* code highlights */
+
+.comment {
+  color: #aea79f;
+}
+
+.this {
+  font-weight: bold;
+  color: purple;
+}
+
+.string {
+  color: #d14;
+}
+
+/* dimmed for hilights */
+
+.hilighted .hemisu-comment, .hilighted pre .comment, .hilighted pre .xml .doctype, .hilighted pre .html .doctype,
+.hilighted .hemisu-accent1, .hilighted pre .number, .hilighted pre .ruby .keyword,
+.hilighted .hemisu-accent2, .hilighted pre .string, .hilighted pre .regexp, .hilighted pre .xml .value, .hilighted pre .html .value,
+.hilighted .hemisu-accent3, .hilighted pre .keyword, .hilighted pre .title, .hilighted pre .constant, .hilighted pre .xml .tag, .hilighted pre .html .tag, .hilighted pre .css .rules .attribute,
+.hilighted .hemisu-accent4,
+.hilighted pre .xml .tag .title,
+.hilighted pre .html .tag .title,
+.hilighted pre .identifier,
+.hilighted pre .literal,
+.hilighted pre .type,
+.hilighted pre code {
+  color: #DDD;
+}
+
+.hilighted pre span.blur {
+  -webkit-filter: blur(1px);
+}
+
+/* Hemisu Dark */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - http://noahfrederick.com/vim-color-scheme-hemisu/ */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+.hemisu-comment, pre .comment, pre .xml .doctype, pre .html .doctype,
+.highlight .hemisu-comment, pre .hilight .comment, pre .xml .hilight .doctype, pre .html .higlight .doctype {
+  color: #777;
+}
+
+.hemisu-accent1, pre .number, pre .ruby .keyword, pre .type,
+.hemisu-accent1, pre .hilight .number, pre .ruby .hilight .keyword, pre .hilight .type, pre .hilight .literal {
+  color: #538192;
+}
+
+.hemisu-accent2, pre .string, pre .regexp, pre .xml .value, pre .html .value,
+.hemisu-accent2, pre .hilight .string, pre .hilight .regexp, pre .xml .hilight .value, pre .html .hilight .value {
+  color: #739200;
+}
+
+.hemisu-accent3, pre .keyword, pre .title, pre .constant, pre .xml .tag, pre .html .tag, pre .css .rules .attribute, pre .identifier, pre .literal,
+.hemisu-accent3, pre .hilight .keyword, pre .hilight .title, pre .hilight .constant, pre .xml .hilight .tag, pre .html .hilight .tag, pre .css .rules .hilight .attribute, pre .hilight .identifier, pre .hilight .literal {
+  color: #ff0055;
+}
+
+.hemisu-accent4, .hilight .hemisu-accent4 {
+  color: #503d15;
+}
+
+.reveal pre code {
+  font-family: "UbuntuMono", Menlo, Monaco, Consolas, monospace;
+  font-size: 3em;
+  line-height: 1.5;
+  padding: 10px;
+}
+
+pre > code .hilight {
+  color: #111111;
+}
+
+pre .xml .tag .title, pre .xml .tag .hilight .title {
+  color: #111111;
+}
+
+pre .html .tag .title, pre .html .tag .hilight .title {
+  color: #111111;
+}
+
+.gigantor {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  text-align: center;
+  font-size: 13em;
+  text-shadow: 0px 0px 3px black;
+  height: 100%;
+  padding-top: 25%;
+  background-color: rgba(255,255,255,0.8);
+}
+
+.gigantor.red-smile {
+  color: #ff0055;
+  font-size: 30em;
+  padding-top: 17%;
+}

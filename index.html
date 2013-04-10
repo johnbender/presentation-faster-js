@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Faster DOM Manip</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body class="reveal center">
+    <div id="label"></div>
+
+    <div class="slides">
+      <section class="intro" data-markdown>
+        <script type="text/template">
+          # Faster DOM Manip
+
+          #### with <span class="highlight">Category Theory</span> and <span class="lowlight">Wield</span>
+
+          * johnbender.us/presentation-faster-js
+        </script>
+      </section>
+
+      <section class="personal" data-markdown>
+        <script type="text/template">
+          # John Bender ☚
+
+          * github.com/johnbender · johnbender.us · @johnbender
+        </script>
+      </section>
+
+      <section class="img">
+        <img src="images/adobe.jpg" class="float" style="max-height: 650px; height: 650px;" alt="adobe" />
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ## Why + What
+        </script>
+      </section>
+
+      <section data-state="awesome background" data-markdown>
+        <script type="text/template">
+          ### <span class="first-letter">M</span>ath/Formalism
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Popularity
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Performance
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Modularity
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ## jQuery Methods
+        </script>
+      </section>
+
+      <section>
+        <pre>
+          <code class="javascript">
+// @returns {jQuery}
+jQuery.fn.foo = function() {
+  // manipulate this
+  return this;
+};
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+// @returns {jQuery}
+~~jQuery.fn/~~.foo = function() {
+  // manipulate this
+  return this;
+};
+         </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+// @returns {jQuery}
+jQuery.fn.foo = function() {
+  // manipulate this
+  return ~~~this/~~~;
+};
+         </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+// @returns {jQuery}
+jQuery.fn.foo = function() {
+  ~~~// manipulate this/~~~
+  return this;
+};
+         </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+// @returns {jQuery}
+jQuery.fn.foo = function( a, b ) {
+  this.map(function( i, elem ) {
+    // alter the HTMLElement
+  });
+  return this;
+};
+         </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+// @returns {jQuery}
+jQuery.fn.foo = function( ~~~a, b/~~~ ) {
+  this.map(function( i, elem ) {
+    // alter the HTMLElement
+  });
+  return this;
+};
+         </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+// @returns {jQuery}
+jQuery.fn.foo = function( a, b ) {
+  ~~~this.map/~~~(function( i, elem ) {
+    // alter the HTMLElement
+  });
+  return this;
+};
+         </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+// @returns {jQuery}
+jQuery.fn.foo = function( a, b ) {
+  this.map(function( i, elem ) {
+    ~~~// alter the HTMLElement/~~~
+  });
+  return this;
+};
+         </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+// @returns {jQuery}
+jQuery.fn.foo = function( a, b ) {
+  this.map(function( i, elem ) {
+    // alter the HTMLElement
+  });
+  return this;
+};
+         </code>
+        </pre>
+        <div class="gigantor red-smile">☹</dpiv>
+      </section>
+
+
+      <section data-markdown>
+        <script type="text/template">
+          ## Category Theory
+        </script>
+      </section>
+
+      <section data-state="e-ml background" data-markdown>
+        <script type="text/template">
+          ### History/Context
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Category
+        </script>
+      </section>
+
+      <section>
+        <img src="images/category-simple.png"/>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Semantics
+          * similar ... but different
+        </script>
+      </section>
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+(-> true) () -> false # app
+(-> true)() -> false  # inv, app
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+(-> true~~)☀(/~~) -> false # app
+(-> true~~)(/~~) -> false  # inv, app
+          </code>
+        </pre>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ## Differentiation
+          * How do we determine semantic differences?
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Evaluation
+          * Compare evaluation results?
+        </script>
+      </section>
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+(-> true)()           # => true
+(-> launch(); true)() # => (!! CRAP)
+          </code>
+        </pre>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Abstract Form
+          * Compare CoffeeScript's parser output?
+        </script>
+      </section>
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+(-> true) () -> false # app
+(-> true)() -> false  # inv, app
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre>
+          <code class="haskell">
+-- (-> true)☠() -> false
+Apply
+  (Lambda (BooleanExpr True))
+  (Lambda (BooleanExpr False))
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre>
+          <code class="haskell">
+-- (-> true)() -> false
+Apply
+  (Invoke (Lambda (BooleanExpr True)))
+  (Lambda (BooleanExpr False))
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <h1 style="text-align: center">Fin?!</h1>
+      </section>
+
+      <section>
+        <h1 style="text-align: center">Nope</h1>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Lossy Format
+          * AST discards syntax information
+        </script>
+      </section>
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+(-> true)    # lambda form 1
+(() -> true) # lambda form 2
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre>
+          <code class="haskell">
+-- (-> true)
+-- (() -> true)
+Lambda (BooleanExpr True)
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+(-> true)    # lambda form 1
+(() -> true) # lambda form 2
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+(-> true)    # lambda form 1
+(~~()/~~ -> true) # lambda form 2
+          </code>
+        </pre>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### How Different?
+          * AST doesn't tell us _how_ things are different
+        </script>
+      </section>
+
+      <section>
+        <pre>
+          <code class="haskell">
+-- (-> true)☠() -> false
+Apply
+  (Lambda (BooleanExpr True))
+  (Lambda (BooleanExpr False))
+          </code>
+        </pre>
+      </section>
+
+
+      <section>
+        <pre>
+          <code class="haskell">
+~~-- (-> true)☠() -> false/~~
+Apply
+  ~~(Lambda (BooleanExpr True))/~~
+  (Lambda (BooleanExpr False))
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre>
+          <code class="haskell">
+~~-- (-> true)() -> false/~~
+Apply
+  ~~(Invoke (Lambda (BooleanExpr True)))/~~
+  (Lambda (BooleanExpr False))
+          </code>
+        </pre>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ## Op. Semantics
+          * Maths for evaluation semantics
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Grammar
+          * Small CoffeeScript subset
+        </script>
+      </section>
+
+      <section class="img">
+        <img src="images/cs-grammar.png"/>
+      </section>
+
+      <section class="img">
+        <img src="images/cs-grammar-term.png"/>
+      </section>
+
+      <section class="img">
+        <img src="images/cs-grammar-value.png"/>
+      </section>
+
+      <section class="img">
+        <img src="images/cs-grammar-lambda.png"/>
+      </section>
+
+      <section>
+        <pre><code class="coffeescript">(-> false)() # invocation</code></pre>
+
+        <img class="text" src="images/cs-grammar-example-1.png"/>
+      </section>
+
+      <section>
+        <pre><code class="coffeescript">(-> true) true # app</code></pre>
+
+        <img class="text" src="images/cs-grammar-example-2.png"/>
+      </section>
+
+      <section>
+        <pre><code class="coffeescript">(-> (-> true))() true # both</code></pre>
+
+        <img class="text" src="images/cs-grammar-example-3.png"/>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Evaluation Rules
+          * Inference rules for call by value, left to right
+        </script>
+      </section>
+
+      <section class="img">
+        <img src="images/cs-inference-rules.png"/>
+      </section>
+
+      <section class="img">
+        <img src="images/cs-inference-rules-top.png"/>
+      </section>
+
+      <section class="img">
+        <img src="images/cs-inference-rules-bottom.png"/>
+      </section>
+
+      <section class="img">
+        <img src="images/cs-inference-rules-arg-eval.png"/>
+      </section>
+
+      <section class="img">
+        <img src="images/cs-inference-rules-app-eval.png"/>
+      </section>
+
+      <section>
+        <pre><code class="coffeescript">(-> false)() # invocation</code></pre>
+        <img class="text" src="images/cs-grammar-example-1.png"/>
+      </section>
+
+      <section class="img">
+        <img src="images/cs-inference-rules-inv.png"/>
+      </section>
+
+      <section class="img">
+        <img src="images/cs-derivations-simple.png"/>
+      </section>
+
+      <section>
+        <pre><code class="coffeescript">(-> (-> true))() true</code></pre>
+        <img class="text" src="images/cs-grammar-example-3.png"/>
+      </section>
+
+      <section class="img">
+        <img src="images/cs-derivations-complex-full.png"/>
+      </section>
+
+      <section class="img">
+        <img src="images/cs-derivations-complex-1.png"/>
+      </section>
+
+      <section class="img">
+        <img src="images/cs-derivations-complex-2.png"/>
+      </section>
+
+      <section class="img">
+        <img src="images/cs-derivations-complex-3.png"/>
+      </section>
+
+      <section class="img">
+        <img src="images/cs-derivations-complex-4.png"/>
+      </section>
+
+      <section class="img">
+        <img src="images/cs-derivations-complex-5.png"/>
+      </section>
+
+      <section class="img">
+        <img src="images/cs-derivations-complex-6.png"/>
+      </section>
+
+      <section class="img">
+        <img src="images/cs-derivations-complex-7.png"/>
+      </section>
+
+      <section class="img">
+        <img src="images/cs-derivations-complex-full.png"/>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Result + Path
+          * Encompasses the eval result and path
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ## Seeking Confusion
+          * How can we use this information preventatively?
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Triple ( S,E,T )
+          * Syntax, evaluation, typing
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Triple ( <span class="hilight">S</span>,E,T )
+          * Syntax, evaluation, typing
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Triple ( S,<span class="hilight">E</span>,T )
+          * Syntax, evaluation, typing
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Triple ( S,E,<span class="hilight">T</span> )
+          * Syntax, evaluation, typing
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### T is for Typing
+          * Types are information, eg ⇒ vs →
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Gen. + Compare
+          * Use a BNF to generate terms & compare
+        </script>
+      </section>
+
+
+      <section class="img">
+        <img src="images/cs-grammar.png"/>
+      </section>
+
+      <section class="img">
+        <img src="images/cs-grammar-value.png"/>
+      </section>
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+true                 # value
+(-> true)            # lambda
+(-> true)()          # invoke
+(-> true) false      # apply bool
+(-> true) -> true    # apply lambda
+(-> true) () -> true # apply lambda
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+~~true                 # value/~~
+(-> true)            # lambda
+(-> true)()          # invoke
+(-> true) false      # apply bool
+(-> true) -> true    # apply lambda
+(-> true) () -> true # apply lambda
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+~~true                 # value/~~
+~~(-> true)            # lambda/~~
+(-> true)()          # invoke
+(-> true) false      # apply bool
+(-> true) -> true    # apply lambda
+(-> true) () -> true # apply lambda
+          </code>
+        </pre>
+      </section>
+
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+~~true                 # value/~~
+~~(-> true)            # lambda/~~
+~~(-> true)()          # invoke/~~
+(-> true) false      # apply bool
+(-> true) -> true    # apply lambda
+(-> true) () -> true # apply lambda
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+~~true                 # value/~~
+~~(-> true)            # lambda/~~
+~~(-> true)()          # invoke/~~
+~~(-> true) false      # apply bool/~~
+(-> true) -> true    # apply lambda
+(-> true) () -> true # apply lambda
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+~~true                 # value/~~
+~~(-> true)            # lambda/~~
+~~(-> true)()          # invoke/~~
+~~(-> true) false      # apply bool/~~
+~~(-> true) -> true    # apply lambda/~~
+(-> true) () -> true # apply lambda
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+~~true                 # value/~~
+~~(-> true)            # lambda/~~
+~~(-> true)()          # invoke/~~
+~~(-> true) false      # apply bool/~~
+~~(-> true) -> true    # apply lambda/~~
+~~(-> true) () -> true # apply lambda/~~
+          </code>
+        </pre>
+      </section>
+
+
+      <section>
+        <pre><code class="coffeescript">(-> true)() # invoke </code></pre>
+        <img src="images/cs-term-triple.png"/>
+      </section>
+
+      <section>
+        <pre><code class="coffeescript">(-> true)() # invoke </code></pre>
+        <img src="images/cs-term-triple-1.png"/>
+      </section>
+
+      <section>
+        <pre><code class="coffeescript">(-> true)() # invoke </code></pre>
+        <img src="images/cs-term-triple-2.png"/>
+      </section>
+
+      <section>
+        <pre><code class="coffeescript">(-> true)() # invoke </code></pre>
+        <img src="images/cs-term-triple-3.png"/>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Term Database
+          * Text search on strings
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ## Considerations
+          * This is far from perfect
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### False Positives
+          * Sometimes similarity isn't enough
+        </script>
+      </section>
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+(x, y) -> x * y # mult
+(x, y) -> x + y # add
+          </code>
+        </pre>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Term Space
+          * Stopping + starting the term generator
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Derivations
+          * Automating derivation is hard. Shopping?
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ## Implementation
+          * git.io/UXRvWA
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Haskell
+          * Alex lexer + Happy parser
+        </script>
+      </section>
+
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Type + Eval
+          * No shopping, get to work
+        </script>
+      </section>
+
+      <section class="outro" data-markdown>
+        <script type="text/template">
+          # Math <span class="envy">Envy</span>
+
+          #### and CoffeeScript's Foibles
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          # Thanks!
+          * johnbender.us · @johnbender
+        </script>
+      </section>
+
+     </div>
+    <script type="text/javascript" src="js/head.js"></script>
+    <script type="text/javascript" src="js/reveal.js"></script>
+    <script type="text/javascript" src="js/reveal.init.js"></script>
+  </body>
+</html>
