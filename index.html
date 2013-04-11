@@ -264,17 +264,6 @@ document.querySelector( "#foo" );
 // @param {HTMLElement} elem
 // @returns {HTMLElement}
 function( elem ) {
-  return elem;
-};
-         </code>
-        </pre>
-      </section>
-
-      <section>
-        <pre><code class="javascript">
-// @param {HTMLElement} elem
-// @returns {HTMLElement}
-function( elem ) {
   elem.setAttribute( "class", "foo" );
   return elem;
 }
@@ -322,10 +311,161 @@ function( f, g ) {
       <section>
         <pre><code class="javascript">
 // {jQuery}
-$( "#sample" );
+$( "#foo" );
          </code>
         </pre>
       </section>
+
+      <section class="img">
+        <img src="images/hom-jqry.png"/>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+// {jQuery}
+$( "#foo" ).bar();
+         </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+// {jQuery}
+$( "#foo" )~~.bar()/~~;
+         </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+// @returns {jQuery}
+jQuery.fn.bar = function(){
+  this.map(function(){ ... });
+  return this;
+};
+         </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+// @returns {jQuery}
+jQuery.fn.bar = function(){
+  ~~this/~~.map(function(){ ... });
+  return this;
+};
+         </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+// @returns {jQuery}
+jQuery.fn.bar = function(){
+  this~~.map(function(){ ... })/~~;
+  return this;
+};
+         </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+// @returns {jQuery}
+jQuery.fn.bar = function(){
+  this.map(function(){ ... });
+  ~~return this/~~;
+};
+         </code>
+        </pre>
+      </section>
+
+
+      <section>
+        <pre><code class="javascript">
+// {jQuery}
+$( "#foo" ).bar();
+
+// {jQuery}
+jQuery.fn.bar.call( $("#foo") );
+         </code>
+        </pre>
+      </section>
+
+      <section class="img">
+        <img src="images/composition-simple.png"/>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+function compose( f, g ) {
+  return function() {
+    return f.call(g.call(this));
+  };
+}
+         </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+function compose( f, g ) {
+  return function() {
+    return f.call(g.call(~~this/~~));
+  };
+}
+         </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+function compose( f, g ) {
+  return function() {
+    return f.call(~~g.call(this)/~~);
+  };
+}
+         </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+function compose( f, g ) {
+  return function() {
+    return ~~f.call(g.call(this))/~~;
+  };
+}
+         </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+var f, g;
+
+// @returns {jQuery}
+f = g = function() {
+  this.map(function(){ ... });
+  return this;
+};
+         </code>
+        </pre>
+      </section>
+
+
+      <section>
+        <pre><code class="javascript">
+// @returns {jQuery}
+jQuery.fn.gf = compose( f, g );
+
+// equivalent
+$( "#foo" ).g().f();
+$( "#foo" ).gf();
+         </code>
+        </pre>
+      </section>
+
 
     </div>
     <script type="text/javascript" src="js/head.js"></script>
