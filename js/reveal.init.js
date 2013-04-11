@@ -15,7 +15,7 @@ Reveal.initialize({
 			callback: function() {
 				// Replace `keyword` class with `this` class where appropriate
 				window.addEventListener( "load", function() {
-						var l, set;
+					var l, set;
 
 					set = document.querySelectorAll( ".keyword" );
 					l = set.length;
@@ -34,76 +34,70 @@ Reveal.initialize({
 
     // load jquery and handle hilights
     { src: 'js/jquery-1.9.0.min.js', async: true, callback: function() {
-        $(function() {
-	          $( "code" ).each(function(){
-		            $( ".sh_keyword:contains('this')" ).addClass( "this" );
+      $(function() {
+	      $( "code" ).each(function(){
+		      $( ".sh_keyword:contains('this')" ).addClass( "this" );
 
-		            $( "pre" ).html(function( i, string ) {
-                    // the css requires that the parent be tagged with
-                    // the hilighted class
-                    if( string.match( /~+/ ) ){
-                        $(this).parents( "section" ).addClass( "hilighted" );
-                    }
-
-                    // replace the hilight markers with spans
-			              return string
-				                .replace(/~+/, "<span class='hilight'>" )
-				                .replace(/\/~+/, "</span>" );
-		            });
-                hljs.initHighlighting();
-	          });
-
-            // // Blur non highlighted syntax
-            // $( ".hilighted pre code span" ).filter(function() {
-            //     return $(this).closest(".hilight").length === 0;
-            // }).addClass("blur");
-
-            // // Handle text node bluring
-            // $( ".hilighted pre code").find(":not(iframe)").andSelf().contents().filter(function() {
-            //     return this.nodeType == 3 && $(this).closest(".hilight").length === 0;;
-            // }).wrap("<span class='blur'></div>");
-
-            // Add the heading label to the slide
-            $( "section" ).each(function(i, elem) {
-                var elem = $(elem), heading;
-
-                if( elem.children( "h1, h2" ).length === 0 ) {
-                    var previousSiblings =  elem.prevAll(), sib, selector,
-                    length = previousSiblings.length, i = 0;
-
-                    while( i <= length ){
-                        sib = previousSiblings.eq(i);
-
-                        if( sib.children("h2").length ) {
-                            heading = sib.find("h2");
-                            break;
-                        }
-                        i++;
-                    }
-
-                }
-
-                if(heading) {
-                    elem.append("<div class='label-content'><h4>" +
-                                heading.text() +
-                                "</h4></div>" );
-                }
-            });
-
-            // transfer the content from the hiden slide label
-            // element to the global #label element
-            function setSlideLabel() {
-                var slide = Reveal.getCurrentSlide();
-                $( "#label" ).html("");
-                $( "#label" ).html( $( slide ).children(".label-content").html() );
+		      $( "pre" ).html(function( i, string ) {
+            // the css requires that the parent be tagged with
+            // the hilighted class
+            if( string.match( /~+/ ) ){
+              $(this).parents( "section" ).addClass( "hilighted" );
             }
 
-            // Assign the previous headings label to the initial slide
-            setSlideLabel();
+            // replace the hilight markers with spans
+			      return string
+				      .replace(/~+/, "<span class='hilight'>" )
+				      .replace(/\/~+/, "</span>" );
+		      });
+          hljs.initHighlighting();
+	      });
 
-            // Assign the previous headings lable to each slide
-            Reveal.addEventListener( 'slidechanged', setSlideLabel );
+        // Add the heading label to the slide
+        $( "section" ).each(function(i, elem) {
+          var elem = $(elem), heading;
+
+          if( elem.children( "h1, h2" ).length === 0 ) {
+            var previousSiblings =  elem.prevAll(), sib, selector,
+            length = previousSiblings.length, i = 0;
+
+            while( i <= length ){
+              sib = previousSiblings.eq(i);
+
+              if( sib.children("h2").length ) {
+                heading = sib.find("h2");
+                break;
+              }
+              i++;
+            }
+
+          }
+
+          if(heading) {
+            elem.append("<div class='label-content'><h4>" +
+                        heading.text() +
+                        "</h4></div>" );
+          }
         });
+
+        $( "section[data-state*='background']" ).each(function(i, elem) {
+          $(elem).css( "padding-top", "300px" );
+        });
+
+        // transfer the content from the hiden slide label
+        // element to the global #label element
+        function setSlideLabel() {
+          var slide = Reveal.getCurrentSlide();
+          $( "#label" ).html("");
+          $( "#label" ).html( $( slide ).children(".label-content").html() );
+        }
+
+        // Assign the previous headings label to the initial slide
+        setSlideLabel();
+
+        // Assign the previous headings lable to each slide
+        Reveal.addEventListener( 'slidechanged', setSlideLabel );
+      });
     }}
   ]
 });
