@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="css/reveal.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/site.css">
   </head>
   <body class="reveal center">
     <div id="label"></div>
@@ -185,7 +186,7 @@ jQuery.fn.foo = function( a, b ) {
 };~~/~~
          </code>
         </pre>
-        <div class="gigantor red-smile">☹</dpiv>
+        <div class="gigantor red-smile">☹</div>
       </section>
 
 
@@ -449,6 +450,7 @@ f = g = function() {
   this.map(function(){ ... });
   return this;
 };
+
          </code>
         </pre>
       </section>
@@ -456,8 +458,9 @@ f = g = function() {
 
       <section>
         <pre><code class="javascript">
-// @returns {jQuery}
 jQuery.fn.gf = compose( f, g );
+jQuery.fn.f = f;
+jQuery.fn.g = g;
 
 // equivalent
 $( "#foo" ).g().f();
@@ -466,7 +469,555 @@ $( "#foo" ).gf();
         </pre>
       </section>
 
+      <section>
+        <pre><code class="javascript">
+jQuery.fn.gf = compose( f, g );
+jQuery.fn.f = f;
+jQuery.fn.g = g;
 
+// equivalent
+$( "#foo" ).~~g().f()/~~;
+$( "#foo" ).~~gf()/~~;
+         </code>
+        </pre>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Functor
+        </script>
+      </section>
+
+      <section class="img">
+        <img src="images/functor.png"/>
+      </section>
+
+      <section class="img">
+        <img src="images/functor-two-things.png"/>
+      </section>
+
+      <section class="img">
+        <img src="images/ob-html.png"/>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+// {HTMLDivElement}
+document.querySelector( "#foo" );
+
+// {jQuery}
+$( document.querySelector("#foo") );
+         </code>
+        </pre>
+      </section>
+
+      <section class="img">
+        <img src="images/hom-html.png"/>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+// @param {HTMLElement} elem
+// @returns {HTMLElement}
+function foo( elem ) {
+  elem.setAttribute( "class", "foo" );
+  return elem;
+}
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+// {HTMLDivElement}
+foo( bar );
+
+// {jQuery}
+$( "#bar" ).foo();
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+// @returns {jQuery}
+jQuery.fn.foo = function() {
+  this.map(foo);
+  return this;
+}
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+// @returns {jQuery}
+jQuery.fn.foo = function() {
+  ~~this.map/~~(foo);
+  return this;
+}
+          </code>
+        </pre>
+      </section>
+
+      <section class="img">
+        <img src="images/composition.png"/>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+function f( elem ){
+  // manipulate elem
+  return elem;
+}
+
+jQuery.fn.f = function() {
+  return this.map(f);
+};
+         </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+function g( elem ){
+  // manipulate elem
+  return elem;
+}
+
+jQuery.fn.g = function() {
+  return this.map(g);
+};
+         </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+jQuery.fn.gf = compose( jQuery.fn.f,
+                        jQuery.fn.g );
+
+// equivalent
+$( "#foo" ).gf();
+$( "#foo" ).map( compose(f, g) );
+         </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+jQuery.fn.gf = compose( jQuery.fn.f,
+                        jQuery.fn.g );
+
+// equivalent
+$( "#foo" )~~.gf()/~~;
+$( "#foo" )~~.map( compose(f, g) )/~~;
+         </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+jQuery.fn.gf = compose( jQuery.fn.f,
+                        jQuery.fn.g );
+
+// equivalent
+$( "#foo" )~~.g().f()/~~;
+$( "#foo" )~~.map( compose(f, g) )/~~;
+         </code>
+        </pre>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ## Html + Jqry
+        </script>
+      </section>
+
+      <section data-state="background relationship" data-markdown>
+        <script type="text/template">
+          ### <span class="first-letter">R</span>elationship
+        </script>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+// @returns {jQuery}
+jQuery.fn.foo = function( a, b ) {
+  this.map(function( i, elem ) {
+    // alter the HTMLElement
+  });
+  return this;
+};
+         </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+// @returns {jQuery}
+jQuery.fn.foo = function( ~~a, b/~~ ) {
+  ~~this.map/~~(function( i, elem ) {
+    ~~// alter the HTMLElement/~~
+  });
+  return this;
+};
+         </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+// @returns {jQuery}
+jQuery.fn.foo = function( a, b ) {
+  this.map(function( i, elem ) {
+    // alter the HTMLElement
+  });
+  return this;
+};~~/~~
+         </code>
+        </pre>
+        <div class="gigantor red-smile">☹</div>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+// @returns {jQuery}
+jQuery.fn.foo = function( a, b ) {
+  this.map(~~function( i, elem ) {/~~
+    ~~// alter the HTMLElement/~~
+  ~~}/~~);
+  return this;
+};
+         </code>
+        </pre>
+      </section>
+
+
+      <section>
+        <pre><code class="javascript">
+// @returns {jQuery}
+jQuery.fn.foo = function( a, b ) {
+  this.map(foo);
+  return this;
+};
+         </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+// @returns {jQuery}
+jQuery.fn.foo = function( ~~a, b/~~ ) {
+  ~~this.map/~~(foo);
+  return this;
+};
+         </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+// @returns {jQuery}
+jQuery.fn.foo = function( a, b ) {
+  this.map(foo);
+  return this;
+};~~/~~
+         </code>
+        </pre>
+        <div class="gigantor blue-smile">☺</div>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+// @param {HTMLElement} elem
+// @returns {HTMLElement}
+function foo( elem ) {
+  elem.setAttribute( "class", "foo" );
+  return elem;
+}
+          </code>
+        </pre>
+      </section>
+
+      <section class="nested-headings">
+        <h1>jQuery</h1>
+      </section>
+
+      <section class="nested-headings">
+        <h1>jQuery</h1>
+        <h2>Html</h2>
+      </section>
+
+      <section class="nested-headings blur">
+        <h1>jQuery</h1><h2>Html</h2>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ## First Class
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Rewrap
+        </script>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+$( "a" ).click(function( event ) {
+  $( event.target ).foo();
+});
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+$( "a" ).click(function( event ) {
+  $( ~~event.target/~~ ).foo();
+});
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+$( "a" ).click(function( event ) {
+  foo( event.target );
+});
+          </code>
+        </pre>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Loop Fusion
+        </script>
+      </section>
+
+      <section class="img">
+        <img src="images/composition.png"/>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+$( "div" )
+  .removeAttr( "foo" )
+  .removeAttr( "bar" );
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+$( "div" ).each(function( i, elem ) {
+  removeAttr( elem, "foo" );
+  removeAttr( elem, "bar" );
+});
+          </code>
+        </pre>
+      </section>
+
+      <section class="img">
+        <img src="images/stats.png"/>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Invocation
+        </script>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+$( "div" )
+  .removeAttr( "foo" )
+  .removeAttr( "bar" );
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+$( "div" ).removeAttr( "foo bar" );
+          </code>
+        </pre>
+      </section>
+
+      <section class="img">
+        <img src="images/removeattr-unfriendly.png"/>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Dogfood
+        </script>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+function replaceWith( e, val ) {
+  e.nextSibling ?
+    before( e.nextSibling, val ) :
+    append( e.parentNode, val );
+
+  remove( e );
+}
+          </code>
+        </pre>
+      </section>
+
+      <section class="img">
+        <img src="images/replacewith-split.png"/>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Escape Hatch
+        </script>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+var a = document.createElement( "div" );
+
+$( ".test" ).append( a );
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+var set = $( ".test" ), l, a;
+
+l = set.length;
+div = document.createElement( "div" );
+
+while( l-- ) { append( set[l], div ); }
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+var set = $( ".test" ), l, a;
+
+l = set.length;
+div = document.createElement( "div" );
+
+~~while( l-- ) { append( set[l], div ); }/~~
+          </code>
+        </pre>
+      </section>
+
+      <section class="img">
+        <img src="images/append-core.png"/>
+      </section>
+
+      <section data-state="background wield" data-markdown>
+        <script type="text/template">
+          ## <span class="first-letter">W</span>ield
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Focused
+        </script>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+function empty( e ) {
+  while ( e.firstChild ) {
+    e.removeChild( e.firstChild );
+  }
+  return e;
+};
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+function empty( e ) {
+  while ( e.firstChild ) {
+    e.removeChild( e.firstChild );
+  }
+  ~~return e;/~~
+};
+          </code>
+        </pre>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Friendly
+        </script>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+Wield.Methods.empty( elem );
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+var wield = Wield.Dom( elem );
+
+wield.empty().empty();
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+Wield.Dom.find( "#sample" ).empty();
+          </code>
+        </pre>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Modular
+        </script>
+      </section>
+
+      <section>
+        <pre class="no-code">
+<span class="highlight">wield</span> <span class="lowlight">master</span> ⎇  ls src/methods/
+addclass.js  attr.js    prepend.js
+after.js     before.js  prop.fix.js
+all.js       empty.js   prop.js
+...
+        </pre>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Small
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### git.io/l9KYEg
+        </script>
+      </section>
+
+      <section class="outro" data-markdown>
+        <script type="text/template">
+          # Faster DOM Manip
+
+          #### with <span class="highlight">Category Theory</span> and <span class="lowlight">Wield</span>
+          * github.com/johnbender · johnbender.us · @johnbender
+        </script>
+      </section>
     </div>
     <script type="text/javascript" src="js/head.js"></script>
     <script type="text/javascript" src="js/reveal.js"></script>

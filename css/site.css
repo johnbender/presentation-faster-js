@@ -1,0 +1,40 @@
+.nested-headings h1 {
+  postition: relative;
+  font-size: 18em;
+}
+
+.nested-headings h2 {
+  color: #ff0055;
+  position: absolute;
+  font-size: 7.8em;
+  bottom: 53px;
+  left: 310px;
+  margin: 0;
+  padding: 0;
+}
+
+.nested-headings.blur h1 {
+  color: #BBB;
+  -webkit-filter: blur(3px);
+}
+
+.nested-headings.blur h2 {
+  font-size: 18em;
+  text-shadow: -1px 1px 3px black;
+}
+
+.awesome {
+  background-image: url(../images/awesome.png);
+}
+
+.e-ml {
+  background-image: url(../images/e-ml.png);
+}
+
+.relationship {
+  background-image: url(../images/relationship.jpg);
+}
+
+.wield {
+  background-image: url(../images/wield.jpg);
+}
