@@ -142,7 +142,7 @@ span.envy {
 }
 
 .background{
-  background-size: auto 100%;
+  background-size: cover;
 }
 
 .background h1, .background h2, .background h3, .background h4 {
