@@ -31,8 +31,20 @@
   background-image: url(../images/e-ml.png);
 }
 
+.first-class {
+  background-image: url(../images/spotlight.jpg);
+}
+
+.math {
+  background-image: url(../images/math.jpg);
+}
+
 .relationship {
   background-image: url(../images/relationship.jpg);
+}
+
+.review {
+  background-image: url(../images/review.jpg);
 }
 
 .wield {
