@@ -50,19 +50,7 @@
 
       <section data-markdown>
         <script type="text/template">
-          ### Popularity
-        </script>
-      </section>
-
-      <section data-markdown>
-        <script type="text/template">
-          ### Performance
-        </script>
-      </section>
-
-      <section data-markdown>
-        <script type="text/template">
-          ### Modularity
+          ### jQuery
         </script>
       </section>
 
@@ -81,7 +69,7 @@
       <section>
         <pre>
           <code class="javascript">
-// @returns {jQuery}
+// $( "#bar" ).foo();
 jQuery.fn.foo = function() {
   // manipulate this
   return this;
@@ -92,7 +80,18 @@ jQuery.fn.foo = function() {
 
       <section>
         <pre><code class="javascript">
-// @returns {jQuery}
+~~// $( "#bar" ).foo();/~~
+jQuery.fn.foo = function() {
+  // manipulate this
+  return this;
+};
+         </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre><code class="javascript">
+// $( "#bar" ).foo();
 ~~jQuery.fn/~~.foo = function() {
   // manipulate this
   return this;
@@ -103,7 +102,7 @@ jQuery.fn.foo = function() {
 
       <section>
         <pre><code class="javascript">
-// @returns {jQuery}
+// $( "#bar" ).foo();
 jQuery.fn.foo = function() {
   // manipulate this
   return ~~~this/~~~;
@@ -114,7 +113,7 @@ jQuery.fn.foo = function() {
 
       <section>
         <pre><code class="javascript">
-// @returns {jQuery}
+// $( "#bar" ).foo();
 jQuery.fn.foo = function() {
   ~~~// manipulate this/~~~
   return this;
@@ -125,7 +124,7 @@ jQuery.fn.foo = function() {
 
       <section>
         <pre><code class="javascript">
-// @returns {jQuery}
+// $( "#bar" ).foo();
 jQuery.fn.foo = function( a, b ) {
   this.map(function( i, elem ) {
     // alter the HTMLElement
@@ -138,7 +137,7 @@ jQuery.fn.foo = function( a, b ) {
 
       <section>
         <pre><code class="javascript">
-// @returns {jQuery}
+// $( "#bar" ).foo();
 jQuery.fn.foo = function( ~~~a, b/~~~ ) {
   this.map(function( i, elem ) {
     // alter the HTMLElement
@@ -151,7 +150,7 @@ jQuery.fn.foo = function( ~~~a, b/~~~ ) {
 
       <section>
         <pre><code class="javascript">
-// @returns {jQuery}
+// $( "#bar" ).foo();
 jQuery.fn.foo = function( a, b ) {
   ~~~this.map/~~~(function( i, elem ) {
     // alter the HTMLElement
@@ -164,7 +163,7 @@ jQuery.fn.foo = function( a, b ) {
 
       <section>
         <pre><code class="javascript">
-// @returns {jQuery}
+// $( "#bar" ).foo();
 jQuery.fn.foo = function( a, b ) {
   this.map(function( i, elem ) {
     ~~~// alter the HTMLElement/~~~
@@ -177,7 +176,7 @@ jQuery.fn.foo = function( a, b ) {
 
       <section>
         <pre><code class="javascript">
-// @returns {jQuery}
+// $( "#bar" ).foo();
 jQuery.fn.foo = function( a, b ) {
   this.map(function( i, elem ) {
     // alter the HTMLElement
@@ -377,18 +376,6 @@ jQuery.fn.bar = function(){
   this.map(function(){ ... });
   ~~return this/~~;
 };
-         </code>
-        </pre>
-      </section>
-
-
-      <section>
-        <pre><code class="javascript">
-// {jQuery}
-$( "#foo" ).bar();
-
-// {jQuery}
-jQuery.fn.bar.call( $("#foo") );
          </code>
         </pre>
       </section>
@@ -596,7 +583,6 @@ jQuery.fn.g = function() {
         <pre><code class="javascript">
 jQuery.fn.gf = compose( jQuery.fn.f,
                         jQuery.fn.g );
-
 // equivalent
 $( "#foo" ).gf();
 $( "#foo" ).map( compose(f, g) );
@@ -608,7 +594,6 @@ $( "#foo" ).map( compose(f, g) );
         <pre><code class="javascript">
 jQuery.fn.gf = compose( jQuery.fn.f,
                         jQuery.fn.g );
-
 // equivalent
 $( "#foo" )~~.gf()/~~;
 $( "#foo" )~~.map( compose(f, g) )/~~;
@@ -620,7 +605,6 @@ $( "#foo" )~~.map( compose(f, g) )/~~;
         <pre><code class="javascript">
 jQuery.fn.gf = compose( jQuery.fn.f,
                         jQuery.fn.g );
-
 // equivalent
 $( "#foo" )~~.g().f()/~~;
 $( "#foo" )~~.map( compose(f, g) )/~~;
@@ -876,33 +860,26 @@ function replaceWith( e, val ) {
 
       <section>
         <pre><code class="javascript">
-var a = document.createElement( "div" );
+$( ".test" ).append( div );
 
-$( ".test" ).append( a );
+// versus
+
+while( l-- ) {
+  append( $test[l], div );
+}
           </code>
         </pre>
       </section>
 
       <section>
         <pre><code class="javascript">
-var set = $( ".test" ), l, a;
+$( ".test" ).append( div );
 
-l = set.length;
-div = document.createElement( "div" );
+// versus
 
-while( l-- ) { append( set[l], div ); }
-          </code>
-        </pre>
-      </section>
-
-      <section>
-        <pre><code class="javascript">
-var set = $( ".test" ), l, a;
-
-l = set.length;
-div = document.createElement( "div" );
-
-~~while( l-- ) { append( set[l], div ); }/~~
+while( l-- ) {
+  ~~append( $test[l], div );/~~
+}
           </code>
         </pre>
       </section>
@@ -1000,7 +977,13 @@ all.js       empty.js   prop.js
 
       <section data-markdown>
         <script type="text/template">
-          ### git.io/l9KYEg
+          <h3 class="link">git.io/l9KYEg<h3>
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          <h3 class="link">johnbender.us<h3>
         </script>
       </section>
 
